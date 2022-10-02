@@ -1,0 +1,108 @@
+File allumettes/ConfigurationException.java: 21 tokens, 16 lines
+File allumettes/Jeu.java: 23 tokens, 21 lines
+File allumettes/Arbitre.java: 543 tokens, 101 lines
+File allumettes/Strategie.java: 13 tokens, 7 lines
+File allumettes/StrategieTricheur.java: 78 tokens, 17 lines
+File allumettes/OperationInterditeException.java: 21 tokens, 9 lines
+File allumettes/JeuSimple.java: 142 tokens, 36 lines
+File allumettes/CoupInvalideException.java: 51 tokens, 29 lines
+File allumettes/Joueur.java: 63 tokens, 22 lines
+File allumettes/StrategieHumain.java: 159 tokens, 39 lines
+File allumettes/Jouer.java: 451 tokens, 109 lines
+File allumettes/JeuProc.java: 55 tokens, 18 lines
+File allumettes/StrategieNaif.java: 63 tokens, 17 lines
+File allumettes/StrategieRapide.java: 33 tokens, 8 lines
+File allumettes/StrategieExpert.java: 63 tokens, 24 lines
+Total input: 15 files (15 new, 0 old), 1779 tokens
+
+allumettes/Arbitre.java: line 38-52 [87]
+allumettes/Arbitre.java: line 83-97
+< 	private void demanderJoueur(Jeu jeu, JeuProc jeuProc, Joueur j) {
+< 		boolean bonnePrise = false;
+< 		int n = 0;
+< 		while (!bonnePrise) {
+< 			try {
+< 				System.out.println("Nombre d'allumettes restantes : " 
+< 							+ jeu.getNombreAllumettes());
+< 				System.out.println();
+< 				n = j.getPrise(jeuProc);
+< 				afficherPrise(j, n);
+< 				jeu.retirer(n);
+< 				bonnePrise = true;
+< 			} catch (CoupInvalideException e) {
+< 				System.out.println(e.getMessage());
+< 			} catch (OperationInterditeException e) {
+---
+> 	private void demanderJoueurConfiant(Jeu jeu, Joueur j) {
+> 		boolean bonnePrise = false;
+> 		int n = 0;
+> 		while (!bonnePrise) {
+> 			try {
+> 				System.out.println("Nombre d'allumettes restantes : " 
+> 							+ jeu.getNombreAllumettes());
+> 				System.out.println();
+> 				n = j.getPrise(jeu);
+> 				afficherPrise(j, n);
+> 				jeu.retirer(n);
+> 				bonnePrise = true;
+> 			} catch (CoupInvalideException e) {
+> 				System.out.println(e.getMessage());
+> 			}
+
+allumettes/Arbitre.java: line 1-11 [33]
+allumettes/Joueur.java: line 1-12
+< package allumettes;
+< 
+< public class Arbitre {
+< 
+< 	private Joueur j1;
+< 	private Joueur j2;
+< 
+< 	public Arbitre(Joueur j1, Joueur j2) {
+< 		this.j1 = j1;
+< 		this.j2 = j2;
+< 	}
+---
+> package allumettes;
+> 
+> 
+> public class Joueur {
+> 
+> 	private String name;
+> 	private Strategie strat;
+> 
+> 	public Joueur(String nom, Strategie strategie) {
+> 		this.name = nom;
+> 		this.strat = strategie;
+> 	}
+
+allumettes/Arbitre.java: line 26-33 [27]
+allumettes/Arbitre.java: line 76-83
+< 			}
+< 		}
+< 		if (!j1Perd) {
+< 			afficherFin(j2, j1);
+< 		}
+< 	}
+< 
+< 	private void afficherFin(Joueur perdant, Joueur gagnant) {
+---
+> 			}
+> 		}
+> 		if (!j1Perd) {
+> 			afficherFin(j2, j1);
+> 		}
+> 	}
+> 
+> 	private void demanderJoueurConfiant(Jeu jeu, Joueur j) {
+
+allumettes/Arbitre.java: line 13-15 [24]
+allumettes/Arbitre.java: line 67-69
+< 	public void arbitrer(Jeu jeu) {
+< 		boolean j1Perd = false;
+< 		while (jeu.getNombreAllumettes() != 0) {
+---
+> 	public void arbitrerConfiant(Jeu jeu) {
+> 		boolean j1Perd = false;
+> 		while (jeu.getNombreAllumettes() != 0) {
+

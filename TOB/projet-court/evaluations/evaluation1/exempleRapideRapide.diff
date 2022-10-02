@@ -1,0 +1,26 @@
+1a2
+> R1 prend 3 allumettes.
+3c4,5
+< R1 prend 3 allumettes.Nombre d'allumettes restantes : 10
+---
+> Nombre d'allumettes restantes : 10
+> R2 prend 3 allumettes.
+5c7,8
+< R2 prend 3 allumettes.Nombre d'allumettes restantes : 7
+---
+> Nombre d'allumettes restantes : 7
+> R1 prend 3 allumettes.
+7c10,11
+< R1 prend 3 allumettes.Nombre d'allumettes restantes : 4
+---
+> Nombre d'allumettes restantes : 4
+> R2 prend 3 allumettes.
+9c13,14
+< R2 prend 3 allumettes.Nombre d'allumettes restantes : 1
+---
+> Nombre d'allumettes restantes : 1
+> R1 prend 1 allumette.
+11c16
+< R1 prend 1 allumette.R1 perd !
+---
+> R1 perd !

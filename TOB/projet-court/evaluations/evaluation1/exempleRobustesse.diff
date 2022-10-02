@@ -1,0 +1,72 @@
+1a2,3
+> Xavier, combien d'allumette ? Xavier prend 4 allumette.
+> Impossible ! Nombre d'allumette invalide : 4 (> 3)
+3d4
+< Xavier, combien d'allumette ?Xavier prend 4 allumette.Nombre d'allumette invalide : 4 (>3)
+4a6,7
+> Xavier, combien d'allumette ? Xavier prend 5 allumette.
+> Impossible ! Nombre d'allumette invalide : 5 (> 3)
+6d8
+< Xavier, combien d'allumette ?Xavier prend 5 allumette.Nombre d'allumette invalide : 5 (>3)
+7a10,11
+> Xavier, combien d'allumette ? Xavier prend 0 allumette.
+> Impossible ! Nombre d'allumette invalide : 0 (< 1)
+9d12
+< Xavier, combien d'allumette ?Xavier prend 0 allumette.Nombre d'allumette invalide : 0 (<1)
+10a14,15
+> Xavier, combien d'allumette ? Xavier prend -1 allumette.
+> Impossible ! Nombre d'allumette invalide : -1 (< 1)
+12d16
+< Xavier, combien d'allumette ?Xavier prend -1 allumette.Nombre d'allumette invalide : -1 (<1)
+13a18
+> Xavier, combien d'allumette ? Xavier prend 3 allumette.
+15c20,21
+< Xavier, combien d'allumette ?Xavier prend 3 allumette.Nombre d'allumette restantes : 10
+---
+> Nombre d'allumette restantes : 10
+> Ordinateur prend 1 allumette.
+17c23,24
+< Ordinateur prend 3 allumette.Nombre d'allumette restantes : 7
+---
+> Nombre d'allumette restantes : 9
+> Xavier, combien d'allumette ? Xavier prend 3 allumette.
+19c26,27
+< Xavier, combien d'allumette ?Xavier prend 3 allumette.Nombre d'allumette restantes : 4
+---
+> Nombre d'allumette restantes : 6
+> Ordinateur prend 1 allumette.
+21c29,30
+< Ordinateur prend 3 allumette.Nombre d'allumette restantes : 1
+---
+> Nombre d'allumette restantes : 5
+> Xavier, combien d'allumette ? Xavier prend 1 allumette.
+23c32,58
+< Xavier, combien d'allumette ?Xavier prend 1 allumette.Xavier perd !
+---
+> Nombre d'allumette restantes : 4
+> Ordinateur prend 3 allumette.
+> 
+> Nombre d'allumette restantes : 1
+> Xavier, combien d'allumette ? Xavier prend 4 allumette.
+> Impossible ! Nombre d'allumette invalide : 4 (> 1)
+> 
+> Nombre d'allumette restantes : 1
+> Xavier, combien d'allumette ? Xavier prend 3 allumette.
+> Impossible ! Nombre d'allumette invalide : 3 (> 1)
+> 
+> Nombre d'allumette restantes : 1
+> Xavier, combien d'allumette ? Xavier prend 2 allumette.
+> Impossible ! Nombre d'allumette invalide : 2 (> 1)
+> 
+> Nombre d'allumette restantes : 1
+> Xavier, combien d'allumette ? Xavier prend 0 allumette.
+> Impossible ! Nombre d'allumette invalide : 0 (< 1)
+> 
+> Nombre d'allumette restantes : 1
+> Xavier, combien d'allumette ? Xavier prend -1 allumette.
+> Impossible ! Nombre d'allumette invalide : -1 (< 1)
+> 
+> Nombre d'allumette restantes : 1
+> Xavier, combien d'allumette ? Xavier prend 1 allumette.
+> 
+> Xavier perd !
