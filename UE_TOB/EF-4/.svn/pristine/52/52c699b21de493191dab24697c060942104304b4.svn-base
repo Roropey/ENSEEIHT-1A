@@ -1,0 +1,20 @@
+package Affichage;
+
+import javax.swing.*;
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.event.*;
+import javax.swing.text.JTextComponent;
+
+public class VueEspeceFenetre {
+    private JPanel listeEspeceJPanel;
+    public VueEspeceFenetre(MapObervable mapEspece){
+        this.listeEspeceJPanel = new JPanel();
+        this.listeEspeceJPanel.setLayout(new GridLayout(mapEspece.size(),1));
+        mapEspece.addObserver(new VueEspece(listeEspeceJPanel));
+    }
+
+    public JPanel getPanel(){
+        return this.listeEspeceJPanel;
+    }
+}

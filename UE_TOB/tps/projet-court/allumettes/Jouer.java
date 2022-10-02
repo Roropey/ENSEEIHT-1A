@@ -1,0 +1,109 @@
+package allumettes;
+
+/** Lance une partie des 13 allumettes en fonction des arguments fournis
+ * sur la ligne de commande.
+ * @author	Xavier Crégut
+ * @version	$Revision: 1.5 $
+ */
+public class Jouer {
+
+	/** Lancer une partie. En argument sont donnés les deux joueurs sous
+	 * la forme nom@stratégie.
+	 * @param args la description des deux joueurs
+	 */
+	public static void main(String[] args) {
+		try {
+			verifierNombreArguments(args);
+
+			lancerJeu(args);
+
+		} catch (ConfigurationException e) {
+			System.out.println();
+			System.out.println("Erreur : " + e.getMessage());
+			afficherUsage();
+			System.exit(1);
+		}
+	}
+
+	private static void verifierNombreArguments(String[] args) {
+		final int nbJoueurs = 2;
+		if (args.length < nbJoueurs) {
+			throw new ConfigurationException("Trop peu d'arguments : "
+					+ args.length);
+		}
+		if (args.length > nbJoueurs + 1) {
+			throw new ConfigurationException("Trop d'arguments : "
+					+ args.length);
+		}
+	}
+
+	private static void lancerJeu(String[] args) throws ConfigurationException{
+		final int nbJoueurs = 2;
+		final int nbArguments = args.length;
+		
+		Joueur j1 = interpreterJoueur(args[nbArguments - nbJoueurs]);
+		Joueur j2 = interpreterJoueur(args[nbArguments - nbJoueurs + 1]);
+		Arbitre arbitre = new Arbitre(j1, j2);
+		JeuReel jeu = new JeuReel();
+		
+		if (nbArguments == nbJoueurs + 1) {
+			if (args[0].contentEquals("-confiant")) {
+				arbitre.arbitrerConfiant(jeu);
+			} else {
+				throw new ConfigurationException("Le premier argument n'est pas reconnu.");
+			}
+		} else if (nbArguments == nbJoueurs) {
+			arbitre.arbitrer(jeu);
+		} 
+	}
+	
+	private static Joueur interpreterJoueur(String arguments) throws ConfigurationException{
+		try {
+			
+			String[] argumentsSepare = arguments.split("@");
+			
+			return new Joueur(argumentsSepare[0],interpreterStrategie(argumentsSepare[0],argumentsSepare[1]));
+		} catch (IndexOutOfBoundsException e) {
+			throw new ConfigurationException("Absence du symbole @ pour le joueur : " + arguments);
+		}
+	}
+	
+	private static Strategie interpreterStrategie(String nom,String texteStrategie) {
+		Strategie strategie;
+		switch (texteStrategie) {
+		case "humain" :
+			strategie = new StrategieHumain(nom);
+			break;
+		case "naif" :
+			strategie = new StrategieNaif();
+			break;
+		case "rapide" :
+			strategie = new StrategieRapide();
+			break;
+		case "expert" :
+			strategie = new StrategieExpert();
+			break;
+		case "tricheur" :
+			strategie = new StrategieTricheur();
+			break;
+		default :
+			throw new ConfigurationException("Stratégie inconnue pour le joueur "+texteStrategie+".");
+		}
+		return strategie;
+	}
+	
+	/** Afficher des indications sur la manière d'exécuter cette classe. */
+	public static void afficherUsage() {
+		System.out.println("\n" + "Usage :"
+				+ "\n\t" + "java allumettes.Jouer joueur1 joueur2"
+				+ "\n\t\t" + "joueur est de la forme nom@stratégie"
+				+ "\n\t\t" + "strategie = naif | rapide | expert | humain | tricheur"
+				+ "\n"
+				+ "\n\t" + "Exemple :"
+				+ "\n\t" + "	java allumettes.Jouer Xavier@humain "
+					   + "Ordinateur@naif"
+				+ "\n"
+				);
+	}	
+	
+}

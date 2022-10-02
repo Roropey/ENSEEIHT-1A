@@ -1,0 +1,76 @@
+package Tests;
+
+import Environement.Environnement;
+import Ressources.*;
+import java.util.*;
+import Utile.*;
+
+public class TestEnvironnement {
+    
+        
+    public static void testAttribut(){
+        Environnement environnementTest = new Environnement(100,200,"Test",35);
+        Assert.assertEquals(environnementTest.getNom(),"Test","Problème nom environnement");
+        Assert.assertEquals(environnementTest.getCaracteristique(),35.0,"Problème caractéristique environnement");
+        int[] dimensions = environnementTest.getDimensions();
+        Assert.assertEquals(dimensions[0],100,"Problème première dimension");
+        Assert.assertEquals(dimensions[1],200,"Problème deuxième dimension");
+    }
+
+    
+    public static void testRobustesseX(){
+        try {
+            Environnement impossibleX = new Environnement(-100,200,"Problème X",40);
+            throw new Echec("Attention environnement à dimension négative créée !");
+        } catch(ValeurInterditeException e) {
+            ;;
+        }
+        
+    }
+
+    public static void testRobustesseY(){
+        try {
+            Environnement impossibleY = new Environnement(100,-200,"Problème Y",60);
+            throw new Echec("Attention environnement à dimension négative créée !");
+        } catch(ValeurInterditeException e) {
+            ;;
+        }
+        
+    }
+
+    public static void testRobustesseTropHumide(){
+        try {
+            Environnement impossibleTropH = new Environnement(100,200,"Problème trop humide",200);
+            throw new Echec("Attention environnement trop humide créé !");
+        } catch(ValeurInterditeException e) {
+            ;;
+        }
+        
+        
+    }
+
+    public static void testRobustessePasAssezHumide(){
+        try {
+            Environnement impossiblePasAssezH = new Environnement(100,200,"Problème pas assez humide",-10);
+            throw new Echec("Attention environnement pas assez humide créé !");
+        } catch(ValeurInterditeException e) {
+            ;;
+        }
+        
+    }
+
+    public static void main (String[] args){
+        System.out.print("Tests construction environnement\n");
+        testAttribut();
+        System.out.print("Test robustesse dimension x\n");
+        testRobustesseX();
+        System.out.print("Test robustesse dimension y\n");
+        testRobustesseY();
+        System.out.print("Test robustesse humidité\n");
+        testRobustesseTropHumide();
+        testRobustessePasAssezHumide();
+        System.out.print("Tous les tests réussis\n");
+
+
+    }    
+}

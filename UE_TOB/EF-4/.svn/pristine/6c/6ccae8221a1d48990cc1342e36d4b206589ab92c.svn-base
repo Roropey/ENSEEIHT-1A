@@ -1,0 +1,43 @@
+package Ressources;
+
+import Utile.*;
+import java.util.*;
+
+public class Arbre extends Ressource{
+    
+    private int nbPommes;
+    private List<Pomme> listePomme;
+    public Arbre(double min_x, double max_x, double min_y, double max_y){
+        super(min_x, max_x, min_y, max_y,"Arbre",10,Categorie.plante);
+        this.nbPommes = (new Random()).nextInt(6);
+        this.listePomme = new ArrayList<Pomme>();
+        for (int i = 0; i<this.nbPommes; i++){
+            this.listePomme.add(new Pomme(this.position.getX(),this.position.getY()));
+        }
+    }
+
+    public Arbre(double x, double y){
+        super(x, y, "Arbre",10,Categorie.plante);
+        this.nbPommes = (new Random()).nextInt(6);
+        this.listePomme = new ArrayList<Pomme>();
+        for (int i = 0; i<this.nbPommes; i++){
+            this.listePomme.add(new Pomme(this.position.getX(),this.position.getY()));
+        }
+    }
+    public int getNbPommes(){
+        return this.nbPommes;
+    }
+
+    @Override
+    public boolean estMangee(){
+        if (this.nbPommes > 0){
+            Pomme pommeMangee = listePomme.remove(this.nbPommes-1);
+            pommeMangee.estMangee();
+            this.nbPommes--;
+        } 
+        if (this.nbPommes == 0) {
+            this.existe = false;
+        }
+        return (this.nbPommes > 0);
+    }
+}

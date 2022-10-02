@@ -1,0 +1,34 @@
+package Tests;
+
+
+import Environement.Marecage;
+import Ressources.*;
+
+public class TestMarecage {
+
+
+    
+    public static void testerCaracteristique(Marecage marecageTest){
+        assert (marecageTest.getCaracteristique()==75);
+    }
+    
+    public static void testerApparition(Marecage marecageTest){
+        for (int i=0; i<=100; i++){
+            Ressource ressource = marecageTest.apparaitre();
+            assert (!(ressource.getNom().equals("Cactus")));
+            assert (!(ressource.getNom().equals("Arbuste"))); 
+            assert ((ressource.getNom().equals("Nénuphar")) || (ressource.getNom().equals("Algue")) || (ressource.getNom().equals("Arbre")));
+        }
+    }
+
+    public static void main (String[] args){
+         
+        System.out.print("Création environnement de test\n");
+        Marecage marecageTest = new Marecage(100,100);
+        System.out.print("Vérification de la caractéristique d'humidité\n");
+        testerCaracteristique(marecageTest);
+        System.out.print("Test d'apparition de 100 ressources\n");
+        testerApparition(marecageTest);
+        System.out.print("Tous les tests ont réussis\n");
+    }
+}

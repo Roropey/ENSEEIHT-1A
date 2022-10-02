@@ -1,0 +1,23 @@
+Date de l'évaluation : lun. 07 févr. 2022 11:49:22 CET
+
+Compilation de Cercle.java : OK.
+
+Types d'erreurs checkstyle : 0	(voir evaluations/evaluation1/Cercle.checkstyle)
+
+Résultat de recherche de similitudes sur Cercle.java dans evaluations/evaluation1/Cercle.sim
+
+JavaDoc automatique de Cercle : ok	(voir evaluations/evaluation1/Cercle.javadoc)
+
+Un constructeur devrait appeler l'autre.
+
+Test SujetCercleTest : OK (14 tests)	(voir evaluations/evaluation1/SujetCercleTest.log)
+Test RobustesseCercleTest : OK (20 tests)	(voir evaluations/evaluation1/RobustesseCercleTest.log)
+Test FormeCercleTest : OK (12 tests)	(voir evaluations/evaluation1/FormeCercleTest.log)
+Test Forme2CercleTest : OK (9 tests)	(voir evaluations/evaluation1/Forme2CercleTest.log)
+
+ComplementsCercleTest : non modifiée (ok)
+
+Compilation de CercleTest.java : OK.
+Test CercleTest : OK (3 tests)	(voir evaluations/evaluation1/CercleTest.log)
+Test de CercleTest avec CercleMini : ERREUR : CercleTest aurait dû réussir !	(voir evaluations/evaluation1/CercleMini.log pour les erreurs signalées)
+CercleTest échoue sur CercleMini : les mutants ne sont pas testés

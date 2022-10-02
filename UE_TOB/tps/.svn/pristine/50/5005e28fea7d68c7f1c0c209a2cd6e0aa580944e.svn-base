@@ -1,0 +1,7 @@
+allumettes/Jouer.java:4: error: ';' expected
+import ArrayUtils.*
+                   ^
+allumettes/Jouer.java:57: error: ';' expected
+				throw new ConfigurationException("Le premier argument n'est pas reconnu.")
+				                                                                          ^
+2 errors

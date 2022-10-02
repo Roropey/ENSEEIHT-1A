@@ -1,0 +1,109 @@
+package Affichage;
+
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.event.*;
+import javax.swing.text.JTextComponent;
+
+import Utile.ValeurInterditeException;
+import Environement.Mer;
+import Environement.Prairie;
+import Espece.Espece;
+import Espece.Loup;
+import Simulation.Simulation;
+import Utile.Position;
+
+import java.util.List;
+
+
+import java.awt.event.*;
+import java.util.*;
+import java.util.concurrent.Flow;
+import java.util.concurrent.TimeUnit;
+
+public class SimulationSwing {
+    private JFrame fenetre = new JFrame();
+    public SimulationSwing(MapObervable mapEspece, VueEspeceFenetre vueEspeceFenetre){
+
+        this.fenetre = new JFrame("Simulateur d'evolution");
+        Dimension tailleEcran = Toolkit.getDefaultToolkit().getScreenSize();
+        int height = tailleEcran.height;
+        int width = tailleEcran.width;
+		this.fenetre.setSize(width/2, height/2);
+
+		// Construire le contrôleur (gestion des événements)
+		this.fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JPanel panel = new JPanel();
+        
+
+        fenetre.setContentPane(panel);
+        //Creation du Panel Simulation     
+        
+
+
+
+
+
+        try {
+            Prairie prairie = new Prairie(700, 700);
+            Random rdm = new Random();
+
+            
+            Simulation simu = new Simulation(prairie);
+            ajouterSimu aSimu = new ajouterSimu(simu);
+            mapEspece.addObserver(aSimu);
+            Evolution evolution = new Evolution(mapEspece, simu);
+        
+            //Creatio, du panel Choix
+            Choix choix = new Choix(mapEspece);
+            choix.choixEspece.add(vueEspeceFenetre.getPanel());
+            JButton Lancer = new JButton("Lancer");
+            Lancer.addActionListener(new ActionListener() {
+                 
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    evolution.panelSimu.setVisible(true);
+                    choix.choixPanel.setVisible(false);
+                    aSimu.debut = false;
+                    fenetre.pack();
+
+                }
+                
+            });
+            
+           
+            choix.choixPanel.add(Lancer,BorderLayout.SOUTH);
+            Lancer.setPreferredSize(new Dimension(100,100));
+            Menu menu = new Menu(choix, fenetre);
+            panel.add(choix.choixPanel);
+            panel.add(menu.panelMenu);
+            panel.add(evolution.panelSimu);
+            evolution.panelSimu.setVisible(false);
+            choix.choixPanel.setVisible(false);
+        } catch (ValeurInterditeException e) {
+            System.out.println(e.getMessage());
+        }
+        
+
+
+        
+        
+        
+        //Creation du panel Menu
+
+		// afficher la fenêtre
+        fenetre.setLocationRelativeTo(null);
+		fenetre.pack();			// redimmensionner la fenêtre
+
+		fenetre.setVisible(true);	// l'afficher
+
+    }
+    public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+                MapObervable mapEspece = new MapObervable();
+				new SimulationSwing(mapEspece, new VueEspeceFenetre(mapEspece));
+			}
+		});
+	}
+}

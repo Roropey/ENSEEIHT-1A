@@ -1,0 +1,95 @@
+package allumettes;
+import java.util.Random;
+
+public class Joueur {
+	
+	
+	private String nom;
+	private String strategie;
+	//private String[] tableauStrategie = {"naif","rapide","expert","humain","tricheur"};
+	
+	public Joueur(String nom, String strategie) {
+		this.nom = nom;
+		this.strategie = strategie;
+	}
+	
+	public Joueur(String nom) {
+		this(nom,"humain");
+	}
+
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public String getStrategie() {
+		return strategie;
+	}
+	public void setStrategie(String strategie) {
+		this.strategie = strategie;
+	}
+	
+	public int getPrise(Jeu jeu) {
+		int choix;
+		switch (this.strategie) {
+		case "humain" :
+			choix =  getHumain(jeu);
+			break;
+		case "naif" :
+			choix =  getNaif(jeu);
+			break;
+		case "rapide" :
+			choix =  getRapide(jeu);
+			break;
+		case "expert" :
+			choix = getExpert(jeu);
+			break;
+		case "tricheur" :
+			choix = getTricheur(jeu);
+			break;
+		default :
+			choix = 0;
+		}
+		return choix;
+	}
+	
+	private int getNaif(Jeu jeu) {
+		final Random nombre = new Random();
+		return 1 + nombre.nextInt(Integer.min(jeu.getNombreAllumettes(),Jeu.PRISE_MAX));
+	}
+	
+	private int getRapide(Jeu jeu) {		
+		return Integer.min(jeu.getNombreAllumettes(),Jeu.PRISE_MAX);
+	}
+	
+	private int getExpert(Jeu jeu) {
+		int choix;
+		switch (jeu.getNombreAllumettes()) {
+		case 1 :
+		case 2 :
+		case 5 :
+		case 6 :
+			choix = 1;
+			break;
+		case 3 :
+		case 7 :
+			choix = 2;
+			break;
+		default :
+			choix = 3;
+		}
+		return choix;
+	}
+	
+	private int getHumain(Jeu jeu) {
+		//interface homme-machine ?
+		return 1;
+	}
+	
+	private int getTricheur(Jeu jeu) {
+		//interface homme-machine
+		return 1;
+	}
+	
+}

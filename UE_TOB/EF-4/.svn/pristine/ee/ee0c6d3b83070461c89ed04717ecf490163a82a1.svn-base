@@ -1,0 +1,23 @@
+package Ressources;
+
+import java.util.Random;
+
+public abstract class Ressources {
+    private int x;
+    private int y;
+    private final Random alea = new Random();
+
+    public Ressources(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+
+    public Ressources(int min_x, int max_x, int min_y, int max_y){
+        this.x = min_x + alea.nextInt(max_x + min_x);
+        this.y = min_y + alea.nextInt(max_y + min_y);
+    }
+
+    abstract public void interagir(); //définir intéraction avec individu (modifier les in et void)
+
+}
+

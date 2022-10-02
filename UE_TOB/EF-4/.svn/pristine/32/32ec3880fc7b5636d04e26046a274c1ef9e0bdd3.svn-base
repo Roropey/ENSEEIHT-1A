@@ -1,0 +1,29 @@
+package Tests;
+
+import org.junit.*;
+import Environement.Mer;
+import Ressources.*;
+
+public class TestMerJUnit  {
+
+    final protected Mer desertTest;
+
+    @Before
+    public void setUp(){
+        this.merTest = new Mer(100,100);
+    }
+
+    @Test
+    public void testerCaracteristique(){
+        assertEquals(100,this.merTest.getCaracteristique());
+    }
+    @Test
+    public void testerApparition(){
+        for (int i=0; i<=100; i++){
+            Ressource ressource = this.merTest.apparaitre();
+            assertFalse(ressource.getNom().equals("Arbre"));
+            assertFalse(ressource.getNom().equals("Arbuste"));
+            assertFalse(ressource.getNom().equals("Cactus")); 
+        }
+    }
+}

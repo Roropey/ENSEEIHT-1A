@@ -1,0 +1,35 @@
+package Affichage;
+
+import javax.swing.*;
+import java.awt.*;
+
+
+public class JCanvas extends JPanel{
+    private String nom;
+    public JCanvas(String nom) {
+        this.nom = nom;
+    }
+
+    public void paint(Graphics g) {
+        super.paint(g);
+        g.setColor(couleurEspece(nom));
+        g.fillOval(0,0,5,5);
+
+    }
+
+    public Color couleurEspece(String nom){
+        switch (nom){
+            case "Sardine" : 
+                return Color.GRAY;
+            case "Aigle" : 
+                return Color.YELLOW;
+            case "Dauphin" : 
+                return Color.BLUE;
+            case "Mouton" : 
+                return Color.WHITE;
+            case "Loup" : 
+            return Color.BLACK;
+            default : return Color.MAGENTA;
+        }
+    }
+}

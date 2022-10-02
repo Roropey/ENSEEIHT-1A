@@ -1,0 +1,86 @@
+package allumettes;
+
+/** Lance une partie des 13 allumettes en fonction des arguments fournis
+ * sur la ligne de commande.
+ * @author	Xavier Crégut
+ * @version	$Revision: 1.5 $
+ */
+public class Jouer {
+
+	/** Lancer une partie. En argument sont donnés les deux joueurs sous
+	 * la forme nom@stratégie.
+	 * @param args la description des deux joueurs
+	 */
+	public static void main(String[] args) {
+		try {
+			verifierNombreArguments(args);
+
+
+			System.out.println("\n\tà faire !\n");
+
+		} catch (ConfigurationException e) {
+			System.out.println();
+			System.out.println("Erreur : " + e.getMessage());
+			afficherUsage();
+			System.exit(1);
+		}
+	}
+
+	private static void verifierNombreArguments(String[] args) {
+		final int nbJoueurs = 2;
+		if (args.length < nbJoueurs) {
+			throw new ConfigurationException("Trop peu d'arguments : "
+					+ args.length);
+		}
+		if (args.length > nbJoueurs + 1) {
+			throw new ConfigurationException("Trop d'arguments : "
+					+ args.length);
+		}
+	}
+
+	private static void interpreterArguments(String[] args) {
+		final int nbJoueurs = 2;
+		final int nbArguments = args.length;
+		final Joueur j1;
+		final Joueur j2;
+		if (nbArguments == nbJoueurs + 1 && args[0] != "-confiant") {
+				throw new ConfigurationException("Option non reconnu : " + args[0]);
+		}
+		for (int i = 0 ; i<2 ; i++) {
+			String nom = "";
+			String strategie = "";
+			String info = "";
+			for (int j = 0 ; j<args[nbArguments - nbJoueurs + i].length(); j++) {
+				if (args[nbArguments - nbJoueurs + i].charAt(j) == '@') {
+					nom = info;
+					info ="";
+				} else {
+					info = info + args[nbArguments - nbJoueurs + i].charAt(j);
+				}
+			}
+			strategie = info;
+			
+			if (j1 == null) {
+				j1 = new Joueur(nom,strategie);
+			} else {
+				j2 = new Joueur(nom,strategie);
+			}
+		}
+	}
+	
+	
+	/** Afficher des indications sur la manière d'exécuter cette classe. */
+	public static void afficherUsage() {
+		System.out.println("\n" + "Usage :"
+				+ "\n\t" + "java allumettes.Jouer joueur1 joueur2"
+				+ "\n\t\t" + "joueur est de la forme nom@stratégie"
+				+ "\n\t\t" + "strategie = naif | rapide | expert | humain | tricheur"
+				+ "\n"
+				+ "\n\t" + "Exemple :"
+				+ "\n\t" + "	java allumettes.Jouer Xavier@humain "
+					   + "Ordinateur@naif"
+				+ "\n"
+				);
+	}
+
+}

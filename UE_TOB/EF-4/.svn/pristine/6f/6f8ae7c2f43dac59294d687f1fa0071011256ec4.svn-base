@@ -1,0 +1,152 @@
+/** La classe définit des méthodes de vérification. Elle se base beaucoup sur
+ * celle de Xavier Crégut, version 1.1, (pour la structure et la première méthode).
+  */
+package Utile;
+import java.util.*;
+
+abstract public class Assert {
+
+    /** Vérifier que la condition est vraie.
+     * @param condition la condition à vérifier
+     */
+     static public void assertTrue(boolean condition){
+         if (!condition){
+             throw new Echec();
+         }
+     }
+
+    /** Vérifier que la condition est vraie et affiche le texte dans le cas contraire.
+     * @param condition la condition à vérifier
+     * @param texte texte à afficher en cas d'erreur
+     */
+     static public void assertTrue(boolean condition, String texte){
+         if (!condition){
+             throw new Echec(texte);
+         }
+     }
+
+     /** Vérifier que la condition est fausse.
+     * @param condition la condition à vérifier
+     */
+     static public void assertFalse(boolean condition){
+         if (condition){
+             throw new Echec();
+         }
+     }
+
+     /** Vérifier que la condition est fausse et affiche le texte dans le cas contraire.
+     * @param condition la condition à vérifier
+     * @param texte texte à afficher en cas d'erreur
+     */
+     static public void assertFalse(boolean condition, String texte){
+         if (condition){
+             throw new Echec(texte);
+         }
+     }
+
+    /** Vérifier que x == y.
+     * @param x premier objet à comparer
+     * @param y second objet à comparer
+     */
+     static public void assertEquals(Object x, Object y){
+         if (!(x.equals(y))){
+             throw new Echec();
+         }
+     }
+
+     /** Vérifier que x == y et affiche le texte dans le cas contraire.
+     * @param x premier objet à comparer
+     * @param y second objet à comparer
+     * @param texte texte à afficher en cas d'erreur
+     */
+     static public void assertEquals(Object x, Object y, String texte){
+         if (!(x.equals(y))){
+             throw new Echec(texte);
+         }
+     }
+
+     /** Vérifier que x != y.
+     * @param x premier objet à comparer
+     * @param y second objet à comparer
+     */
+     static public void assertDifferent(Object x, Object y){
+         if (x.equals(y)){
+             throw new Echec();
+         }
+     }
+
+     /** Vérifier que x != y et affiche le texte dans le cas contraire.
+     * @param x premier objet à comparer
+     * @param y second objet à comparer
+     * @param texte texte à afficher en cas d'erreur
+     */
+     static public void assertDifferent(Object x, Object y, String texte){
+         if (x.equals(y)){
+             throw new Echec(texte);
+         }
+     }
+
+    /** Vérifier que x >= y.
+     * @param x premier nombre à comparer
+     * @param y second nombre à comparer
+     */
+     static public void assertGreater(double x, double y){
+         if (x<y){
+             throw new Echec();
+         }
+     } 
+
+     /** Vérifier que x >= y et affiche le texte dans le cas contraire.
+     * @param x premier nombre à comparer
+     * @param y second nombre à comparer
+     * @param texte texte à afficher en cas d'erreur
+     */
+     static public void assertGreater(double x, double y, String texte){
+         if (x<y){
+             throw new Echec(texte);
+         }
+     }
+
+     /** Vérifier que x > y.
+     * @param x premier nombre à comparer
+     * @param y second nombre à comparer
+     */
+     static public void assertGreaterStrict(double x, double y){
+         if (x<=y){
+             throw new Echec();
+         }
+     } 
+
+     /** Vérifier que x > y et affiche le texte dans le cas contraire.
+     * @param x premier nombre à comparer
+     * @param y second nombre à comparer
+     * @param texte texte à afficher en cas d'erreur
+     */
+     static public void assertGreaterStrict(double x, double y, String texte){
+         if (x<=y){
+             throw new Echec(texte);
+         }
+     } 
+
+    /** Vérifier que liste contient x
+     * @param liste liste d'objet
+     * @param x objet dont vérifier l'apartenance
+     */
+     static public void assertContains(List<?> liste, Object x){
+         if (!(liste.contains(x))){
+             throw new Echec();
+         }
+     }
+
+    /** Vérifier que liste contient x et affiche le texte dans le cas contraire.
+     * @param liste liste d'objet
+     * @param x objet dont vérifier l'apartenance
+     * @param texte texte à afficher en cas d'erreur
+     */
+     static public void assertContains(List<?> liste, Object x, String texte){
+         if (!(liste.contains(x))){
+             throw new Echec(texte);
+         }
+     }
+
+}

@@ -1,0 +1,310 @@
+package Espece;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+import Espece.Espece;
+import Ressources.Ressource;
+import Utile.Position;
+
+public class Individu {
+
+    // Definition
+    private double ecartTypeEspece; // a definir dans l'instanciation de l'espece
+    private Espece espece;
+
+    private boolean male;   // TODO : changer en int et faire autant dy type qu'on veut
+    // private int nbSexe; // a definir dans l'instanciation de l'espece
+    
+
+    // Deplacements & actions
+    private double porteeAction; // a definir dans l'instanciation de l'espece
+    private double porteeVision; // a definir dans l'instanciation de l'espece
+
+    private Position position;
+    private double vitesse; // a definir dans l'instanciation de l'espece
+    
+    // Vie
+    private int vie; // a definir dans l'instanciation de l'espece
+
+    // Besoins
+    private int satiete; // a definir dans l'instanciation de l'espece
+    
+    // Reproduction
+    private int ferveurSeuil; // a definir dans l'instanciation de l'espece
+    private int ferveur;
+    
+    private int nbEnfantsMin; // a definir dans l'instanciation de l'espece
+    private int nbEnfantsMax; // a definir dans l'instanciation de l'espece
+
+    // Autres
+    private boolean estVivant = true;
+    private int valeurNutritive; // a definir dans l'instanciation de l'espece
+
+    // constructeurs
+    public Individu(double ecartTypeEspece,
+        Espece espece,
+        double porteeAction,
+        double porteeVision,
+        Position position,
+        double vitesse,
+        int vie,
+        int satiete,
+        int ferveurSeuil,
+        int ferveur,
+        int valeurNutritive) {
+    
+        Random random = new Random();
+        
+        this.ecartTypeEspece = ecartTypeEspece;
+        this.espece = espece;
+
+        this.male = random.nextBoolean(); // TODO: changer avec le changement de type sexe
+        
+        this.position = position;
+
+        // a partir de la ajouter du random
+        this.vitesse = vitesse;
+
+        this.porteeAction = porteeAction;
+        this.porteeVision = porteeVision;
+        
+        this.vie = vie;
+
+        this.satiete = satiete;
+        this.comestible = comestible;
+        
+        this.ferveurSeuil = ferveur;
+        this.ferveur = ferveur;
+        this.nbEnfantsMin = nbEnfantsMin;
+        this.nbEnfantsMax = nbEnfantsMax;
+
+        this.valeurNutritive = valeurNutritive;
+        
+
+        // TODO creer fonction amie
+        this.vie = (int) (espece.getDureeDeVie()*(this.ecartTypeEspece*(random.nextDouble()-0.5)*2 + 1));
+
+    }
+
+    // methodes generales
+    /**
+     * Retourne l'espece a laquelle appartient l'individu
+     * @return espece (type Espece) d'appartenance de l'individu
+     */
+    public Espece getEspece(){
+        return espece;
+    }
+    /**
+     * Retourne les sex de l'individu. A terme il y aura plus que 2 sexes
+     * @return true si male, false sinon
+     */
+    public boolean getSex(){ // a modifier, il y a plusieurs types
+        return male;
+    }
+    /**
+     * Change l'etat de vie de l'individu de vivant a mort
+     */
+    public void meurt() {
+        this.estVivant = false;
+    }
+    /**
+     * @return true si l'individu est mort, false sinon
+     */
+    public boolean estMort() {
+        return !this.estVivant;
+    }
+    /**
+     * Permet de savoir si une position est dans la action de vision de l'individu
+     * @param position dont on veut connaitre la presence dans la portee d'action
+     * @return true si position est dans la portee d'action de l'individu, false sinon
+     */
+    public boolean estAPorteeAction(Position position) {
+        return this.position.distance(position) <= this.porteeAction;
+    }
+    /**
+     * Permet de savoir si une position est dans la portee de vision de l'individu
+     * @param position dont on veut connaitre la presence dans la portee de vision
+     * @return true si position est dans la portee de vision de l'individu, false sinon
+     */
+    public boolean estAPorteeVision(Position position) {
+        return this.position.distance(position) <= this.porteeVision;
+    }
+    /**
+     * Met à jour les jauges de l'individu
+     */
+    public void iterer() {
+        this.ferveur++;
+
+        if (!this.aFaim()) {
+            this.vie++;
+        } else {
+            this.vie--;
+        }
+
+        this.satiete--;
+        if (this.satiete <= 0 || this.vie <= 0) {
+            this.meurt();
+        }
+    }
+
+    // methodes relatives au deplacement
+    /**
+     * Permet de connaitre la position de l'individu
+     * @return la position de l'individu
+     */
+    public Position getPosition() {
+        return this.position;
+    }
+    /**
+     * Permet de connaitre la vitesse de deplacement de l'individu
+     * @return la vitesse (double) de deplacement de l'individu
+     */
+    public double getVitesse() {
+        return this.vitesse;
+    }
+    /**
+     * Modifie la position de l'individu
+     */
+    public void deplacer() { // TODO: supprimer cette methode et ses appel, et n'utiliser que la suivante
+        Random random = new Random();
+        double angle = random.nextDouble() * 2*Math.PI;
+
+        double dx = Math.cos(angle) * this.vitesse;
+        double dy = Math.sin(angle) * this.vitesse;
+        
+        this.position.setX(this.position.getX()+dx);
+        this.position.setY(this.position.getY()+dy);
+    }
+    /**
+     * Modifie la position de l'individu
+     * @param dx deplacement elementaire de l'individu selon l'axe des x
+     * @param dy deplacement elementaire de l'individu selon l'axe des y
+     */
+    public void deplacer (double dx, double dy) { // TODO deplacement en troupeau cf dans simulation
+        this.position.setX(this.position.getX()+dx);
+        this.position.setY(this.position.getY()+dy);
+    }
+
+    // methodes relatives aux ressources
+    /**
+     * Permet de connaitre la valeur nutritive d'un individu comme ressource
+     * @return la valeur nutritive de l'individu
+     */
+    public int getValeurNutritive() {
+        return this.valeurNutritive;
+    }
+    /**
+     * Renvoie un boolean qui est d'autant plus grand que l'individu a faim
+     * @return true si l'individu cherche de la nourriture, false sinon
+     */
+    public boolean aFaim() {
+        return this.satiete < 75;
+    }
+    public boolean peutManger(Comestible c) {
+        if (this.espece.getComestible().contains(c)) {
+            return true;
+        }
+        return false;
+    }
+    /**
+     * Modelise la consommation de la ressource par l'individu considere.
+     * Mets a jour la satiete de l'individu considere, et l'etat de la ressource.
+     * @param r la ressource mangee par l'individu considere
+     */
+    public void mange(Ressource r) {
+        this.satiete += r.getValeurNutritive();
+        if (this.satiete > 100) {
+            this.satiete = 100;
+        }
+        r.estMangee();
+    }
+    /**
+     * Modelise la consommation d'un individu par l'individu considere.
+     * Mets a jour la satietete de l'individu considere, et l'etat de l'individu mange.
+     * @param i l'individu mange par l'individu considere
+     */
+    public void mange(Individu i) {
+        this.satiete += i.getValeurNutritive();
+        if (this.satiete > 100) {
+            this.satiete = 100;
+        }
+        i.meurt();
+    }
+    /**
+     * Permet de connaitre la satiete courrante de l'individu
+     * @return la satiete courante de l'individu (entier)
+     */
+    public int getSatiete() {
+        return this.satiete;
+    }
+    /**
+     * Reduit la satiete de l'individu de 1 point
+     */
+    public void reduireSatiete() {
+        this.satiete--;
+    }
+    /**
+     * Permet de reduire la satiete de l'individu d'un montant voulu
+     * @param reductionSatiete le montant dont on souhaite reduire la satiete de l'individu
+     */
+    public void reduireSatiete(int reductionSatiete) {
+        this.satiete -= reductionSatiete;
+    }
+
+
+    // methodes relatives a la vie
+    /**
+     * Permet de connaitre la duree de vie de l'individu
+     * @return la duree de vie de l'individu (entier)
+     */
+    int getDureeDeVie() {
+        return vie;
+    }
+    /**
+     * Permet de reduire la duree de vie de l'individu de 1 point
+     */
+    public void reduireVie() {
+        this.vie--;
+    }
+    /**
+     * Permet de reduire la duree de vie de l'individu d'un montant voulu.
+     * @param reductionVie le montant dont on souhaite reduire la duree de vie de l'individu
+     */
+    public void reduireVie(int reductionVie) {
+        this.vie -= reductionVie;
+    }
+    /**
+     * Fait tenter de se reproduire 2 individus, donnant eventuellement lieu a un (des) enfant(s)
+     * @param individu l'individu avec lequel l'individu considere tente de se reproduire
+     * @return une liste d'individu(s) enfants. Cette liste peut etre vide.
+     */
+    public ArrayList<Individu> seReproduit(Individu individu) {
+        /**
+         * A affiner :
+         *      - faire des descendant qui ont plus ou moins le meme code genetique que leurs parents
+         *      - gerer le nombre d'enfant
+         *      - gerer le CD de reproduction
+         */
+        ArrayList<Individu> descendance = new ArrayList<Individu>();
+
+        // Gesion du taux de raffraichissement
+        if (this.ferveur > this.ferveurSeuil) {
+            // Gestion du nombre d'enfant
+            Random random = new Random();
+            int nbEnfants = random.nextInt((this.nbEnfantsMax - this.nbEnfantsMin) + 1) + this.nbEnfantsMin;
+
+            // Creation des enfants et ajout a la liste
+            for (int i = 0; i < nbEnfants; i++) {
+                Individu enfant = new Individu(); // TODO: changer et utiliser l'autre constructeur
+                descendance.add(enfant);
+            }
+            // remise a zero de la ferveur
+            this.ferveur = 0;
+        }
+        return descendance;
+    }
+
+    // fonctions amies
+    // TODO: random
+}

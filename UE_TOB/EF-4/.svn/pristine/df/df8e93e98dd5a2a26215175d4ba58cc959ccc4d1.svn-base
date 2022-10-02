@@ -1,0 +1,7 @@
+import Espece.Espece;
+
+public class Individu {
+    private Espece espece;
+
+        
+}

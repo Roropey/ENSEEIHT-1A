@@ -1,0 +1,11 @@
+package Environement;
+
+
+
+public class Desert extends Environnement {
+
+    public Desert(int x, int y){
+       super(x,y,"Désert",0,10,20);
+    }
+
+}

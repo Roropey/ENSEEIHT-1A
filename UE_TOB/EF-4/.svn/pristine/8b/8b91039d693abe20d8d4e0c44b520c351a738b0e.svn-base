@@ -1,0 +1,19 @@
+package Ressources;
+
+public class Arbustes extends Ressources{
+
+    private boolean mangee;
+
+    public Arbustes(int min_x, int max_x, int min_y, int max_y){
+        super(min_x, max_x, min_y, max_y);
+        this.mangee = true;
+    }
+
+    public void interagir(){
+        if (true & this.mangee){//Si l'individu est un herbivore, alors il mange l'arbuste
+            this.mangee = false;
+        }
+    }
+
+
+}

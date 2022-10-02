@@ -1,0 +1,74 @@
+package Espece;
+
+import java.util.List;
+
+import Environement.Environement;
+
+public class Dauphin implements Espece {
+
+    private String Nom = "Dauphin";
+    private int Majorite = 10;
+
+    @Override
+    public String getNom() {
+        return this.Nom;
+    }
+
+    @Override
+    public int getDureeDeVie() {
+        return 40;
+    }
+
+    @Override
+    public List<String> getNourriture() {
+        return null;
+    }
+
+    @Override
+    public double getTauxReproduction(int Age) {
+        if (Age > this.Majorite) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    @Override
+    public double getVitesse(Etat etat) {
+        switch (etat) {
+            //TODO gérer les break
+            case Apeure : return 3;
+            
+            case EnChasse : return 3;
+
+            case Blesse : return 1;
+
+            case Normal : return 2;
+
+            default : System.out.print("Erreur Etat");
+            return 0;
+        }
+    }
+
+    @Override
+    public double getMortalite(Environement environement) {
+        switch (environement) {
+            //TODO compléter les différents environnements
+            case Prairie : return 100;
+
+            case
+        }
+        return 0;
+    }
+
+    @Override
+    public boolean estVolant() {
+        return false;
+    }
+
+    @Override
+    public boolean estMarin() {
+        return true;
+    }
+    
+}

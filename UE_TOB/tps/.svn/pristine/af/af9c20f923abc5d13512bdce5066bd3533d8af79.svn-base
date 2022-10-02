@@ -1,0 +1,79 @@
+Date de l'évaluation : mar. 05 avril 2022 09:48:34 CEST
+
+Nombre de similitudes (voir evaluations/penalites2/sim_java.txt) : 6
+Les similitudes indiquent généralement du code à restructurer.
+
+Erreurs checkstyle (différentes/types) : 27/10	(voir evaluations/penalites2//checkstyle.log)
+
+Classe OperationInterditeException : OperationInterditeException (ok)
+
+Procuration sur le jeu réel : allumettes/JeuProcuration.java (ok)
+
+OperationInterditeException : Pourquoi la lever à plusieurs endroits ?	(pénalité : 2)
+  | allumettes/Arbitre.java:46:             throw new OperationInterditeException("Abandon de la partie car "+j.getNom()+" triche !");
+  | allumettes/JeuProcuration.java:17:      throw new OperationInterditeException("Le joueur triche !");
+
+OperationInterditeException, récupérée dans : allumettes/Arbitre.java (ok)
+
+Throwable, Exception et RuntimeException ne devraient pas être récupérées car trop générales... ok
+
+AssertionError ne doit pas être récupérée... ok
+
+Autres exceptions récupérées :
+  | allumettes/Arbitre.java:47:         } catch (CoupInvalideException e) {
+  | allumettes/StrategieHumain.java:23:                 } catch (CoupInvalideException e) {
+  | allumettes/StrategieHumain.java:30:         } catch (NumberFormatException e) {
+  | allumettes/Jouer.java:20:       } catch (ConfigurationException e) {
+  | allumettes/Jouer.java:66:       } catch (IndexOutOfBoundsException e) {
+  | allumettes/StrategieTricheur.java:16:       } catch (CoupInvalideException e) {
+
+Utilisation de 'Scanner' : ok
+  | allumettes/StrategieHumain.java:6:  private static Scanner humain = new Scanner(System.in);
+
+Utilisation de 'split' : ok
+  | allumettes/Jouer.java:63:           String[] argumentsSepare = arguments.split("@");
+
+Utilisation de 'Random' : ok
+  | allumettes/Joueur.java:2:import java.util.Random;
+  | allumettes/StrategieNaif.java:3:import java.util.Random;
+  | allumettes/StrategieNaif.java:8:        final Random nombre = new Random();
+
+Utilisation de '3' : ok
+
+Affichage de 'Impossible !' : ok
+
+Utilisation de 'System.exit' : ok
+
+Compilation de Jouer.java : OK.
+Compilation de Arbitre.java : OK.
+Compilation de TestStrategieRapide.java : OK.
+Test exemplePresqueSujet : ok
+Test exempleTricheurSujet : ok
+Test exempleConfiantTricheurSujet : ok
+Test exempleRobustesse : ok
+Test exempleHumainTricheurExpert : ok
+Test exempleMaxLou : ok
+Test exempleRapideRapide : ok
+Test exempleTricheurExpert : ok
+Test exempleExpertTest : ok
+Test exempleExpertTest2 : ok
+Test exempleExpertTest3 : ok
+Test exempleExpertTest4 : NON CONFORME (voir evaluations/penalites2/exempleExpertTest4.diff)	(pénalité : 1)
+Test exempleRapideTest : ok
+Test exempleRapideTest1 : ok
+Test exempleRapideTest2 : ok
+Test exempleRapideTest3 : ok
+
+Test RobustesseTest : OK (25 tests)	(voir evaluations/penalites2/RobustesseTest.log)
+
+On recommence avec les classes/interfaces fournies : Jeu ConfigurationException CoupInvalideException
+Compilation de Jouer.java : OK.
+Compilation de Arbitre.java : OK.
+
+Vérification du respect du diagramme de classe...
+Test FormeTest : OK (2 tests)	(voir evaluations/penalites2/FormeTest.log)
+
+Compilation de TestStrategieRapide.java : OK.
+Test allumettes.TestStrategieRapide : OK (1 test)	(voir evaluations/penalites2/allumettes.TestStrategieRapide.log)
+
+Total pénalités : 3

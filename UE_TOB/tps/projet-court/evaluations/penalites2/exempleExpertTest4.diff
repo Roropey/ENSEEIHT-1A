@@ -1,0 +1,14 @@
+5c5
+< Ordinateur prend 3 allumettes.
+---
+> Ordinateur prend 2 allumettes.
+7c7
+< Allumettes restantes : 8
+---
+> Allumettes restantes : 9
+10,11c10,11
+< Allumettes restantes : 6
+< Ordinateur prend 1 allumette.
+---
+> Allumettes restantes : 7
+> Ordinateur prend 2 allumettes.

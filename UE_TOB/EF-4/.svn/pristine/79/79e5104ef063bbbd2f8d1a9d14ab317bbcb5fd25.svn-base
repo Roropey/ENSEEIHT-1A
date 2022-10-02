@@ -1,0 +1,48 @@
+package Tests;
+
+import Ressources.Arbre;
+import Utile.*;
+
+public class TestArbre {
+
+    public static void testerPosition(Arbre arbreTestConnu, Arbre arbreTestAleatoire){
+        Position positionConnue = arbreTestConnu.getPosition();
+        Position positionAleatoire = arbreTestAleatoire.getPosition();
+        assert positionConnue.getX()==4;
+        assert positionConnue.getY()==10.5;
+        assert (positionAleatoire.getX()>=10.5)&(positionAleatoire.getX()<=50);
+        assert (positionAleatoire.getY()>=20)&(positionAleatoire.getY()<=30);
+    }
+
+    public static void testerNutrition(Arbre arbreTestConnu, Arbre arbreTestAleatoire){
+        assert arbreTestConnu.getValeurNutritive()==10;
+        assert arbreTestAleatoire.getValeurNutritive()==10;
+    }
+
+    public static void testerNom(Arbre arbreTestConnu, Arbre arbreTestAleatoire){
+        assert arbreTestConnu.getNom().equals("Arbre");
+        assert arbreTestAleatoire.getNom().equals("Arbre");
+    }
+
+    public static void testerCategorie(Arbre arbreTestConnu, Arbre arbreTestAleatoire){
+        assert arbreTestConnu.getCategorie()==Categorie.plante;
+        assert arbreTestAleatoire.getCategorie()==Categorie.plante;
+    }
+
+    public static void main (String[] args){
+         
+        System.out.print("Création cactus de test\n");
+        Arbre arbreTestConnu = new Arbre(4,10.5);
+        Arbre arbreTestAleatoire = new Arbre(10.5,50,20,30);
+        System.out.print("Vérification des positions\n");
+        testerPosition(arbreTestConnu, arbreTestAleatoire);
+        System.out.print("Vérification des valeurs nutritionnaires\n");
+        testerNutrition(arbreTestConnu, arbreTestAleatoire);
+        System.out.print("Vérification des noms\n");
+        testerNom(arbreTestConnu, arbreTestAleatoire);
+        System.out.print("Vérification des catégories\n");
+        testerCategorie(arbreTestConnu, arbreTestAleatoire);
+        System.out.print("Tous les tests ont réussis\n");
+    }
+
+}

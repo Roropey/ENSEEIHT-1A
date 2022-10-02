@@ -1,0 +1,7 @@
+
+Résultat de l'interprétation du fichier notes-equipiers.txt :
+
+Mael BERRIER (mberrier)    : 1
+Killian BRISSET (kbrisset) : 1
+Simon DEMARTY (sdemarty)   : 1
+Pierre ROSSI (prossi2)     : 1

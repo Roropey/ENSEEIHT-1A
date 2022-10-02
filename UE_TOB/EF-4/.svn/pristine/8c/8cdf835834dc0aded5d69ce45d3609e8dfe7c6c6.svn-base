@@ -1,0 +1,37 @@
+package Affichage;
+
+import javax.swing.JPanel;
+
+import Environement.Environnement;
+import Utile.Position;
+
+import javax.swing.*;
+import java.awt.*;
+public class EvolutionMap extends JPanel{
+    private Environnement env;
+    public EvolutionMap(Environnement env){
+        this.env = env;
+
+    }
+
+
+    public void paint(Graphics g) {
+        super.paint(g);
+        int width = this.env.getDimensions()[0];
+        int height = this.env.getDimensions()[1];
+        for (int i = 0;i<width;i++){
+            for(int j = 0;j<height;j++){
+                switch (env.getType(new Position(i, j))){
+                    case -1 :
+                        g.setColor(Color.BLUE);
+                        break;
+                    case 0 :
+                    default : g.setColor(Color.GREEN);
+                }
+                g.fillRect(i,j,1,1);
+            }
+
+        }
+
+    }
+}

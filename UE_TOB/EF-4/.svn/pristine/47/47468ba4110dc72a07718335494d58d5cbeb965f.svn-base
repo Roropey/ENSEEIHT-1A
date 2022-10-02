@@ -1,0 +1,62 @@
+package Affichage;
+
+import java.awt.Dimension;
+import java.util.Observable;
+import java.util.Observer;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import Espece.Individu;
+import Ressources.Ressource;
+import Simulation.Simulation;
+import Utile.ValeurInterditeException;
+
+public class VueIndividu implements Observer {
+    private JPanel EvolutionJpanel;
+    private Simulation simu;
+    public VueIndividu(JPanel EvolutionJpanel, Simulation simu){
+        this.EvolutionJpanel = EvolutionJpanel;
+        this.simu = simu;
+    }
+    @Override
+    public void update(Observable arg0, Object arg1) {
+        // TODO Auto-generated method stub
+        EvolutionJpanel.removeAll();
+        System.out.println("Vue Individu");
+        if( simu.getIndividus().size() != 0){   
+            for (Individu iTest : simu.getIndividus()){
+                String nom = iTest.getEspece().getNom();
+                JCanvas IndividuSwing = new JCanvas(nom);
+                
+                EvolutionJpanel.add(IndividuSwing);
+                IndividuSwing.setBounds((int) iTest.getPosition().getX(),(int) iTest.getPosition().getY(),5,5);
+
+            }
+        }
+        if (simu.getRessources().size() != 0) {
+            for (Ressource ressource : simu.getRessources()){
+                try {
+                    JCanvas resSwing = new JCanvas(ressource.getNom());
+                    EvolutionJpanel.add(resSwing);
+                    resSwing.setBounds((int) ressource.getPosition().getX(),(int) ressource.getPosition().getY(),5,5);               
+                } catch (ValeurInterditeException e) {
+                    
+                }
+
+                
+            }
+        }
+        
+        EvolutionMap evolutionMap = new EvolutionMap(simu.getEnvironnement());
+        EvolutionJpanel.add(evolutionMap);
+        System.out.println(EvolutionJpanel.getComponentCount());
+        EvolutionJpanel.setVisible(false);
+        EvolutionJpanel.setVisible(true);
+        evolutionMap.setBounds(0, 0, simu.getEnvironnement().getDimensions()[0],simu.getEnvironnement().getDimensions()[1]);
+        
+
+
+        
+    }    
+}

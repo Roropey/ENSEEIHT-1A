@@ -1,0 +1,15 @@
+package Ressources;
+
+import Utile.*;
+
+public class Cactus extends Ressource{
+
+    public Cactus (double min_x, double max_x, double min_y, double max_y){
+        super(min_x, max_x, min_y, max_y,"Cactus",3,Categorie.plante);
+    }
+
+    public Cactus (double x, double y){
+        super(x, y, "Cactus",3,Categorie.plante);
+    }
+
+}

@@ -1,0 +1,108 @@
+package Ressources;
+
+import java.util.Random;
+import Utile.*;
+
+public class Ressource implements Comestible{
+
+    protected Position position;
+    protected String nom;
+    protected int valeurNutritive;
+    protected boolean existe;
+    protected Categorie categorieAlimentaire; 
+    private final Random alea = new Random();
+
+
+    /** Constructeur d'une ressource personnalisable à la position connue
+     * @param x absicisse de la ressource (>=0)
+     * @param y ordonnée de la ressource (>=0)
+     * @param nom nom de la ressource
+     * @param nutrition valeur nutritionnaire de la ressource
+     * @param categorie catégorie de la ressource
+     */
+    public Ressource(int x, int y, String nom, int nutrition, Categorie categorie){
+        if ((x<0) | (y<0)){
+            throw new ValeurInterditeException("Position de la ressource strictement négative.\n");
+        } else {
+            this.position = new Position(x,y);
+            this.nom = nom;
+            this.valeurNutritive = nutrition;
+            this.categorieAlimentaire = categorie;
+            this.existe = true;
+        } 
+    }
+    /** Constructeur d'une ressource personnalisable à une position aléatoire dans un intervalle
+     * @param min_x absicisse minimale de la ressource
+     * @param max_x absicisse maximale de la ressource
+     * @param min_y ordonnée minimale de la ressource
+     * @param max_y ordonnée maximale de la ressource
+     * @param nom nom de la ressource
+     * @param nutrition valeur nutritionnaire de la ressource
+     * @param categorie catégorie de la ressource
+     */
+    public Ressource(int min_x, int max_x, int min_y, int max_y, String nom, int nutrition, Categorie categorie){
+        if ((max_x < min_x) | (max_y < min_y)){
+            throw new ValeurInterditeException("Les minimums ne peuvent pas être inférieurs aux maximums.\n");
+        } else if ((min_x < 0) | (min_y < 0 )) {
+            throw new ValeurInterditeException("Les minimums et maximums ne peuvent être strictement négatifs.\n");
+        } else {
+            int x = min_x + alea.nextInt(max_x-min_x);
+            int y = min_y + alea.nextInt(max_y-min_y);
+            //this(x,y,nom,nutrition);
+            this.position = new Position(x,y);
+            this.nom = nom;
+            this.valeurNutritive = nutrition;
+            this.categorieAlimentaire = categorie;
+            this.existe = true;
+        } 
+    }
+
+    /** Permet d'avoir le nom de la ressource
+     * @return le nom
+     */
+    public String getNom(){
+        return this.nom;
+    }
+
+    /** Permet d'avoir une copie de la position de la ressource
+     * @return la position
+     */
+    public Position getPosition() {
+        return new Position(this.position.getX(), this.position.getY());
+    }
+
+    /** Permet d'avoir la valeur nutritionnaire de la ressource
+     * @return un entier qui la valeur nutritive
+     */
+    public int getValeurNutritive(){
+        return this.valeurNutritive;
+    }
+    /** Permet d'avoir la catégorie de la ressource
+     * @return la catégorie correspondant à la ressource
+     */
+    public Categorie getCategorie(){
+        return this.categorieAlimentaire;
+    }
+
+    /** Permet de savoir si la ressource est toujour existante 
+     * @return un boolean correspondant à son existance ou non
+     */
+    public boolean getExiste(){
+        return this.existe;
+    }
+
+    /** Action de faire manger la ressource
+     * @return si la ressource existait avant d'être mangée
+     */
+    public boolean estMangee(){
+        this.existe = false;
+        return this.existe;
+    }
+
+    /** Destruction de la ressource (cesse de la faire exister)
+     */
+    public void meurt(){
+        this.existe = false;
+    }
+}
+

@@ -1,0 +1,79 @@
+package Affichage;
+
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.event.*;
+import javax.swing.text.JTextComponent;
+
+import Environement.Environnement;
+import Environement.Prairie;
+import Espece.Espece;
+
+import java.util.List;
+
+
+import java.awt.event.*;
+import java.util.*;
+import java.util.concurrent.Flow;
+
+public class Choix {
+    public Environnement environnement;
+    public MapObervable mapNbreEspece
+;
+
+    public JPanel choixPanel = new JPanel();
+    public boolean choixFini;
+
+    public Choix(Evolution evolution, JFrame fenetre){
+        this.mapNbreEspece = evolution.mapEspeces;
+        this.choixFini =false;
+        this.environnement =  new Prairie(400,400);
+        choixPanel.setLayout(new GridLayout(2,2));
+        JPanel choixEspece = new JPanel();
+        JTextField nbreEspece = new JTextField();
+        nbreEspece.setColumns(50);
+        DefaultListModel<String> model = new DefaultListModel<>();
+        model.addElement("Loup");
+        model.addElement("Sardine");
+        model.addElement("Mouton");
+        JPanel listNbreEspece = new JPanel();
+
+        JList<String> liste = new JList<>(model);
+        choixEspece.add(nbreEspece);
+        choixEspece.add(liste);
+        JButton Ajouter = new JButton("Ajouter");
+        Ajouter.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (liste.getSelectedValue() != null){
+                    mapNbreEspece.put(liste.getSelectedValue(),Integer.parseInt(nbreEspece.getText()));
+
+                }
+
+                
+            }
+            
+        });
+        choixEspece.add(Ajouter);
+        
+        choixPanel.add(choixEspece);
+        
+        JButton Lancer = new JButton("Lancer");
+
+        Lancer.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                evolution.panelSimu.setVisible(true);
+                choixPanel.setVisible(false);
+                fenetre.pack();
+            }
+        });
+        choixPanel.add(listNbreEspece);
+        choixPanel.add(Lancer);
+        
+    }
+
+    
+}

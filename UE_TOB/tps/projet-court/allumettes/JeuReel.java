@@ -1,0 +1,33 @@
+package allumettes;
+
+public class JeuReel implements Jeu{
+	
+	private int NbAllumettes;
+	
+	public JeuReel(int nbAllumettes) {
+		assert(nbAllumettes != 0);
+		this.NbAllumettes = nbAllumettes;
+	}
+	
+	public JeuReel() {
+		this.NbAllumettes = 13;
+	}
+
+	public int getNombreAllumettes() {
+		return this.NbAllumettes;
+	}
+
+	public void retirer(int nbPrises) throws CoupInvalideException {
+		if (nbPrises < 1) {
+			throw new CoupInvalideException(nbPrises,"< 1");		
+		} else if (nbPrises > this.NbAllumettes){
+			throw new CoupInvalideException(nbPrises,"> "+this.NbAllumettes);
+		} else if (nbPrises > PRISE_MAX) {
+			throw new CoupInvalideException(nbPrises,"> "+PRISE_MAX);
+		} else {
+			this.NbAllumettes = this.NbAllumettes - nbPrises;
+		}
+		
+	}
+
+}

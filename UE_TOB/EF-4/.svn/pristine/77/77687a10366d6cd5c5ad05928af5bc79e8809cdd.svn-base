@@ -1,0 +1,32 @@
+package Affichage;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Observable;
+import java.util.Set;
+
+public class MapObervable extends Observable{
+    private Map<String, Integer> mapNbreEspece;
+
+    public MapObervable() {
+        this.mapNbreEspece = new HashMap<String,Integer>();
+
+    }
+    public int size(){
+        return this.mapNbreEspece.size();
+    }
+    public void put(String str, int integer){
+        if (!mapNbreEspece.containsKey(str)){
+            this.mapNbreEspece.put(str, integer);
+            setChanged();
+            notifyObservers(str);
+        }
+
+    }
+    public Set<String> keySet(){
+        return mapNbreEspece.keySet();
+    }
+    public Map<String, Integer> getMap(){
+        return this.mapNbreEspece;
+    }
+}

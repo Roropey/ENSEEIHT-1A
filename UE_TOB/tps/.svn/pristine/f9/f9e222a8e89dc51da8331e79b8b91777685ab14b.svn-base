@@ -1,0 +1,4 @@
+allumettes/Jouer.java:63: error: variable j1 might not have been initialized
+			if (j1 == null) {
+			    ^
+1 error

@@ -1,0 +1,75 @@
+package Tests;
+
+import org.junit.*;
+
+import Utile.*;
+import Espece.*;
+
+public class TestIndividuJUnit {
+    // Initialisation des variables utilisees
+    protected Individu i1, i2, i3, i4;
+    protected Loup loup;
+    protected Sardine sardine;
+
+    protected Position p1, p2, p3;
+    protected double v1, v2, v3;
+
+    protected int vieMax;
+    protected int satieteMax;
+    protected int ferveurSeuil;
+    protected int valeurNutritive;
+
+
+    // Initialisation des tests
+    @Before
+    public void setUp(){
+        this.p1 = new Position(1, 1);
+        this.p2 = new Position(1, 1);
+        this.p3 = new Position(100, 100);
+        this.v1 = 9.0;
+        this.v2 = 1.0;
+        this.v3 = this.v2;
+        this.vieMax = 100;
+        this.satieteMax = 100;
+        this.ferveurSeuil = 10;
+        this.valeurNutritive = 10;
+        this.i1 = new Individu(loup, 10, 10, p1, v1, vieMax, satieteMax, ferveurSeuil, valeurNutritive);
+        this.i2 = new Individu(loup, 10, 10, p2, v2, vieMax, satieteMax, ferveurSeuil, valeurNutritive);
+        this.i3 = new Individu(loup, 10, 10, p3, v3, vieMax, satieteMax, ferveurSeuil, valeurNutritive);
+        this.i4 = new Individu(sardine, 10, 10, p1, v1, vieMax, satieteMax, ferveurSeuil, valeurNutritive);
+    }
+
+    // Tests
+    @Test
+    public void testConstructeurGetteur(){
+        //TODO test des getteurs
+    }
+    @Test
+    public void testVie (){
+        //TODO test de est Mort et meurt, reduireVie
+    }
+    @Test
+    public void testPortee(){
+        //TODO test de estAPortee...
+    } 
+    @Test
+    public void testIterer(){
+        //TODO test de la deroissance de la vie et de la satiete, croissance ferveur
+    }
+    @Test
+    public void testDeplacement(){
+        //TODO test de deplacerDe et deplacerVers
+    }
+    @Test
+    public void testSatiete(){
+        //TODO test de aFaim, peutManger, mange, reduireSatiete
+    }
+    @Test
+    public void testReproduction(){
+        //TODO test de se reproduit
+    }
+    @Test
+    public void testCategorie(){
+        //TODO test de getCategorie
+    } 
+}

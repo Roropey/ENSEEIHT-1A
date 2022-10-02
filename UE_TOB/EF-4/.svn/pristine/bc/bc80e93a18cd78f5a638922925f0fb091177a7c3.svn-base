@@ -1,0 +1,24 @@
+package Environement;
+
+import Ressources.Ressources;
+
+public class Prairie extends Environnement{
+
+    //exemple de composition : 
+    //  V = 1 + H = 1 => forêt tropical
+    //  V = 0 + H = 1 => mer
+    //  V = 1 + H = 0 => désert arbuste 
+    //  V = 0 + H = 0 => désert sableux 
+
+    Prairie(int x, int y){
+        super(x,y,0.3,0.3);
+    }
+
+    
+
+    
+    public Ressources Apparaitre(){
+        return null;
+    }
+
+}

@@ -1,0 +1,105 @@
+package Environement;
+
+import Utile.*;
+import Ressources.*;
+import static java.lang.Math.*;
+import java.util.*;
+
+public class Environnement {
+
+
+    protected int taille_x;
+    protected int taille_y;
+    protected String nom;
+    private int tauxHumidite; 
+    private int fertilite;
+    protected int[][] altitudes; // varie entre 5 et -1
+
+    /*exemple de composition : 
+     - H = 0 désert
+     - H = 25 prairie
+     - H = 50 forêt
+     - H = 75 marécage
+     - H = 100 mer
+    */
+
+    public Environnement(int x, int y, String nom, int hum, int fertilite){
+        if ((x<=0) | (y<=0) | (hum<0) | (hum>100) | (fertilite <0) | (fertilite > 100)){
+            throw new ValeurInterditeException("Valeurs d'entrée non valide.\nDoit avoir x >= 0, y >= 0 et 0 <= Humidité <= 100.\n");
+        } else {
+            this.taille_x = x;
+            this.taille_y = y;
+            this.nom = nom;
+            this.tauxHumidite = hum;
+            this.fertilite = fertilite;
+            this.altitudes = new int[x][y];
+        }
+    }
+
+    // Methodes Generales
+    public int[] getDimensions(){
+        int[] dimensions = {this.taille_x,this.taille_y};
+        return dimensions;
+    }
+
+    public String getNom(){
+        return this.nom;
+    }
+
+    public int[] getCaracteristique(){
+        int[] carac = {this.tauxHumidite,this.fertilite};
+        return carac;
+    }
+
+    public int getType(Position position){
+        return this.altitudes[position.getX()][position.getY()];
+    }
+
+    public List<Ressource> apparaitre(){
+        int alea_F = ((new Random()).nextInt(this.fertilite));
+        List<Ressource> listeRessources = new ArrayList<Ressource>();
+        int i = 0;
+        while(i<alea_F){
+
+            double alea_H = ((new Random()).nextInt(50)-25) + (this.tauxHumidite);
+            if (alea_H < 12.5){
+                Cactus cactus = new Cactus(0,this.taille_x,0,this.taille_y);
+                if (this.altitudes[cactus.getPosition().getX()][cactus.getPosition().getY()] == 0){
+                    listeRessources.add(cactus);
+                    i++;
+                }
+                //apparition élément propre  désert, par exemple cactus 
+            } else if (alea_H < 37.5){
+                Arbuste arbuste = new Arbuste(0,this.taille_x,0,this.taille_y);
+                if ((this.altitudes[arbuste.getPosition().getX()][arbuste.getPosition().getY()] == 0)||(this.altitudes[arbuste.getPosition().getX()][arbuste.getPosition().getY()] == 1)){
+                    listeRessources.add(arbuste);
+                    i++;
+                }
+                //apparition élément propre à la prairie, par exemple arbuste
+            } else if (alea_H <= 62.5){
+                Arbre arbre = new Arbre (0, this.taille_x,0,this.taille_y);
+                if ((this.altitudes[arbre.getPosition().getX()][arbre.getPosition().getY()] >= 0)&&(this.altitudes[arbre.getPosition().getX()][arbre.getPosition().getY()] <= 3)){
+                    listeRessources.add(arbre);
+                    i++;
+                }
+                //apparition élément propre à la forêt
+            } else if (alea_H <= 87.5){
+                Nenuphar nenuphar = new Nenuphar(0,this.taille_x,0,this.taille_y);
+                if (this.altitudes[nenuphar.getPosition().getX()][nenuphar.getPosition().getY()] == -1){
+                    listeRessources.add(nenuphar);
+                    i++;
+                }
+                //apparition élément propre aux marécage, par exemple sable nénuphare
+            } else {
+                Algue algue = new Algue(0,this.taille_x,0,this.taille_y);
+                if (this.altitudes[algue.getPosition().getX()][algue.getPosition().getY()] == -1){
+                    listeRessources.add(algue);
+                    i++;
+                }
+                //apparition élément propre à la mer, par exemple algue (uniquement mangeable par poisson)
+            }
+        }
+        return listeRessources;
+    }
+
+}

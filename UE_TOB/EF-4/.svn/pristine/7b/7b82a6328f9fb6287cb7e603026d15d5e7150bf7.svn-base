@@ -1,0 +1,48 @@
+package Tests;
+
+import Ressources.Arbuste;
+import Utile.*;
+
+public class TestArbuste {
+
+    public static void testerPosition(Arbuste arbusteTestConnu, Arbuste arbusteTestAleatoire){
+        Position positionConnue = arbusteTestConnu.getPosition();
+        Position positionAleatoire = arbusteTestAleatoire.getPosition();
+        assert positionConnue.getX()==4;
+        assert positionConnue.getY()==10.5;
+        assert (positionAleatoire.getX()>=10.5)&(positionAleatoire.getX()<=50);
+        assert (positionAleatoire.getY()>=20)&(positionAleatoire.getY()<=30);
+    }
+
+    public static void testerNutrition(Arbuste arbusteTestConnu, Arbuste arbusteTestAleatoire){
+        assert arbusteTestConnu.getValeurNutritive()==7;
+        assert arbusteTestAleatoire.getValeurNutritive()==7;
+    }
+
+    public static void testerNom(Arbuste arbusteTestConnu, Arbuste arbusteTestAleatoire){
+        assert arbusteTestConnu.getNom().equals("Arbuste");
+        assert arbusteTestAleatoire.getNom().equals("Arbuste");
+    }
+
+    public static void testerCategorie(Arbuste arbusteTestConnu, Arbuste arbusteTestAleatoire){
+        assert arbusteTestConnu.getCategorie()==Categorie.plante;
+        assert arbusteTestAleatoire.getCategorie()==Categorie.plante;
+    }
+
+    public static void main (String[] args){
+         
+        System.out.print("Création cactus de test\n");
+        Arbuste arbusteTestConnu = new Arbuste(4,10.5);
+        Arbuste arbusteTestAleatoire = new Arbuste(10.5,50,20,30);
+        System.out.print("Vérification des positions\n");
+        testerPosition(arbusteTestConnu, arbusteTestAleatoire);
+        System.out.print("Vérification des valeurs nutritionnaires\n");
+        testerNutrition(arbusteTestConnu, arbusteTestAleatoire);
+        System.out.print("Vérification des noms\n");
+        testerNom(arbusteTestConnu, arbusteTestAleatoire);
+        System.out.print("Vérification des catégories\n");
+        testerCategorie(arbusteTestConnu, arbusteTestAleatoire);
+        System.out.print("Tous les tests ont réussis\n");
+    }
+
+}

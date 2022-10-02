@@ -1,0 +1,48 @@
+package Tests;
+
+import Ressources.Nenuphar;
+import Utile.*;
+
+public class TestNenuphar {
+
+    public static void testerPosition(Nenuphar nenupharTestConnu, Nenuphar nenupharTestAleatoire){
+        Position positionConnue = nenupharTestConnu.getPosition();
+        Position positionAleatoire = nenupharTestAleatoire.getPosition();
+        assert positionConnue.getX()==4;
+        assert positionConnue.getY()==10.5;
+        assert (positionAleatoire.getX()>=10.5)&(positionAleatoire.getX()<=50);
+        assert (positionAleatoire.getY()>=20)&(positionAleatoire.getY()<=30);
+    }
+
+    public static void testerNutrition(Nenuphar nenupharTestConnu, Nenuphar nenupharTestAleatoire){
+        assert nenupharTestConnu.getValeurNutritive()==2;
+        assert nenupharTestAleatoire.getValeurNutritive()==2;
+    }
+
+    public static void testerNom(Nenuphar nenupharTestConnu, Nenuphar nenupharTestAleatoire){
+        assert nenupharTestConnu.getNom().equals("Nénuphar");
+        assert nenupharTestAleatoire.getNom().equals("Nénuphar");
+    }
+
+    public static void testerCategorie(Nenuphar nenupharTestConnu, Nenuphar nenupharTestAleatoire){
+        assert nenupharTestConnu.getCategorie()==Categorie.plante;
+        assert nenupharTestAleatoire.getCategorie()==Categorie.plante;
+    }
+
+    public static void main (String[] args){
+         
+        System.out.print("Création nénuphars de test\n");
+        Nenuphar nenupharTestConnu = new Nenuphar(4,10.5);
+        Nenuphar nenupharTestAleatoire = new Nenuphar(10.5,50,20,30);
+        System.out.print("Vérification des positions\n");
+        testerPosition(nenupharTestConnu, nenupharTestAleatoire);
+        System.out.print("Vérification des valeurs nutritionnaires\n");
+        testerNutrition(nenupharTestConnu, nenupharTestAleatoire);
+        System.out.print("Vérification des noms\n");
+        testerNom(nenupharTestConnu, nenupharTestAleatoire);
+        System.out.print("Vérification des catégories\n");
+        testerCategorie(nenupharTestConnu, nenupharTestAleatoire);
+        System.out.print("Tous les tests ont réussis\n");
+    }
+
+}

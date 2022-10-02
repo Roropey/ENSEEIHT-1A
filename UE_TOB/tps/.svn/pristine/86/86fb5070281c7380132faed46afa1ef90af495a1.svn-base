@@ -1,0 +1,32 @@
+package allumettes;
+
+public class Joueur {
+	
+	
+	private String nom;
+	private String strategie;
+	private String[] tableauStrategie = {"naif","rapide","expert","humain","tricheur"};
+	
+	public Joueur(String nom, String strategie) {
+		this.nom = nom;
+		this.strategie = strategie;
+	}
+	
+	public Joueur(String nom) {
+		this(nom,"humain");
+	}
+
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public String getStrategie() {
+		return strategie;
+	}
+	public void setStrategie(String strategie) {
+		this.strategie = strategie;
+	}
+	
+}

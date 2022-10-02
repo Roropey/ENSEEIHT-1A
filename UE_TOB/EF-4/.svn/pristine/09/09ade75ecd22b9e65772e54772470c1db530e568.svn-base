@@ -1,0 +1,100 @@
+package Simulation;
+
+import java.util.ArrayList;
+
+import Environement.Environnement;
+import Ressources.Ressource;
+import Espece.Espece;
+import Espece.Individu;
+
+public class Simulation {
+
+    private Environnement environnement;
+    private ArrayList<Individu> individus;
+    private ArrayList<Ressource> ressources;
+
+    public Simulation(Environnement env) {
+        this.environnement = env;
+        this.ressources = new ArrayList<Ressource>();
+        this.individus = new ArrayList<Individu>();
+    }
+
+    public void ajouterIndividu(Individu indiv) {
+        this.individus.add(indiv);
+    }
+
+    public void ajouterRessource(Ressource ress) {
+        this.ressources.add(ress);
+    }
+
+    public ArrayList<Individu> getIndividus() {
+        return this.individus;
+    }
+
+    public ArrayList<Ressource> getRessources() {
+        return this.ressources;
+    }
+
+    public Environnement getEnvironnement() {
+        return this.environnement;
+    }
+
+    public int getNombreIndividu() {
+        return this.individus.size();
+    }
+
+    public int getNombreIndividu(Espece e) {
+        int nb = 0;
+        for (Individu i : individus) {
+            if (i.getEspece() == e) {
+                nb ++;
+            }
+        }
+        return nb;
+    }
+
+    private void interactions() {
+        ArrayList<Individu> individusATester = new ArrayList<Individu>();
+        individusATester.addAll(individus);
+
+        for (Individu i : individus) {
+            individusATester.remove(i);
+            for (Individu j : individusATester) {
+                if (i.estAPorteeAction(j.getPosition())) {
+                    i.mange(j);
+                    j.mange(i);
+                    individus.addAll(i.seReproduit(j));
+                    if (i.estMort()) {
+                        individus.remove(i);
+                    } else if (j.estMort()) {
+                        individus.remove(j);
+                    }
+                }
+            }
+
+            for (Ressource r : ressources) {
+                if (i.estAPorteeAction(r.getPosition())) {
+                    i.mange(r);
+                    if (r.estMangee()) {
+                        ressources.remove(r);
+                    }
+                }
+            }
+        }
+    }
+
+    public void iterer() {
+        for (Individu i : individus) {
+            i.deplacer();
+            i.iterer();
+            if (i.estMort()) {
+                individus.remove(i);
+            }
+        }
+
+        interactions();
+        
+        Ressource nouvelleRessources = environnement.apparaitre();
+        ressources.add(nouvelleRessources);
+    }
+}

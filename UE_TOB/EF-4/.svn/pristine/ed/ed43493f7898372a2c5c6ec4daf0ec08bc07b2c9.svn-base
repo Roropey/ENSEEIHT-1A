@@ -1,0 +1,11 @@
+package Ressources;
+
+import Utile.*;
+
+public class Nenuphar extends Ressource{
+
+    public Nenuphar(double min_x, double max_x, double min_y, double max_y){
+        super(min_x, max_x, min_y, max_y,"Nénuphar",2,Categorie.plante);
+    }
+
+}

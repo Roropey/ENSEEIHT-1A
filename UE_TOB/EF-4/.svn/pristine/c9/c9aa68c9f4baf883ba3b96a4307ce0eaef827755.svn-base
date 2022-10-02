@@ -1,0 +1,274 @@
+package Affichage;
+
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.event.*;
+import javax.swing.text.JTextComponent;
+
+import Environement.Environnement;
+import Espece.Espece;
+import Espece.Personalisé;
+import Utile.Categorie;
+
+import java.util.List;
+
+
+import java.awt.event.*;
+import java.util.*;
+import java.util.concurrent.Flow;
+
+public class Choix{
+    public Environnement environnement;
+    public MapObervable mapNbreEspece;
+
+    public ImagePanel choixPanel;
+    public JPanel choixEspece;
+    public JPanel choixEnvironnement;
+    public boolean choixFini;
+    public JList<String> liste;
+    public JList<String> listeEnvironnement;
+    public DefaultListModel<String> model;
+    public Map<String, Espece> listEspPerso;
+    public JFrame fenetre;
+    
+    public JLabel Ajouter;
+    public JLabel ajouterPerso;
+    public ImageIcon ajouterBoutton;
+    public ImageIcon creerBoutton;
+    JTextField nbreEspece;
+    public Choix(MapObervable mapEspece, Map<String, Espece> listEspPerso,JFrame fenetre){
+        this.fenetre = fenetre;
+        this.mapNbreEspece = mapEspece;
+        this.listEspPerso = listEspPerso;
+        ImageIcon bgChoix =new ImageIcon(new ImageIcon("Affichage/bg_choix.png").getImage().getScaledInstance(1280, 720, Image.SCALE_DEFAULT));
+        this.choixPanel = new ImagePanel(bgChoix.getImage()){
+            {setOpaque(false);}
+        };
+        this.choixEspece = new JPanel(){
+            {setOpaque(false);}
+        };
+        this.choixEnvironnement = new JPanel(){
+            {setOpaque(false);}
+        };
+        this.choixFini =false;
+        
+        choixPanel.setLayout(new BorderLayout());
+        choixPanel.setPreferredSize(new Dimension(1280,720));
+        JPanel intermediare = new JPanel(){
+            {setOpaque(false);}
+        };
+        intermediare.setLayout(new GridLayout(1,2));
+        //Choix espece
+        choixEspece.setLayout(new GridLayout(4,1));
+        choixEspece.add(new JLabel(" "));
+        JPanel ajoutEspece = new JPanel(){
+            {setOpaque(false);}
+        };;
+        ajoutEspece.setLayout(new BorderLayout());
+        nbreEspece = new JTextField();
+        nbreEspece.setColumns(10);
+        model = new DefaultListModel<>();    
+        model.addElement("Aigle");
+        model.addElement("Dauphin");
+        model.addElement("Loup");
+        model.addElement("Mouton");
+        model.addElement("Sardine");
+
+        
+        liste = new JList<>(model){
+            {setOpaque(false);}
+        };
+        liste.setCellRenderer(new TransparentListCellRenderer());
+        
+        ajoutEspece.add(nbreEspece,BorderLayout.SOUTH);
+        JScrollPane scrollEspece = new JScrollPane(liste){
+            {setOpaque(false);}
+        };
+        scrollEspece.getViewport().setOpaque(false);
+
+        ajoutEspece.add(scrollEspece,BorderLayout.CENTER);
+        
+        JPanel BouttonEspece = new JPanel(){
+            {setOpaque(false);}
+        };
+        BouttonEspece.setLayout(new GridLayout(1,2));
+        ajouterBoutton =new ImageIcon(new ImageIcon("Affichage/ajoutesp.png").getImage().getScaledInstance(250, 67, Image.SCALE_DEFAULT));
+        Ajouter = new JLabel(ajouterBoutton);
+        Ajouter.addMouseListener(new AjouterClick());
+        creerBoutton =new ImageIcon(new ImageIcon("Affichage/creeresp.png").getImage().getScaledInstance(250, 67, Image.SCALE_DEFAULT));
+        ajouterPerso = new JLabel(creerBoutton);
+        ajouterPerso.addMouseListener(new ClickAjoutEspece());
+        BouttonEspece.add(Ajouter);
+        BouttonEspece.add(ajouterPerso);
+        choixEspece.add(ajoutEspece);
+        choixEspece.add(BouttonEspece);
+        //Choix environnement 
+        choixEnvironnement.setLayout(new GridLayout(4,1));
+        choixEnvironnement.add(new JLabel(" "));
+        DefaultListModel<String> env = new DefaultListModel<>();
+        env.addElement("Prairie");
+        env.addElement("Mer");
+        env.addElement("Forêt");
+        env.addElement("Marecage");
+        env.addElement("Desert");
+        listeEnvironnement = new JList<>(env){
+            {setOpaque(false);}
+        };; 
+        listeEnvironnement.setCellRenderer(new TransparentListCellRenderer());
+        choixEnvironnement.add(listeEnvironnement);
+        intermediare.add(choixEspece);
+        intermediare.add(choixEnvironnement);
+        choixPanel.add(intermediare,BorderLayout.CENTER);
+
+        
+    }
+    private class ClickAjoutEspece implements MouseListener{
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            // TODO Auto-generated method stub
+                        JFrame popup = new JFrame();
+            JDialog jd = new JDialog(popup, "Creation d'une espece");
+            jd.setLayout(new GridLayout(8,4));
+            int n_carac = 15;
+            JTextField[] caracText = new JTextField[n_carac];
+            JLabel[] caracNom = new JLabel[n_carac];
+            caracNom[0] = new JLabel("Nom");
+            caracNom[1] = new JLabel("Majorite");
+            caracNom[2] = new JLabel("ecartTypeEspece");
+            caracNom[3] = new JLabel("porteeAction");
+            caracNom[4] = new JLabel("porteeVision");
+            caracNom[5] = new JLabel("vitesse");
+            caracNom[6] = new JLabel("vieMax");
+            caracNom[7] = new JLabel("satieteMax");
+            caracNom[8] = new JLabel("comestibles");
+            caracNom[9] = new JLabel("ferveurSeuil");
+            caracNom[10] = new JLabel("nbEnfantsMin");
+            caracNom[11] = new JLabel("nbEnfantsMax");
+            caracNom[12] = new JLabel("valeurNutritive");
+            caracNom[13] = new JLabel("estVolant");
+            caracNom[14] = new JLabel("estMarin");
+            for (int i = 0;i<n_carac;i++){
+                jd.add(caracNom[i]);
+                caracText[i] = new JTextField();
+                caracText[i].setColumns(2);
+                jd.add(caracText[i]);
+            }
+            jd.add(new JLabel());
+            JButton creer = new JButton("Creer");
+            creer.addActionListener(new ActionListener(){
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Personalisé espPerso = new Personalisé(caracText[0].getText(), Integer.parseInt(caracText[1].getText()), 
+                    Integer.parseInt(caracText[2].getText()), Integer.parseInt(caracText[3].getText()), Integer.parseInt(caracText[4].getText()),
+                    Integer.parseInt(caracText[5].getText()), Integer.parseInt(caracText[6].getText()), Integer.parseInt(caracText[7].getText()), 
+                    null, Integer.parseInt(caracText[9].getText()), Integer.parseInt(caracText[10].getText()), Integer.parseInt(caracText[11].getText()),
+                    Integer.parseInt(caracText[12].getText()), caracText[13].getText().equals("Oui"), caracText[14].getText().equals("Oui"), 
+                    Categorie.moyenAnimal,Color.MAGENTA);
+                    boolean exist =false;
+                    for(int i = 0;i<model.size();i++){
+
+                        if (model.get(i).equals(espPerso.getNom()) ){
+                            exist = true;
+                        }
+                    }
+                    if(!exist){
+                        model.addElement(espPerso.getNom());
+                    }
+                    listEspPerso.put(espPerso.getNom(), espPerso);
+                    fenetre.pack();
+                    jd.setVisible(false);
+                }
+                
+            });
+            jd.add(creer);
+            
+           
+            jd.setBounds(500,300,500,300);
+            jd.setVisible(true);
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            // TODO Auto-generated method stub
+            ImageIcon creerHoverBoutton =new ImageIcon(new ImageIcon("Affichage/creeresp_hover.png").getImage().getScaledInstance(250, 67, Image.SCALE_DEFAULT));
+            ajouterPerso.setIcon(creerHoverBoutton);
+            
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            // TODO Auto-generated method stub
+            ajouterPerso.setIcon(creerBoutton);
+            
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+        
+    }
+    public class AjouterClick implements MouseListener{
+
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            // TODO Auto-generated method stub
+            if (liste.getSelectedValue() != null && !nbreEspece.getText().equals("")){
+                mapNbreEspece.put(liste.getSelectedValue(),Integer.parseInt(nbreEspece.getText()));
+                choixEspece.setVisible(false);
+                choixEspece.setVisible(true);
+            }
+            
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            // TODO Auto-generated method stub
+
+            ImageIcon ajouterHoverBoutton =new ImageIcon(new ImageIcon("Affichage/ajoutesp_hover.png").getImage().getScaledInstance(250, 67, Image.SCALE_DEFAULT));
+            Ajouter.setIcon(ajouterHoverBoutton);
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            // TODO Auto-generated method stub
+            Ajouter.setIcon(ajouterBoutton);
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+
+
+    }
+    public class TransparentListCellRenderer extends DefaultListCellRenderer {
+
+        @Override
+        public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+            super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+            setForeground(Color.BLACK);
+            setOpaque(isSelected);
+            return this;
+        }
+
+    }
+
+}

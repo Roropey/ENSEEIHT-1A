@@ -1,0 +1,78 @@
+Date de l'évaluation : mar. 08 mars 2022 12:39:18 CET
+
+Nombre de similitudes (voir evaluations/evaluation1/sim_java.txt) : 2
+Les similitudes indiquent généralement du code à restructurer.
+
+Erreurs checkstyle (différentes/types) : 17/9	(voir evaluations/evaluation1//checkstyle.log)
+
+Classe OperationInterditeException : OperationInterditeException (ok)
+
+Procuration sur le jeu réel : allumettes/JeuProcuration.java (ok)
+
+OperationInterditeException, levée dans : allumettes/JeuProcuration.java (ok)
+OperationInterditeException, récupérée dans : allumettes/Arbitre.java (ok)
+
+Throwable, Exception et RuntimeException ne devraient pas être récupérées car trop générales... ok
+
+AssertionError ne doit pas être récupérée... ok
+
+Autres exceptions récupérées :
+  | allumettes/Jouer.java:21:       } catch (ConfigurationException e) {
+
+Utilisation de 'Scanner' : NON
+
+Utilisation de 'split' : ok
+  | allumettes/Jouer.java:63:       String[] argumentsSepare = arguments.split("@");
+
+Utilisation de 'Random' : ok
+  | allumettes/Joueur.java:2:import java.util.Random;
+  | allumettes/StrategieNaif.java:3:import java.util.Random;
+  | allumettes/StrategieNaif.java:8:        final Random nombre = new Random();
+
+Utilisation de '3' : ok
+
+Affichage de 'Impossible !' : jamais affiché (ERREUR)
+
+Utilisation de 'System.exit' : ok
+
+Compilation de Jouer.java : OK.
+Compilation de Arbitre.java : OK.
+Compilation de JeuProcuration.java : OK.
+Test exemplePresqueSujet : NON CONFORME (voir evaluations/evaluation1/exemplePresqueSujet.diff)
+Test exempleTricheurSujet : NON CONFORME (voir evaluations/evaluation1/exempleTricheurSujet.diff)
+Test exempleConfiantTricheurSujet : NON CONFORME (voir evaluations/evaluation1/exempleConfiantTricheurSujet.diff)
+Test exempleRobustesse : NON CONFORME (voir evaluations/evaluation1/exempleRobustesse.diff)
+Test exempleHumainTricheurExpert : NON CONFORME (voir evaluations/evaluation1/exempleHumainTricheurExpert.diff)
+Test exempleMaxLou : NON CONFORME (voir evaluations/evaluation1/exempleMaxLou.diff)
+Test exempleRapideRapide : NON CONFORME (voir evaluations/evaluation1/exempleRapideRapide.diff)
+Test exempleTricheurExpert : NON CONFORME (voir evaluations/evaluation1/exempleTricheurExpert.diff)
+
+Test RobustesseTest : Tests run: 25,  Failures: 9	(voir evaluations/evaluation1/RobustesseTest.log)
+    1) testerSansStrategieConfiant(RobustesseTest)
+        ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+    2) testerSansStrategie(RobustesseTest)
+        ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+    3) testerNomNonDefini(RobustesseTest)
+        org.junit.runners.model.TestTimedOutException: test timed out after 200 milliseconds
+    4) testerStrategieDoubleAt(RobustesseTest)
+        org.junit.runners.model.TestTimedOutException: test timed out after 200 milliseconds
+    5) testerSansStrategieSymetrie(RobustesseTest)
+        ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+    6) testerDoubleConfiantConfiant(RobustesseTest)
+        ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+    7) testerSansStrategieSymetrieConfiant(RobustesseTest)
+        ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+    8) testerStrategieDoubleAtSymetrie(RobustesseTest)
+        org.junit.runners.model.TestTimedOutException: test timed out after 200 milliseconds
+    9) testerNomNonDefiniSymetrie(RobustesseTest)
+        org.junit.runners.model.TestTimedOutException: test timed out after 200 milliseconds
+
+
+On recommence avec les classes/interfaces fournies : Jeu ConfigurationException CoupInvalideException
+Compilation de Jouer.java : OK.
+Compilation de Arbitre.java : OK.
+
+Vérification du respect du diagramme de classe...
+	Non fait car le projet n'est pas assez avancé
+
+Aucune classe de test (fichier *Test.java ou Test*.java) !

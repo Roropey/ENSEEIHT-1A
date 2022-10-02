@@ -1,0 +1,74 @@
+package Espece;
+
+import java.util.List;
+
+import Environement.Environement;
+
+public class Sardine implements Espece {
+
+    private String Nom = "Sardine";
+    private int Majorite = 1;
+
+    @Override
+    public String getNom() {
+        return this.Nom;
+    }
+
+    @Override
+    public int getDureeDeVie() {
+        return 15;
+    }
+
+    @Override
+    public List<String> getNourriture() {
+        return null;
+    }
+
+    
+    public double getTauxReproduction(int Age) {
+        if (Age > this.Majorite) {
+            return 60000;
+        } else {
+            return 0;
+        }
+    }
+
+    @Override
+    public double getVitesse(Etat etat) {
+        switch (etat) {
+            //TODO gérer les break
+            case Apeure : return 4;
+            
+            case EnChasse : return 4;
+
+            case Blesse : return 2;
+
+            case Normal : return 3;
+
+            default : System.out.print("Erreur Etat");
+            return 0;
+        }
+    }
+
+    @Override
+    public double getMortalite(Environement environement) {
+        switch (environement) {
+            //TODO compléter les différents environnements
+            case Prairie : return 100;
+
+            case
+        }
+        return 0;
+    }
+
+    @Override
+    public boolean estVolant() {
+        return false;
+    }
+
+    @Override
+    public boolean estMarin() {
+        return true;
+    }
+
+}

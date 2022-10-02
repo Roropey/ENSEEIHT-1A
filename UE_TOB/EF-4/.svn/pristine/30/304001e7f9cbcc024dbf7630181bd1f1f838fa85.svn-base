@@ -1,0 +1,15 @@
+package Ressources;
+
+import Utile.*;
+
+public class Pomme extends Ressource{
+
+    public Pomme(double min_x, double max_x, double min_y, double max_y){
+        super(min_x, max_x, min_y, max_y,"Pomme",2,Categorie.fruit);
+    }
+
+    public Pomme(double x, double y){
+        super(x, y,"Pomme",2,Categorie.fruit);
+    }
+
+}

@@ -1,0 +1,30 @@
+package Environement;
+
+import Ressources.*;
+import java.util.Random;
+
+public class Prairie extends Environnement{
+
+    //exemple de composition : 
+    //  V = 1 + H = 1 => forêt tropical
+    //  V = 0 + H = 1 => mer
+    //  V = 1 + H = 0 => désert arbuste 
+    //  V = 0 + H = 0 => désert sableux 
+
+    Prairie(int x, int y){
+        super(x,y,0.3,0.3);
+    }
+
+    public Ressource apparaitre(){
+        
+        int alea = (new Random()).nextInt(100);
+        if (alea < 50){
+            return null;
+        } else if (alea > 80) {
+            return new Arbres(0, this.taille_x,0,this.taille_y);
+        } else {
+            return new Arbustes(0,this.taille_x,0,this.taille_y);
+        }
+    }
+
+}

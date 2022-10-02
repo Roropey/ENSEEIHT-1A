@@ -1,0 +1,48 @@
+package Tests;
+
+import Ressources.Algue;
+import Utile.*;
+
+public class TestAlgue {
+
+    public static void testerPosition(Algue algueTestConnu, Algue algueTestAleatoire){
+        Position positionConnue = algueTestConnu.getPosition();
+        Position positionAleatoire = algueTestAleatoire.getPosition();
+        assert positionConnue.getX()==4;
+        assert positionConnue.getY()==10.5;
+        assert (positionAleatoire.getX()>=10.5)&(positionAleatoire.getX()<=50);
+        assert (positionAleatoire.getY()>=20)&(positionAleatoire.getY()<=30);
+    }
+
+    public static void testerNutrition(Algue algueTestConnu, Algue algueTestAleatoire){
+        assert algueTestConnu.getValeurNutritive()==5;
+        assert algueTestAleatoire.getValeurNutritive()==5;
+    }
+
+    public static void testerNom(Algue algueTestConnu, Algue algueTestAleatoire){
+        assert algueTestConnu.getNom().equals("Algue");
+        assert algueTestAleatoire.getNom().equals("Algue");
+    }
+
+    public static void testerCategorie(Algue algueTestConnu, Algue algueTestAleatoire){
+        assert algueTestConnu.getCategorie()==Categorie.plante;
+        assert algueTestAleatoire.getCategorie()==Categorie.plante;
+    }
+
+    public static void main (String[] args){
+         
+        System.out.print("Création cactus de test\n");
+        Algue algueTestConnu = new Algue(4,10.5);
+        Algue algueTestAleatoire = new Algue(10.5,50,20,30);
+        System.out.print("Vérification des positions\n");
+        testerPosition(algueTestConnu, algueTestAleatoire);
+        System.out.print("Vérification des valeurs nutritionnaires\n");
+        testerNutrition(algueTestConnu, algueTestAleatoire);
+        System.out.print("Vérification des noms\n");
+        testerNom(algueTestConnu, algueTestAleatoire);
+        System.out.print("Vérification des catégories\n");
+        testerCategorie(algueTestConnu, algueTestAleatoire);
+        System.out.print("Tous les tests ont réussis\n");
+    }
+
+}

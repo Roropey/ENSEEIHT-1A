@@ -1,0 +1,32 @@
+0a1,2
+> Allumettes restantes : 13
+> Xavier, combien d'allumettes ? Xavier prend 1 allumette.
+2c4,5
+< Erreur : Le premier argument n'est pas reconnu.
+---
+> Allumettes restantes : 12
+> Ordinateur prend 3 allumettes.
+4,7c7,8
+< Usage :
+< 	java allumettes.Jouer joueur1 joueur2
+< 		joueur est de la forme nom@stratégie
+< 		strategie = naif | rapide | expert | humain | tricheur
+---
+> Allumettes restantes : 9
+> Xavier, combien d'allumettes ? Xavier prend 3 allumettes.
+9,10c10,11
+< 	Exemple :
+< 		java allumettes.Jouer Xavier@humain Ordinateur@naif
+---
+> Allumettes restantes : 6
+> Ordinateur prend 1 allumette.
+11a13,21
+> Allumettes restantes : 5
+> Xavier, combien d'allumettes ? [Une allumette en moins, plus que 4. Chut !]
+> Xavier, combien d'allumettes ? Xavier prend 3 allumettes.
+> 
+> Allumettes restantes : 1
+> Ordinateur prend 1 allumette.
+> 
+> Ordinateur perd !
+> Xavier gagne !

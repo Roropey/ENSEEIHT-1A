@@ -1,0 +1,121 @@
+package Affichage;
+
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.event.*;
+import javax.swing.text.JTextComponent;
+
+import Utile.ValeurInterditeException;
+import Environement.Desert;
+import Environement.Environnement;
+import Environement.Foret;
+import Environement.Marecage;
+import Environement.Mer;
+import Environement.Prairie;
+import Espece.Espece;
+import Espece.Loup;
+import Simulation.Simulation;
+import Utile.Position;
+
+import java.util.List;
+
+
+import java.awt.event.*;
+import java.util.*;
+import java.util.concurrent.Flow;
+import java.util.concurrent.TimeUnit;
+
+public class SimulationSwing {
+    private JFrame fenetre = new JFrame();
+    public SimulationSwing(MapObervable mapEspece){
+        Map<String, Espece> espPerso = new HashMap<>();
+        VueEspeceFenetre vueEspeceFenetre = new VueEspeceFenetre(mapEspece, espPerso);
+        Map<String,Environnement> envPerso = new HashMap<>();
+       
+        this.fenetre = new JFrame("Simulateur d'evolution");
+
+		// Construire le contrôleur (gestion des événements)
+		this.fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JPanel panel = new JPanel();
+        
+
+        fenetre.setContentPane(panel);
+        //Creation du Panel Simulation     
+        try {
+            //Creatio, du panel Choix
+            Choix choix = new Choix(mapEspece, espPerso, fenetre);
+            choix.choixEspece.add(vueEspeceFenetre.getPanel());
+            JButton Lancer = new JButton("Lancer");
+            Lancer.addActionListener(new ActionListener() {
+                 
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if(choix.listeEnvironnement.getSelectedValue() != null){
+                        System.out.println(espPerso.toString());
+                        Environnement env = findEnvironnement(choix.listeEnvironnement.getSelectedValue());
+                        Simulation simu = new Simulation(env);
+                        ajouterSimu aSimu = new ajouterSimu(simu,mapEspece,espPerso);
+                        Evolution evolution = new Evolution(mapEspece, simu, espPerso);
+                        panel.add(evolution.panelSimu);
+                        evolution.panelSimu.setVisible(true);
+                        choix.choixPanel.setVisible(false);
+                        
+                        
+                        fenetre.pack();
+                    }
+
+
+                }
+
+                private Environnement findEnvironnement(String selectedValue) {
+                    switch(selectedValue){
+                        case "Mer" :
+                            return new Mer(700, 700);
+                        case "Marecage": 
+                            return new Marecage(700, 700);
+                        case "Forêt" :
+                            return new Foret(700, 700);
+                        case "Desert" :
+                            return new Desert(700, 700);
+                        case "Prairie" :
+                        default :
+                            return new Prairie(700, 700);
+                    }
+                }
+                
+            });
+            
+           
+            choix.choixPanel.add(Lancer,BorderLayout.SOUTH);
+            Lancer.setPreferredSize(new Dimension(100,100));
+            Menu menu = new Menu(choix, fenetre);
+            panel.add(choix.choixPanel);
+            panel.add(menu.panelMenu);
+            choix.choixPanel.setVisible(false);
+        } catch (ValeurInterditeException e) {
+            System.out.println(e.getMessage());
+        }
+        
+
+
+        
+        
+        
+        //Creation du panel Menu
+
+		// afficher la fenêtre
+
+		fenetre.pack();			// redimmensionner la fenêtre
+
+		fenetre.setVisible(true);	// l'afficher
+
+    }
+    public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+                MapObervable mapEspece = new MapObervable();
+				new SimulationSwing(mapEspece);
+			}
+		});
+	}
+}

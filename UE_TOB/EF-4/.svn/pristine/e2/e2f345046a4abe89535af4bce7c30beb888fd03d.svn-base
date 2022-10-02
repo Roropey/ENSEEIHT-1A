@@ -1,0 +1,29 @@
+package Tests;
+
+import org.junit.*;
+import Environement.Desert;
+import Ressources.*;
+
+public class TestDesertJUnit  {
+
+    final protected Desert desertTest;
+
+    @Before
+    public void setUp(){
+        this.desertTest = new Desert(100,100);
+    }
+
+    @Test
+    public void testerCaracteristique(){
+        assertEquals(0,this.desertTest.getCaracteristique());
+    }
+    @Test
+    public void testerApparition(){
+        for (int i=0; i<=100; i++){
+            Ressource ressource = this.desertTest.apparaitre();
+            assertFalse(ressource.getNom().equals("Arbre"));
+            assertFalse(ressource.getNom().equals("Nenuphar"));
+            assertFalse(ressource.getNom().equals("Algue")); 
+        }
+    }
+}

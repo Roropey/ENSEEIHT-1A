@@ -1,0 +1,129 @@
+package Affichage;
+
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.event.*;
+import javax.swing.text.JTextComponent;
+
+import Espece.Espece;
+
+import java.util.List;
+
+
+import java.awt.event.*;
+import java.util.*;
+import java.util.concurrent.Flow;
+
+public class Evolution {
+
+    private static final Map<Integer, ImageIcon> images
+        = new HashMap<Integer, ImageIcon>();
+    static {
+        images.put(0,new ImageIcon(new ImageIcon("Affichage/despeedspeed.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+        images.put(1,new ImageIcon(new ImageIcon("Affichage/despeed.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+        images.put(2,new ImageIcon(new ImageIcon("Affichage/play.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+        images.put(3,new ImageIcon(new ImageIcon("Affichage/speed.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+        images.put(4,new ImageIcon(new ImageIcon("Affichage/speedspeed.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+        images.put(5,new ImageIcon(new ImageIcon("Affichage/despeedspeedbleu.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+        images.put(6,new ImageIcon(new ImageIcon("Affichage/despeedbleu.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+        images.put(7,new ImageIcon(new ImageIcon("Affichage/playbleu.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+        images.put(8,new ImageIcon(new ImageIcon("Affichage/speedbleu.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+        images.put(9,new ImageIcon(new ImageIcon("Affichage/speedspeedbleu.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+    }
+
+    public JLabel[] barButtons = new JLabel[5];
+    public JPanel panelSimu = new JPanel();
+    public Evolution(List<Espece> listeEspeces){
+        
+		panelSimu.setLayout(new GridLayout(1,2));
+        
+        JPanel evolutiontemps = new JPanel();
+        
+        evolutiontemps.setLayout(new BorderLayout());
+            JPanel evolution = new JPanel();
+            JLabel TitreEvolution = new JLabel("Evolution");
+            evolution.add(TitreEvolution);
+            evolution.setBackground(Color.white);
+            evolution.setPreferredSize(new Dimension(500,500));
+            evolutiontemps.add(evolution,BorderLayout.CENTER);
+
+            JPanel temps = new JPanel();
+            evolutiontemps.add(temps,BorderLayout.SOUTH);
+            temps.setBackground(Color.LIGHT_GRAY);
+            temps.setPreferredSize(new Dimension(300,60));
+
+            
+            for(int i = 0; i < barButtons.length; i++){
+                barButtons[i] = new JLabel();
+                barButtons[i].setIcon(images.get(i));
+                barButtons[i].addMouseListener(new Clicklistener(i));
+                temps.add(barButtons[i]);
+                
+            }
+            panelSimu.add(evolutiontemps);
+
+        JPanel parametre = new JPanel();
+        parametre.setBackground(Color.GRAY);
+        JLabel TitreParametre = new JLabel("Parametres");
+        parametre.setLayout(new BorderLayout());
+        parametre.add(TitreParametre,BorderLayout.NORTH);
+            JPanel listeParametre = new JPanel();
+            listeParametre.setLayout(new GridLayout(1,2));
+            JPanel listeEspeceJPanel = new JPanel();
+            listeEspeceJPanel.setLayout(new GridLayout(listeEspeces.size(),1));
+            for (Espece espece : listeEspeces){
+                listeEspeceJPanel.add(new JLabel(espece.getNom()));
+            }
+            
+            listeParametre.add(listeEspeceJPanel);
+            JPanel[] listeEspeceParametre = new JPanel[listeEspeces.size()];
+            
+            for (Espece espece : listeEspeces){
+                listeEspeceParametre[listeEspeces.indexOf(espece)] = new JPanel();
+                listeEspeceParametre[listeEspeces.indexOf(espece)].add(new JLabel(espece.estMarin() ? "Marin : oui" : "Marin : non"));
+                listeParametre.add(listeEspeceParametre[listeEspeces.indexOf(espece)]);
+            }
+            
+        parametre.add(listeParametre);  
+
+        panelSimu.add(parametre);
+    }
+
+    private class Clicklistener implements MouseListener
+    {
+        private int i;
+        public Clicklistener(int i){
+           this.i=i;
+        }
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            barButtons[i].setIcon(images.get(i+5));
+            for (int j = 0; j < 5; j++){
+                if (j != i) {
+                    barButtons[j].setIcon(images.get(j));
+                }
+            }
+            
+        }
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+        @Override
+        public void mouseExited(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+        @Override
+        public void mousePressed(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+    }
+}

@@ -1,0 +1,35 @@
+package Tests;
+
+import org.junit.*;
+import Environement.Prairie;
+import Ressources.*;
+import java.utile.*;
+
+public class TestPrairieJUnit  {
+
+    protected Prairie desertTest;
+
+    @Before
+    public void setUp(){
+        this.prairieTest = new Prairie(100,100);
+    }
+
+    @Test
+    public void testerCaracteristique(){
+        int[] caracteristiques = prairieTest.getCaracteristique();
+        assertEquals(caracteristiques[0],25);
+        assertEquals(caracteristiques[1],25);
+    }
+    @Test
+    public void testerApparition(){
+        for (int i=0; i<=100; i++){
+            List<Ressource> ressources = this.prairieTest.apparaitre();
+            assertGreater(25>=ressources.size());
+            while (!(ressources.isEmpty())){
+                Ressource ressource = ressources.remove(ressources.size()-1);
+                assertFalse(ressource.getNom().equals("Nénuphar"));
+                assertFalse(ressource.getNom().equals("Algue"));
+            }
+        }
+    }
+}

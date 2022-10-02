@@ -1,0 +1,70 @@
+package Ressources;
+
+import java.util.Random;
+import Utile.*;
+
+public class Ressource implements Comestible{
+
+    protected Position position;
+    protected String nom;
+    protected int valeurNutritive;
+    protected boolean existe;
+    protected Categorie categorie_alimentaire; 
+    private final Random alea = new Random();
+
+    public Ressource(double x, double y, String nom, int nutrition, Categorie categorie){
+        if ((x<0) | (y<0)){
+            throw new ValeurInterditeException("Position de la ressource strictement négative.\n");
+        } else {
+            this.position = new Position(x,y);
+            this.nom = nom;
+            this.valeurNutritive = nutrition;
+            this.categorie_alimentaire = categorie;
+            this.existe = true;
+        } 
+    }
+
+    public Ressource(double min_x, double max_x, double min_y, double max_y, String nom, int nutrition, Categorie categorie){
+        if ((max_x < min_x) | (max_y < min_y)){
+            throw new ValeurInterditeException("Les minimums ne peuvent pas être inférieurs aux maximums.\n");
+        } else if ((min_x < 0) | (max_x < 0) | (min_y < 0 ) | (max_y < 0)) {
+            throw new ValeurInterditeException("Les minimums et maximums ne peuvent être strictement négatifs.\n");
+        } else {
+            double x = min_x + alea.nextDouble()*(max_x-min_x);
+            double y = min_y + alea.nextDouble()*(max_y-min_y);
+            //this(x,y,nom,nutrition);
+            this.position = new Position(x,y);
+            this.nom = nom;
+            this.valeurNutritive = nutrition;
+            this.categorie_alimentaire = categorie;
+            this.existe = true;
+        } 
+    }
+
+    public String getNom(){
+        return this.nom;
+    }
+
+    public Position getPosition() {
+        return new Position(this.position.getX(), this.position.getY());
+    }
+
+    public int getValeurNutritive(){
+        return this.valeurNutritive;
+    }
+
+    public Categorie getCategorie(){
+        return this.categorie_alimentaire;
+    }
+
+    public boolean estMangee(){
+        boolean estVivant = this.existe;
+        this.existe = false;
+        return estVivant;
+    }
+
+    public void meurt(){
+        this.existe = false;
+    }
+}
+

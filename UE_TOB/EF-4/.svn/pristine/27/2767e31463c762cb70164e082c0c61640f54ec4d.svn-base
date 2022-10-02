@@ -1,0 +1,19 @@
+package Environement;
+
+
+public class Mer extends Environnement {
+    
+    /** Constructeur d'une mer
+     * @param x taille absicisse de la mer (>=0)
+     * @param y taille ordonnée de la mer (>=0)
+     */
+    public Mer(int x, int y){
+       super(x,y,"Mer",100,3,0);
+       for (int i = 0; i<=x; i++){
+           for (int j = 0; j<=y; j++){
+               this.altitudes[i][j] = -3;
+           }
+       }
+    }
+
+}

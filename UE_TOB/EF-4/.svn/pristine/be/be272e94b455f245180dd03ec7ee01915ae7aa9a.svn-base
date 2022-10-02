@@ -1,0 +1,71 @@
+package Environement;
+
+import Utile.*;
+import Ressources.*;
+import static java.lang.Math.*;
+import java.util.Random;
+
+public class Environnement {
+
+
+    protected int taille_x;
+    protected int taille_y;
+    protected String nom;
+    private int tauxHumidite; //niveau d'eau : 1 mer, 0 désert
+
+    /*exemple de composition : 
+     - H = 0 désert
+     - H = 25 prairie
+     - H = 50 forêt
+     - H = 75 marécage
+     - H = 100 mer
+    */
+
+    public Environnement(int x, int y, String nom, int Hum){
+        if ((x<=0) | (y<=0) | (Hum<0) | (Hum>100)){
+            throw new ValeurInterditeException("Valeurs d'entrée non valide.\nDoit avoir x >= 0, y >= 0 et 0 <= Humidité <= 100.\n");
+        } else {
+            this.taille_x = x;
+            this.taille_y = y;
+            this.nom = nom;
+            this.tauxHumidite = Hum;
+        }
+    }
+
+    // Methodes Generales
+    public int[] getDimensions(){
+        int[] dimensions = {this.taille_x,this.taille_y};
+        return dimensions;
+    }
+
+    public String getNom(){
+        return this.nom;
+    }
+
+    public double getCaracteristique(){
+        return  this.tauxHumidite;
+    }
+
+    public Ressource apparaitre(){
+        
+        double alea_H = ((new Random()).nextInt(50)-25) + (this.tauxHumidite);
+        
+        if (alea_H < 12.5){
+            return new Cactus(0,this.taille_x,0,this.taille_y);
+            //apparition élément propre  désert, par exemple cactus 
+        } else if (alea_H < 37.5){
+            return new Arbustes(0,this.taille_x,0,this.taille_y);
+            //apparition élément propre à la prairie, par exemple arbuste
+        } else if (alea_H <=62.5){
+            return new Arbres(0, this.taille_x,0,this.taille_y);
+            //apparition élément propre à la forêt
+        } else if (alea_H <= 87.5){
+            return new Nenuphar(0,this.taille_x,0,this.taille_y);
+            //apparition élément propre aux marécage, par exemple sable nénuphare
+        } else {
+            return new Algue(0,this.taille_x,0,this.taille_y);
+            //apparition élément propre à la mer, par exemple algue (uniquement mangeable par poisson)
+        }
+    }
+
+}

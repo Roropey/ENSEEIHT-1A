@@ -1,0 +1,12 @@
+package Environement;
+
+public interface Environement {
+    
+    // Methodes Generales
+    int[] getDimensions();
+
+    // Methodes Gestion des ressources
+    // emplacement | quoi ou
+
+
+}

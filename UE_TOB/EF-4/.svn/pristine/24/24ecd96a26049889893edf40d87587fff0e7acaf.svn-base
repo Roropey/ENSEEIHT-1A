@@ -1,0 +1,61 @@
+package Simulation;
+
+import java.util.List;
+
+import Environement.Environement;
+import Ressources.Ressources;
+import Espece.Individu;
+public class Simulation {
+
+    private Environement environement;
+    private List<Individu> individus;
+    private List<Ressources> ressources;
+
+    public Simulation(Environement env) {
+        this.environement = env;
+    }
+
+    public void ajouterIndividu(Individu indiv) {
+        this.individus.add(indiv);
+    }
+
+    public void ajouterRessource(Ressources ress) {
+        this.ressources.add(ress);
+    }
+
+    public void iterer() {
+        for (Individu i : individus) {
+            i.deplacer();
+            i.reduireVie();
+            i.reduireSatiete();
+            if (i.estMort()) {
+                individus.remove(i);
+            }
+        }
+
+        for (Individu i : individus) {
+            for (Individu j : individus) {
+                if (i != j && i.estAPorteeAction(j.getPosition())) {
+                    i.mange(j);
+                    j.mange(i);
+                    i.reproduction(j);
+                    if (i.estMort()) {
+                        individus.remove(i);
+                    } else if (j.estMort()) {
+                        individus.remove(j);
+                    }
+                }
+            }
+
+            for (Ressources r : ressources) {
+                if (i.estAPortee(r.getPosition())) {
+                    i.mange(r);
+                    ressources.remove(r);
+                }
+            }
+        }
+
+        Ressources nouvelleRessources = environement.Apparaitre();
+        ressources.add(nouvelleRessources);
+    }
+}

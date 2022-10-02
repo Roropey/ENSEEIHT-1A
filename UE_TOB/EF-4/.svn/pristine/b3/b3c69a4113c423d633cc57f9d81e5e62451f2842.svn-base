@@ -1,0 +1,66 @@
+package Affichage;
+
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.event.*;
+import javax.swing.text.JTextComponent;
+
+import Environement.Environnement;
+
+import java.util.List;
+
+
+import java.awt.event.*;
+import java.util.*;
+import java.util.concurrent.Flow;
+
+public class Choix{
+    public Environnement environnement;
+    public MapObervable mapNbreEspece;
+
+    public JPanel choixPanel;
+    public boolean choixFini;
+    public JList<String> liste;
+    JTextField nbreEspece;
+    public Choix(MapObervable mapEspece){
+        this.mapNbreEspece = mapEspece;
+        this.choixPanel = new JPanel();
+        this.choixFini =false;
+        choixPanel.setLayout(new GridLayout(3,2));
+        JPanel choixEspece = new JPanel();
+        nbreEspece = new JTextField();
+        nbreEspece.setColumns(25);
+        DefaultListModel<String> model = new DefaultListModel<>();    
+        model.addElement("Aigle");
+        model.addElement("Dauphin");
+        model.addElement("Loup");
+        model.addElement("Mouton");
+        model.addElement("Sardine");
+
+        liste = new JList<>(model);
+        choixEspece.add(nbreEspece);
+        choixEspece.add(liste);
+        JButton Ajouter = new JButton("Ajouter/Modifier");
+        Ajouter.addActionListener(new AjouterClick());
+        choixEspece.add(Ajouter);
+        
+        choixPanel.add(choixEspece);
+        
+
+        
+    }
+    public class AjouterClick implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (liste.getSelectedValue() != null && nbreEspece.getText()!=""){
+                mapNbreEspece.put(liste.getSelectedValue(),Integer.parseInt(nbreEspece.getText()));
+                choixPanel.setVisible(false);
+                choixPanel.setVisible(true);
+            }
+            
+        }
+
+    }
+
+}

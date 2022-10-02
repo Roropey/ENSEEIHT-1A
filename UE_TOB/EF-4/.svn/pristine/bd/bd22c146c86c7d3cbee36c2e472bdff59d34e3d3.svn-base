@@ -1,0 +1,42 @@
+Creer une interface espece
+    Chaque espece la implementations
+        individus : extends de l'espece
+
+
+Lien utile :
+
+Deplacement de groupe : https://www.youtube.com/watch?v=mhjuuHl6qHM
+
+
+
+
+/!\ *********** TODO *********** /!\
+Ressources.java :
+
+
+Simulation.java :
+    - changer l'utilsation de la methode i.reproduction(j) en
+        LISTE_TOUS_INDIVIDUS.addAll(seReproduit(LISTE_INDIVIDUS_DE_MEME_ESPECE)) (je retourne une liste de X individus)
+    - supprimer les ressources qui ont ete mangees de la liste des ressources considerees.
+
+
+    i.reproduction(j)
+
+    Individu.reproduction(i, j);
+
+Espece.java
+    /!\ Ne pas supprimer la liste ci-dessous, c'est utile pour la suite /!\
+    - La liste des attributs a ajouter (ce sont des moyenne que je modifie dans individu apres) (Ce sont des ordres de grandeurs, et on les modifiera a la faim)
+        double ecartTypeEspece,             // l'ecart moyen des attributs des individus à ceux de espece (moyenne)
+        int porteeAction,                   // la portee d'action moyenne de chaque individu (de l'ordre de 3, 4 ou 5 environ)
+        int porteeVision,                   // idem mais pour la vue
+        double vitesse,                     // la vitesse moyenne des individu
+        int vie,                            // la vie moyenne des individu de l'ordre de 100
+        int satiete,                        // la "jauge" de faim des individu (plus elle est pleine, moins ils ont faim) : 100
+        ArrayList<Comestible> comestible,   // la liste des choses que les individus de l'espece peuvent manger (comestible comprend des individu et des ressources)
+        int ferveurSeuil,                   // le seuil a partir du quel il peut se reproduire (mettons 10)
+        int ferveur,                        // leur aptitude a se reproduire au depart (mettons 5)
+        int nbEnfantsMin,                   // le nb d'enfants min que les individus de l'espece peuvent esperer avoir
+        int nbEnfantsMax,                   // le nb d'enfants max ...................................................
+        int valeurNutritive                 // combien les individus redonne de "satiete" (ordre de grandeur 10)
+    - les methodes get pour chacun des attributs ci-dessus

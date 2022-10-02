@@ -1,0 +1,34 @@
+package Tests;
+
+
+import Environement.Prairie;
+import Ressources.*;
+
+public class TestPrairie  {
+
+
+    
+    public static void testerCaracteristique(Prairie prairieTest){
+        assert (prairieTest.getCaracteristique()==25);
+    }
+    
+    public static void testerApparition(Prairie prairieTest){
+        for (int i=0; i<=100; i++){
+            Ressource ressource = prairieTest.apparaitre();
+            assert (!(ressource.getNom().equals("Nenuphar")));
+            assert (!(ressource.getNom().equals("Algue"))); 
+            assert ((ressource.getNom().equals("Arbuste")) || (ressource.getNom().equals("Cactus")) || (ressource.getNom().equals("Arbre")));
+        }
+    }
+
+    public static void main (String[] args){
+         
+        System.out.print("Création environnement de test\n");
+        Prairie prairieTest = new Prairie(100,100);
+        System.out.print("Vérification de la caractéristique d'humidité\n");
+        testerCaracteristique(prairieTest);
+        System.out.print("Test d'apparition de 100 ressources\n");
+        testerApparition(prairieTest);
+        System.out.print("Tous les tests ont réussis\n");
+    }
+}

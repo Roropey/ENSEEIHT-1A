@@ -1,0 +1,20 @@
+
+# Remarques générales ################################################
+
+Tenir compte des remarques générales disponibles via Moodle
+et de l'évaluation automatique disponible sur votre SVN via `svn update`.
+
+Elles ne sont pas reprises ici !
+
+
+# LISEZ-MOI.txt ######################################################
+
+* Question 1 : OK mais une justification serait bienvenue
+
+* Question 2 : OK
+
+
+# Remarques supplémentaires ##########################################
+
+* Néant
+

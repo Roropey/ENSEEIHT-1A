@@ -1,0 +1,74 @@
+File allumettes/Arbitre.java: 66 tokens, 26 lines
+File allumettes/JeuReel.java: 132 tokens, 32 lines
+File allumettes/CoupInvalideException.java: 68 tokens, 39 lines
+File allumettes/Joueur.java: 121 tokens, 36 lines
+File allumettes/OperationInterditeException.java: 21 tokens, 8 lines
+File allumettes/StrategieHumain.java: 29 tokens, 13 lines
+File allumettes/StrategieRapide.java: 42 tokens, 12 lines
+File allumettes/JeuProcuration.java: 57 tokens, 19 lines
+File allumettes/ConfigurationException.java: 21 tokens, 16 lines
+File allumettes/Jouer.java: 409 tokens, 106 lines
+File allumettes/Jeu.java: 23 tokens, 21 lines
+File allumettes/StrategieExpert.java: 108 tokens, 27 lines
+File allumettes/StrategieNaif.java: 57 tokens, 15 lines
+File allumettes/Strategie.java: 19 tokens, 8 lines
+File allumettes/StrategieTricheur.java: 29 tokens, 13 lines
+Total input: 15 files (15 new, 0 old), 1202 tokens
+
+allumettes/Arbitre.java: line 1-11 [33]
+allumettes/Joueur.java: line 1-12
+< package allumettes;
+< 
+< public class Arbitre {
+< 	
+< 	private Joueur j1;
+< 	private Joueur j2;
+< 	
+< 	public Arbitre(Joueur j1, Joueur j2) {
+< 		this.j1 = j1;
+< 		this.j2 = j2;
+< 	}
+---
+> package allumettes;
+> import java.util.Random;
+> 
+> public class Joueur {
+> 	
+> 	private String nom;
+> 	private Strategie strategie;
+> 	
+> 	public Joueur(String nom, Strategie strategie) {
+> 		this.nom = nom;
+> 		this.strategie = strategie;
+> 	}
+
+allumettes/StrategieHumain.java: line 1-13 [29]
+allumettes/StrategieTricheur.java: line 1-13
+< package allumettes;
+< 
+< public class StrategieHumain implements Strategie {
+< 	
+< 	public int getPrise(Jeu jeu) {
+< 		//interface homme-machine ?
+< 		return 1;
+< 	}
+< 	
+< 	public String toString() {
+< 		return "humain";
+< 	}
+< }
+---
+> package allumettes;
+> 
+> public class StrategieTricheur implements Strategie {
+> 	
+> 	public int getPrise(Jeu jeu) {
+> 		//interface homme-machine
+> 		return 1;
+> 	}
+> 	
+> 	public String toString() {
+> 		return "tricheur";
+> 	}
+> }
+

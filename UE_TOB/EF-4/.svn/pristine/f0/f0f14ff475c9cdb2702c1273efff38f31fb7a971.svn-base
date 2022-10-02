@@ -1,0 +1,11 @@
+package Environement;
+
+
+
+public class Foret extends Environnement {
+
+    public Foret(int x, int y){
+       super(x,y,"Forêt",50,60);
+    }
+
+}

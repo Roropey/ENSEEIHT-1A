@@ -1,0 +1,11 @@
+package Ressources;
+
+import Utile.*;
+
+public class Arbres extends Ressource{
+
+    public Arbres(double min_x, double max_x, double min_y, double max_y){
+        super(min_x, max_x, min_y, max_y,"Arbre",10,Categorie.plante);
+    }
+
+}

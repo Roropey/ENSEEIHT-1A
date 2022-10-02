@@ -1,0 +1,73 @@
+package Environement;
+
+import Utile.*
+import Ressources.*;
+import static java.lang.Math.*;
+import java.util.Random;
+
+public class Environnement {
+
+
+    protected int taille_x;
+    protected int taille_y;
+    protected String nom;
+    private double tauxVegetalisation; //taux de vegetalisation : 1 forêt, 0 désert
+    private double tauxHumidite; //niveau d'eau : 1 mer, 0 désert
+
+    //exemple de composition : 
+    //  V = 1 + H = 1 => forêt tropical
+    //  V = 0 + H = 1 => mer
+    //  V = 1 + H = 0 => prairie
+    //  V = 0 + H = 0 => désert sableux 
+    
+    public Environnement(int x, int y, String nom, double Veget, double Hum){
+        if ((x<=0) & (y<=0) & (Veget<0) & (Veget>1) & (Hum<0) & (Hum>1)){
+            throw new ValeurInterditeException("Valeurs d'entrée non valide.\nDoit être")
+        }
+        this.taille_x = x;
+        this.taille_y = y;
+        this.nom = nom;
+        this.tauxVegetalisation = Veget;
+        this.tauxHumidite = Hum;
+    }
+
+    // Methodes Generales
+    public int[] getDimensions(){
+        int[] dimensions = {this.taille_x,this.taille_y};
+        return dimensions;
+    }
+
+    public String getNom(){
+        return this.nom;
+    }
+
+    public double[] getCaracteristique(){
+        double[] taux = {this.tauxVegetalisation,this.tauxHumidite};
+        return taux;
+    }
+
+    public Ressource apparaitre(){
+        
+        double alea_V = ((new Random()).nextInt(100)-50)*(this.tauxVegetalisation-0.5);
+        double alea_H = ((new Random()).nextInt(100)-50)*(this.tauxHumidite-0.5);
+        
+        if (sqrt(alea_H*alea_H+alea_V*alea_V)<=25){
+            return null;
+            //apparition élément propre aux marécage, par exemple sable mouvant (emprisonne espece)
+        } else if ((alea_H <0) & (alea_V >=0)){
+            return new Arbustes(0,this.taille_x,0,this.taille_y);
+            //apparition élément propre à la prairie, par exemple arbuste
+        } else if ((alea_H <=0) & (alea_V <0)){
+            return null;
+            //apparition élément propre  désert, par exemple cailloux (occupe un emplacement)
+
+        } else if ((alea_H >0) & (alea_V <=0)){
+            return null;
+            //apparition élément propre à la mer, par exemple algue (uniquement mangeable par poisson)
+        } else {
+            return new Arbres(0, this.taille_x,0,this.taille_y);
+            //apparition élément propre à la forêt
+        }
+    }
+
+}

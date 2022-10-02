@@ -1,0 +1,158 @@
+package Espece;
+
+import java.util.List;
+import java.awt.Color;
+
+import Environement.Environnement;
+import Utile.Categorie;
+import Utile.Comestible;
+
+public class Sardine implements Espece {
+
+    private String Nom = "Sardine";
+    private int Majorite = 2;
+    private double ecartTypeEspece = 2;
+    private int porteeAction = 1;
+    private int porteeVision = 2;
+    private double vitesse;
+    private int vieMax = 15;
+    private int satieteMax = 100;
+    private List<Comestible> comestible;
+    private int ferveurSeuil;
+    private int nbEnfantsMin = 0;
+    private int nbEnfantsMax = 100;
+    private int valeurNutritive;
+    private boolean estVolant = false;
+    private boolean estMarin = true;
+    private Categorie categorie = Categorie.petitAnimal;
+    private Color couleur = Color.GRAY;
+
+    @Override
+    public String getNom() {
+        return this.Nom;
+    }
+
+    @Override
+    public int getDureeDeVie() {
+        return this.vieMax;
+    }
+
+    @Override
+    public List<Comestible> getComestible() {
+        return this.comestible;
+    }
+
+    @Override
+    public double getTauxReproduction(int Age) {
+        if (Age > this.Majorite) {
+            return 7;
+        } else {
+            return 0;
+        }
+    }
+
+    @Override
+    public double setVitesse(Etat etat) {
+        switch (etat) {
+
+            case Apeure :
+                return 3;
+            
+            case EnChasse :
+                return 3;
+
+            case Blesse :
+                return 1;
+
+            case Normal :
+                return 2;
+
+            default : System.out.print("Erreur Etat");
+            return 0;
+        }
+
+    }
+
+    @Override
+    public double getMortalite(Environnement environement) {
+        //Tu ne peux pas faire ceci 
+        /*switch (environement) {
+            //TODO compléter les différents environnements
+            case Prairie : return 100;
+
+            case
+        }*/
+        return 0;
+    }
+
+    @Override
+    public int getMajorite() {
+        return this.Majorite;
+    }
+
+    @Override
+    public double getEcartTypeEspece() {
+        return this.ecartTypeEspece;
+    }
+
+    @Override
+    public int getPorteeAction() {
+        return this.porteeAction;
+    }
+
+    @Override
+    public int getPorteeVision() {
+        return this.porteeVision;
+    }
+
+    @Override
+    public int getSatieteMax() {
+        return this.satieteMax;
+    }
+
+    @Override
+    public int getFerveurSeuil() {
+        return this.ferveurSeuil;
+    }
+
+    @Override
+    public int getValeurNutritive() {
+        return this.valeurNutritive;
+    }
+
+    @Override
+    public int getNbEnfantsMin() {
+        return this.nbEnfantsMin;
+    }
+
+    @Override
+    public int getNbEnfantsMax() {
+        return this.nbEnfantsMax;
+    }
+
+    @Override
+    public double getVitesse() {
+        return this.vitesse;
+    }
+
+    @Override
+    public boolean getEstVolant() {
+        return this.estVolant;
+    }
+
+    @Override
+    public boolean getEstMarin() {
+        return this.estMarin;
+    }
+
+    @Override
+    public Categorie getCategorie() {
+        return this.categorie;
+    }
+
+    @Override
+    public Color getColor(){
+        return this.couleur;
+    }
+    
+}

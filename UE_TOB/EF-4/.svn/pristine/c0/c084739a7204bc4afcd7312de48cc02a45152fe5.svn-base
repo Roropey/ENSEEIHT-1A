@@ -1,0 +1,84 @@
+package Affichage;
+
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.event.*;
+import javax.swing.text.JTextComponent;
+
+import Environement.Prairie;
+import Espece.Espece;
+import Espece.IndividuTest;
+import Espece.Loup;
+import Espece.Sardine;
+import Simulation.SimulationTest;
+import Utile.Position;
+
+import java.util.List;
+
+
+import java.awt.event.*;
+import java.util.*;
+import java.util.concurrent.Flow;
+
+public class SimulationSwing {
+    private JFrame fenetre = new JFrame();
+    public SimulationSwing(){
+
+        this.fenetre = new JFrame("Simulateur d'evolution");
+        Dimension tailleEcran = Toolkit.getDefaultToolkit().getScreenSize();
+        int height = tailleEcran.height;
+        int width = tailleEcran.width;
+		this.fenetre.setSize(width/2, height/2);
+
+		// Construire le contrôleur (gestion des événements)
+		this.fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JPanel panel = new JPanel();
+        
+
+        fenetre.setContentPane(panel);
+        //Creation du Panel Simulation
+        List<Espece> listeEspeces = new ArrayList<>();
+
+        Loup loup = new Loup();
+        Sardine sardine = new Sardine();
+        
+        MapObervable mapEspece = new MapObervable();
+
+        Evolution evolution = new Evolution(mapEspece);
+        
+        //Creatio, du panel Choix
+        Choix choix = new Choix(evolution, fenetre);
+        
+        SimulationTest simu = new SimulationTest(new Prairie(400, 400));
+        IndividuTest indivtest = new IndividuTest(2, loup, 2, 2, new Position(2, 2), 2, 100, 100, 10, 10, 1, 6, 15);
+        simu.ajouterIndividu(indivtest);
+        simu.ajouterIndividu(indivtest);
+
+        for (String test : choix.mapNbreEspece.keySet()){
+            System.out.println(test);
+        }
+        
+        simu.ajouterIndividu(indivtest);
+        
+        //Creation du panel Menu
+        Menu menu = new Menu(choix, fenetre);
+        panel.add(choix.choixPanel);
+        panel.add(menu.panelMenu);
+        panel.add(evolution.panelSimu);
+        evolution.panelSimu.setVisible(false);
+        choix.choixPanel.setVisible(false);
+		// afficher la fenêtre
+        fenetre.setLocationRelativeTo(null);
+		fenetre.pack();			// redimmensionner la fenêtre
+
+		fenetre.setVisible(true);	// l'afficher
+
+    }
+    public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				new SimulationSwing();
+			}
+		});
+	}
+}

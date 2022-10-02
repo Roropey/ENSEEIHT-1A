@@ -1,0 +1,11 @@
+package Environement;
+
+
+
+public class Marecage extends Environnement {
+
+    public Marecage(int x, int y){
+       super(x,y,"Marécage",75,20,0);
+    }
+
+}

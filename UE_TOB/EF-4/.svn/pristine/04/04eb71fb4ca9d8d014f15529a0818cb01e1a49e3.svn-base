@@ -1,0 +1,43 @@
+package Ressources;
+
+import java.util.Random;
+import Utile.Position;
+
+public abstract class Ressource {
+    private Position position;
+    private int valeurNutritive;
+    private boolean existe; 
+    private final Random alea = new Random();
+
+    public Ressource(double x, double y, int nutrition){
+        this.position = new Position(x,y);
+        this.valeurNutritive = nutrition;
+        this.existe = true; 
+    }
+
+    public Ressource(double min_x, double max_x, double min_y, double max_y, int nutrition){
+        double x = min_x + alea.nextDouble()*(max_x-min_x);
+        double y = min_y + alea.nextDouble()*(max_y-min_y);
+        this.position = new Position(x,y);
+        this.valeurNutritive = nutrition;
+        this.existe = true; 
+    }
+
+    abstract public void interagir(); //définir intéraction avec individu (modifier les in et void)
+
+    public double[] getPosition() {
+        double[] position = {this.position.getX(), this.position.getY()};
+        return position;
+    }
+
+    public int getValeurNutritive(){
+        return this.valeurNutritive;
+    }
+
+    public boolean estMangee(){
+        boolean estVivant = this.existe;
+        this.existe = false;
+        return estVivant;
+    }
+}
+

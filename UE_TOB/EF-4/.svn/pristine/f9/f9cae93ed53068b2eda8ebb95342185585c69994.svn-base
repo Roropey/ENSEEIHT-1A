@@ -1,0 +1,33 @@
+package Tests;
+
+
+import Environement.Desert;
+import Ressources.*;
+
+public class TestDesert {
+   
+    public static void testerCaracteristique(Desert desertTest){
+        assert (desertTest.getCaracteristique()==0);
+    }
+    
+    public static void testerApparition(Desert desertTest){
+        for (int i=0; i<=100; i++){
+            Ressource ressource = desertTest.apparaitre();
+            assert (!(ressource.getNom().equals("Arbre")));
+            assert (!(ressource.getNom().equals("Nénuphar")));
+            assert (!(ressource.getNom().equals("Algue"))); 
+            assert ((ressource.getNom().equals("Cactus")) || (ressource.getNom().equals("Arbuste")));
+        }
+    }
+
+    public static void main (String[] args){
+         
+        System.out.print("Création environnement de test\n");
+        Desert desertTest = new Desert(100,100);
+        System.out.print("Vérification de la caractéristique d'humidité\n");
+        testerCaracteristique(desertTest);
+        System.out.print("Test d'apparition de 100 ressources\n");
+        testerApparition(desertTest);
+        System.out.print("Tous les tests ont réussis\n");
+    }
+}

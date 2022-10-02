@@ -1,0 +1,213 @@
+package Affichage;
+
+import javax.sound.sampled.Line;
+import javax.swing.*;
+import javax.swing.border.Border;
+
+import java.awt.*;
+import javax.swing.event.*;
+import javax.swing.text.JTextComponent;
+
+import Espece.Espece;
+import Espece.Loup;
+import Espece.Aigle;
+import Espece.Dauphin;
+import Espece.Mouton;
+import Espece.Sardine;
+
+import java.util.List;
+
+
+import java.awt.event.*;
+import java.util.*;
+import java.util.concurrent.Flow;
+
+public class Evolution{
+
+    private static final Map<Integer, ImageIcon> images
+        = new HashMap<Integer, ImageIcon>();
+    static {
+        images.put(0,new ImageIcon(new ImageIcon("Affichage/despeedspeed.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+        images.put(1,new ImageIcon(new ImageIcon("Affichage/despeed.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+        images.put(2,new ImageIcon(new ImageIcon("Affichage/play.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+        images.put(3,new ImageIcon(new ImageIcon("Affichage/speed.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+        images.put(4,new ImageIcon(new ImageIcon("Affichage/speedspeed.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+        images.put(5,new ImageIcon(new ImageIcon("Affichage/despeedspeedbleu.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+        images.put(6,new ImageIcon(new ImageIcon("Affichage/despeedbleu.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+        images.put(7,new ImageIcon(new ImageIcon("Affichage/playbleu.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+        images.put(8,new ImageIcon(new ImageIcon("Affichage/speedbleu.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+        images.put(9,new ImageIcon(new ImageIcon("Affichage/speedspeedbleu.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+    }
+
+    public JLabel[] barButtons = new JLabel[5];
+    public JPanel panelSimu = new JPanel();
+    public MapObervable mapEspeces;
+    JPanel[] listeEspeceParametre;
+    JLabel[] nomEspece;
+    JPanel listeIntermediare;
+    JPanel listeEspeceJPanel;
+    public JPanel evolution;
+    public Border Line = BorderFactory.createLineBorder(Color.black,2);
+    
+    public Evolution(MapObervable mapEspeces){
+        this.mapEspeces = mapEspeces;
+        this.listeEspeceParametre = new JPanel[mapEspeces.size()];
+        this.nomEspece = new JLabel[mapEspeces.size()];
+
+		panelSimu.setLayout(new GridLayout(1,2));
+        
+        JPanel evolutiontemps = new JPanel();
+        
+        evolutiontemps.setLayout(new BorderLayout());
+            evolution = new JPanel();
+            JLabel TitreEvolution = new JLabel("Evolution");
+            evolution.add(TitreEvolution);
+            evolution.setBackground(Color.white);
+            evolution.setPreferredSize(new Dimension(500,500));
+            evolutiontemps.add(evolution,BorderLayout.CENTER);
+
+            JPanel temps = new JPanel();
+            evolutiontemps.add(temps,BorderLayout.SOUTH);
+            temps.setBackground(Color.LIGHT_GRAY);
+            temps.setPreferredSize(new Dimension(300,60));
+
+            
+            for(int i = 0; i < barButtons.length; i++){
+                barButtons[i] = new JLabel();
+                barButtons[i].setIcon(images.get(i));
+                barButtons[i].addMouseListener(new Clicklistener(i));
+                temps.add(barButtons[i]);
+                
+            }
+            panelSimu.add(evolutiontemps);
+
+        JPanel parametre = new JPanel();
+        parametre.setBackground(Color.GRAY);
+        JLabel TitreParametre = new JLabel("Parametres");
+        parametre.setLayout(new BorderLayout());
+        parametre.add(TitreParametre,BorderLayout.NORTH);
+            JPanel listeParametre = new JPanel();
+            listeParametre.setLayout(new GridLayout(1,2));
+            listeEspeceJPanel = new JPanel();
+            listeEspeceJPanel.setLayout(new GridLayout(mapEspeces.size(),1));
+            mapEspeces.addObserver(new VueEspece(listeEspeceJPanel));
+            listeIntermediare = new JPanel();
+            listeIntermediare.setLayout(new GridLayout(mapEspeces.size(),1));
+            mapEspeces.addObserver(new vueParametres(listeIntermediare));
+
+            listeParametre.add(listeEspeceJPanel);
+            listeParametre.add(listeIntermediare);
+        parametre.add(listeParametre);  
+
+        panelSimu.add(parametre);
+    }
+
+
+    public class vueParametres implements Observer {
+        private JPanel EspeceJpanel;
+        public vueParametres(JPanel EspeceJpanel){
+            this.EspeceJpanel = EspeceJpanel;
+        }
+        @Override
+        public void update(Observable arg0, Object arg1) {
+            String mapstring = arg1.toString().substring(1,arg1.toString().length()-1);
+            String[] liste = mapstring.split(",");
+            EspeceJpanel.removeAll();
+            for (String especenbre : liste){
+                String nom = especenbre.split("=")[0];
+                Espece espece = findEspece(nom);
+                EspeceJpanel.add(new JLabel("Duree de vie :" + espece.getDureeDeVie()));
+                EspeceJpanel.add(new JLabel("Taux de reproduction :" + espece.getTauxReproduction(18)));
+            }
+        }
+        private Espece findEspece(String str){
+            switch (str){
+                case "Mouton" : 
+                    return new Mouton();
+                case "Loup" : 
+                default : return new Loup();
+            }
+        };
+    }
+
+    private class Clicklistener implements MouseListener
+    {
+        private int i;
+        public Clicklistener(int i){
+           this.i=i;
+        }
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            barButtons[i].setIcon(images.get(i+5));
+            for (int j = 0; j < 5; j++){
+                if (j != i) {
+                    barButtons[j].setIcon(images.get(j));
+                }
+            }
+            
+        }
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+        @Override
+        public void mouseExited(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+        @Override
+        public void mousePressed(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+    }
+    private class ClickEspece implements MouseListener {
+        private int i;
+        public ClickEspece(int i){
+            this.i = i;
+        }
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            listeEspeceParametre[i].setVisible(true);
+            nomEspece[i].setForeground(Color.GRAY);
+            for (int j = 0; j < mapEspeces.size(); j++){
+                if (j != i){
+                    listeEspeceParametre[j].setVisible(false);
+                    nomEspece[j].setForeground(Color.BLACK);
+                }
+            }
+            
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            // TODO Auto-generated method stub
+            
+        }
+
+    }
+}

@@ -1,0 +1,14 @@
+package Ressources;
+
+import Utile.*;
+
+public class Algue extends Ressource{
+
+    public Algue(int min_x, int max_x, int min_y, int max_y){
+        super(min_x, max_x, min_y, max_y,"Algue",5,Categorie.plante);
+    }
+    
+    public Algue(int x, int y){
+        super(x, y,"Algue",5,Categorie.plante);
+    }
+}

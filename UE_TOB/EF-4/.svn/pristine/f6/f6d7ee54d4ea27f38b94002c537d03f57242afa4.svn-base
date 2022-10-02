@@ -1,0 +1,11 @@
+package Environement;
+
+
+
+public class Prairie extends Environnement{
+
+    public Prairie(int x, int y){
+       super(x,y,1,0);
+    }
+
+}

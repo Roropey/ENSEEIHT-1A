@@ -1,0 +1,41 @@
+package Tests;
+
+
+import Environement.Prairie;
+import Ressources.*;
+import java.util.*;
+import Utile.*;
+public class TestPrairie  {
+   
+    public static void testerCaracteristique(Prairie prairieTest){
+        int[] caracteristiques = prairieTest.getCaracteristique();
+        Assert.assertEquals(caracteristiques[0],25,"Problème humidité");
+        Assert.assertEquals(caracteristiques[1],25,"Problème fertilité");
+    }
+    
+    public static void testerApparition(Prairie prairieTest){
+        List<String> listePossible = List.of("Arbuste","Cactus","Arbre");
+        for (int i=0; i<=100; i++){
+            List<Ressource> ressources = prairieTest.apparaitre();
+            Assert.assertGreater(25,ressources.size(),"Problème taille liste ressource");
+            while (!(ressources.isEmpty())){
+                Ressource ressource = ressources.remove(ressources.size()-1);
+                Assert.assertDifferent(ressource.getNom(),"Nénuphar","Problème ressource nénuphar");
+                Assert.assertDifferent(ressource.getNom(),"Algue","Problème ressource algue"); 
+                Assert.assertContains(listePossible,ressource.getNom(), "Problème pas ressource possible : "+ressource.getNom());
+            }
+        }
+
+    }
+
+    public static void main (String[] args){
+         
+        System.out.print("Création prairie de test\n");
+        Prairie prairieTest = new Prairie(100,100);
+        System.out.print("Vérification de la caractéristique d'humidité\n");
+        testerCaracteristique(prairieTest);
+        System.out.print("Test d'apparition de 100 apparaitre\n");
+        testerApparition(prairieTest);
+        System.out.print("Tous les tests ont réussis\n");
+    }
+}

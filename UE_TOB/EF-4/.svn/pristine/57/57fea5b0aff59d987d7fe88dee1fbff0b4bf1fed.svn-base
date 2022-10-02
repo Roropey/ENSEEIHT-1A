@@ -1,0 +1,36 @@
+package Tests;
+
+
+import Environement.Mer;
+import Ressources.*;
+import Utile.*;
+import java.util.*;
+
+public class TestMer {
+    
+    public static void testerCaracteristique(Mer merTest){
+        Assert.assertEquals(merTest.getCaracteristique(),100.0,"Problème caractéristique");
+    }
+    
+    public static void testerApparition(Mer merTest){
+        List<String> listePossible = List.of("Algue","Nénuphar");
+        for (int i=0; i<=100; i++){
+            Ressource ressource = merTest.apparaitre();
+            Assert.assertDifferent(ressource.getNom(),"Arbre","Problème ressource arbre");
+            Assert.assertDifferent(ressource.getNom(),"Arbuste","Problème ressource arbuste"); 
+            Assert.assertDifferent(ressource.getNom(),"Cactus","Problème ressource cactus");
+            Assert.assertContains(listePossible,ressource.getNom(), "Problème pas ressource possible : "+ressource.getNom());
+        }
+    }
+
+    public static void main (String[] args){
+         
+        System.out.print("Création mer de test\n");
+        Mer merTest = new Mer(100,100);
+        System.out.print("Vérification de la caractéristique d'humidité\n");
+        testerCaracteristique(merTest);
+        System.out.print("Test d'apparition de 100 ressources\n");
+        testerApparition(merTest);
+        System.out.print("Tous les tests ont réussis\n");
+    }
+}

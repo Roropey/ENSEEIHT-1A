@@ -1,0 +1,47 @@
+package Ressources;
+
+import Utile.*;
+import java.util.*;
+
+public class Arbuste extends Ressource{
+
+    private int nbBaie;
+    private List<Baie> listeBaie;
+
+    public Arbuste(double min_x, double max_x, double min_y, double max_y){
+        super(min_x, max_x, min_y, max_y,"Arbuste",7,Categorie.plante);
+        this.nbBaie = (new Random()).nextInt(6);
+        this.listeBaie = new ArrayList<Baie>();
+        for (int i = 0; i<this.nbBaie; i++){
+            this.listeBaie.add(new Baie(this.position.getX(),this.position.getY()));
+        }
+    }
+
+    public Arbuste(double x, double y){
+        super(x, y, "Arbuste",7,Categorie.plante);
+        this.nbBaie = (new Random()).nextInt(6);
+        this.listeBaie = new ArrayList<Baie>();
+        for (int i = 0; i<this.nbBaie; i++){
+            this.listeBaie.add(new Baie(this.position.getX(),this.position.getY()));
+        }
+    }
+
+     public int getNbBaies(){
+        return this.nbBaie;
+    }
+
+    @Override
+    public boolean estMangee(){
+
+        if (this.nbBaie > 0){
+            Baie baieMangee = listeBaie.remove(this.nbBaie-1);
+            baieMangee.estMangee();
+            this.nbBaie--;
+        } 
+        if (this.nbBaie == 0) {
+            this.existe = false;
+        }
+        return (this.nbBaie > 0);
+    }
+
+}

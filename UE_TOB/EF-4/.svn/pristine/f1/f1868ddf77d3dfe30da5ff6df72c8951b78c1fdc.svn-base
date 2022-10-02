@@ -1,0 +1,78 @@
+package Affichage;
+
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.event.*;
+import java.util.List;
+
+
+import java.awt.event.*;
+import java.util.*;
+import java.util.concurrent.Flow;
+
+public class SimulationSwing {
+
+    private static final Map<Integer, ImageIcon> images
+		= new HashMap<Integer, ImageIcon>();
+    static {
+		images.put(0,new ImageIcon(new ImageIcon("Affichage/play.png").getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		images.put(1,new ImageIcon(new ImageIcon("Affichage/play.png").getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+		images.put(2,new ImageIcon(new ImageIcon("Affichage/play.png").getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+        images.put(3,new ImageIcon(new ImageIcon("Affichage/play.png").getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+        images.put(4,new ImageIcon(new ImageIcon("Affichage/play.png").getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
+	}
+
+    private JFrame fenetre;
+
+    JLabel[] barButtons = new JLabel[5];
+    public SimulationSwing(){
+
+        this.fenetre = new JFrame("EVOLUMAX");
+		this.fenetre.setLocation(100, 200);
+
+		// Construire le contrôleur (gestion des événements)
+		this.fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JPanel panel = new JPanel();
+        fenetre.setContentPane(panel);
+		panel.setLayout(new GridLayout(1,2));
+        
+
+        JPanel evolutiontemps = new JPanel();
+        evolutiontemps.setLayout(new BorderLayout());
+            JPanel evolution = new JPanel();
+            evolution.setBackground(Color.white);
+            evolution.setPreferredSize(new Dimension(600,400));
+            evolutiontemps.add(evolution,BorderLayout.CENTER);
+
+            JPanel temps = new JPanel();
+            evolutiontemps.add(temps,BorderLayout.SOUTH);
+            temps.setBackground(Color.LIGHT_GRAY);
+            temps.setPreferredSize(new Dimension(600,120));
+
+            
+            for(int i = 0; i < barButtons.length; i++){
+                barButtons[i] = new JLabel();
+                barButtons[i].setIcon(images.get(i));
+                temps.add(barButtons[i]);
+                
+            }
+            
+        panel.add(evolutiontemps);
+
+        JPanel parametre = new JPanel();
+        parametre.setBackground(Color.GRAY);
+        panel.add(parametre);
+		// afficher la fenêtre
+		this.fenetre.pack();			// redimmensionner la fenêtre
+		this.fenetre.setVisible(true);	// l'afficher
+
+    }
+    public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				new SimulationSwing();
+			}
+		});
+	}
+}

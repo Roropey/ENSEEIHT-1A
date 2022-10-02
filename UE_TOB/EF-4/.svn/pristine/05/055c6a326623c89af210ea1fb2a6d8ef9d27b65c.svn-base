@@ -1,0 +1,65 @@
+package Espece;
+
+import java.util.List;
+
+import Environement.Environement;
+
+public class Mouton implements Espece {
+
+    private String Nom = "Mouton";
+    private int Majorite = 1;
+
+    @Override
+    public String getNom() {
+        return this.Nom;
+    }
+
+    @Override
+    public int getDureeDeVie() {
+        return 11;
+    }
+
+    @Override
+    public List<String> getNourriture() {
+        return null;
+    }
+
+    @Override
+    public double getTauxReproduction(int Age) {
+        if (Age > this.Majorite) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    @Override
+    public double getVitesse(Etat etat) {
+        switch (etat) {
+            case Apeure : return 2;
+
+            case Blesse : return 0;
+
+            default : return 1;
+        }
+    }
+
+    @Override
+    public double getMortalite(Environement environement) {
+        switch (environement) {
+            case :
+        }
+        return 0;
+    }
+
+    @Override
+    public boolean estVolant() {
+        return false;
+    }
+
+    @Override
+    public boolean estMarin() {
+        return false;
+    }
+    
+}

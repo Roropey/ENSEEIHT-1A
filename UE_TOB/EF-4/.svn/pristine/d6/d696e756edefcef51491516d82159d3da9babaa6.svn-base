@@ -1,0 +1,36 @@
+package Affichage;
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.event.*;
+import javax.swing.text.JTextComponent;
+
+import java.util.List;
+
+
+import java.awt.event.*;
+import java.util.*;
+import java.util.concurrent.Flow;
+
+public class Menu {
+    JPanel panelMenu = new JPanel();
+    public Menu(Choix choix, JFrame fenetre){
+        JLabel Titre = new JLabel("Simulateur d'evolution");
+        
+        JButton Creer = new JButton("Creer");
+        panelMenu.setLayout(new GridLayout(4,1));
+
+        panelMenu.add(Titre);
+        panelMenu.add(Creer);
+        panelMenu.setPreferredSize(new Dimension(400,400));
+
+        Creer.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                choix.choixPanel.setVisible(true);
+                panelMenu.setVisible(false);
+                fenetre.pack();
+            }
+        });
+    }
+}

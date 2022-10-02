@@ -1,0 +1,15 @@
+package Ressources;
+
+import Utile.*;
+
+public class Baie extends Ressource{
+
+    public Baie(double min_x, double max_x, double min_y, double max_y){
+        super(min_x, max_x, min_y, max_y,"Baie",2,Categorie.fruit);
+    }
+
+    public Baie(double x, double y){
+        super(x, y,"Baie",2,Categorie.fruit);
+    }
+
+}

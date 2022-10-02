@@ -1,0 +1,38 @@
+package Affichage;
+
+import javax.swing.JPanel;
+
+import Environement.Environnement;
+import Environement.PointEau;
+
+import javax.swing.*;
+import java.awt.*;
+public class EvolutionMap extends JPanel{
+    private Environnement env;
+    public EvolutionMap(Environnement env){
+        this.env = env;
+
+    }
+
+
+    public void paint(Graphics g) {
+        super.paint(g);
+        g.setColor(Color.GREEN);
+        g.fillRect(0,0,env.getDimensions()[0],env.getDimensions()[1]);
+        g.setColor(Color.BLUE);
+        for(PointEau pe : env.getPointEau()){
+           
+            boolean[][] tab = pe.getTab();
+            for(int i=0;i<tab.length;i++){
+                for (int j = 0;j<tab[0].length;j++){
+                    if(tab[i][j]){
+                        g.fillRect(pe.getX()+i, pe.getY()+j, 1, 1);
+                    }
+                    
+                }
+            }
+        }
+        
+
+    }
+}

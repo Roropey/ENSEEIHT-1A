@@ -1,0 +1,37 @@
+package Espece;
+
+
+import java.util.List;
+
+import Environement.Environement;
+
+public interface Espece {
+
+    // Methodes simulation
+
+    // Methodes Generales
+    String getNom();
+    int getDureeDeVie();
+
+    //Methodes pour graille en balle là
+    List<String> getNourriture();
+
+    // a voir + tard
+    //Methodes Comportement
+        // vis-à-vis de ses pairs
+        // vis-à-vis des autres
+
+    //Methodes Reproduction
+    double getTauxReproduction(int Age);
+
+
+    //Methodes Deplacement
+    double getVitesse(Etat etat);
+
+    //Taux de mortalité en fonction de l'environnement
+    double getMortalite(Environement environement);
+
+    boolean estVolant();
+
+    boolean estMarin();
+}

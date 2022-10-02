@@ -1,0 +1,23 @@
+import java.util.List;
+
+import Environement.Environement;
+import Ressources.Ressources;
+
+public class Simulation {
+
+    private Environement environement;
+    private List<Individu> individus;
+    private List<Ressources> ressources;
+
+    public Simulation(Environement env) {
+        this.environement = env;
+    }
+
+    public void ajouterIndividu(Individu indiv) {
+        this.individus.add(indiv);
+    }
+
+    public void ajouterRessource(Ressources ress) {
+        this.ressources.add(ress);
+    }
+}

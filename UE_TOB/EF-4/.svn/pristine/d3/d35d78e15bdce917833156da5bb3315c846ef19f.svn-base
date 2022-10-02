@@ -1,0 +1,73 @@
+package Affichage;
+
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.event.*;
+import javax.swing.text.JTextComponent;
+
+import Espece.Espece;
+
+import java.util.List;
+
+
+import java.awt.event.*;
+import java.util.*;
+import java.util.concurrent.Flow;
+
+public class Choix {
+
+    public static final Map<String, Integer> mapNbreEspece
+        = new HashMap<String, Integer>();
+
+    public JPanel choixPanel = new JPanel();
+
+    public Choix(Evolution evolution, JFrame fenetre){
+        choixPanel.setLayout(new GridLayout(2,2));
+        JPanel choixEspece = new JPanel();
+        JTextField nbreEspece = new JTextField();
+        DefaultListModel<String> model = new DefaultListModel<>();
+        model.addElement("Loup");
+        model.addElement("Mouton");
+        JPanel listNbreEspece = new JPanel();
+
+        JList<String> liste = new JList<>(model);
+        choixEspece.add(nbreEspece);
+        choixEspece.add(liste);
+        JButton Ajouter = new JButton("Ajouter");
+        Ajouter.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (liste.getSelectedValue() != null){
+                    mapNbreEspece.put(liste.getSelectedValue(),Integer.parseInt(nbreEspece.getText()));
+                    listNbreEspece.removeAll();
+                    listNbreEspece.add(new JLabel(mapNbreEspece.toString()));
+                }
+
+                    
+                    System.out.println(mapNbreEspece.toString());
+            }
+            
+        });
+        choixEspece.add(Ajouter);
+        
+        choixPanel.add(choixEspece);
+        
+        JButton Lancer = new JButton("Lancer");
+
+        Lancer.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                evolution.panelSimu.setVisible(true);
+                choixPanel.setVisible(false);
+                fenetre.pack();
+            }
+        });
+        choixPanel.add(listNbreEspece);
+        choixPanel.add(Lancer);
+        
+    }
+
+    
+}

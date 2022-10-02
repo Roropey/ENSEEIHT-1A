@@ -1,0 +1,11 @@
+package Environement;
+
+
+
+public class Mer extends Environnement {
+
+    public Mer(int x, int y){
+       super(x,y,"Marécage",0,100);
+    }
+
+}

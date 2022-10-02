@@ -1,0 +1,13 @@
+package allumettes;
+
+public class StrategieTricheur implements Strategie {
+	
+	public int getPrise(Jeu jeu) {
+		//interface homme-machine
+		return 1;
+	}
+	
+	public String toString() {
+		return "tricheur";
+	}
+}

@@ -1,0 +1,28 @@
+package Tests;
+
+
+import Environement.Prairie;
+import Ressources.*;
+
+public class TestPrairieJUnit  {
+
+    final protected Prairie desertTest;
+
+    @Before
+    public void setUp(){
+        this.prairieTest = new Prairie(100,100);
+    }
+
+    @Test
+    public void testerCaracteristique(){
+        assertEquals(this.prairieTest.getCaracteristique()==25);
+    }
+    @Test
+    public void testerApparition(){
+        for (int i=0; i<=100; i++){
+            Ressource ressource = this.prairieTest.apparaitre();
+            assertFalse(!(ressource.getNom().equals("Nenuphar")));
+            assertFalse(!(ressource.getNom().equals("Algue"))); 
+        }
+    }
+}

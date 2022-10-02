@@ -1,0 +1,34 @@
+package Tests;
+
+
+import Environement.Foret;
+import Ressources.*;
+
+public class TestForet  {
+
+
+    
+    public static void testerCaracteristique(Foret foretTest){
+        assert (foretTest.getCaracteristique()==50);
+    }
+    
+    public static void testerApparition(Foret foretTest){
+        for (int i=0; i<=100; i++){
+            Ressource ressource = foretTest.apparaitre();
+            assert (!(ressource.getNom().equals("Cactus")));
+            assert (!(ressource.getNom().equals("Algue"))); 
+            assert ((ressource.getNom().equals("Arbre")) || (ressource.getNom().equals("Arbuste")) || (ressource.getNom().equals("Nénuphar")));
+        }
+    }
+
+    public static void main (String[] args){
+         
+        System.out.print("Création environnement de test\n");
+        Foret foretTest = new Foret(100,100);
+        System.out.print("Vérification de la caractéristique d'humidité\n");
+        testerCaracteristique(foretTest);
+        System.out.print("Test d'apparition de 100 ressources\n");
+        testerApparition(foretTest);
+        System.out.print("Tous les tests ont réussis\n");
+    }
+}

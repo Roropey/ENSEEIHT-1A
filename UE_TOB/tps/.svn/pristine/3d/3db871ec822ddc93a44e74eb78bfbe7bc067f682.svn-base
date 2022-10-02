@@ -1,0 +1,39 @@
+Date de l'évaluation : dim. 06 mars 2022 23:46:13 CET
+
+Nombre de similitudes (voir evaluations/evaluation1/sim_java.txt) : 0
+
+Erreurs checkstyle (différentes/types) : 6/3	(voir evaluations/evaluation1//checkstyle.log)
+
+Classe OperationInterditeException : NON DÉFINIE (ou pas sur SVN)
+
+Procuration sur le jeu réel : Non identifiée
+
+OperationInterditeException : JAMAIS LEVÉE
+OperationInterditeException : JAMAIS RECUPÉRÉE
+
+Throwable, Exception et RuntimeException ne devraient pas être récupérées car trop générales... ok
+
+AssertionError ne doit pas être récupérée... ok
+
+Autres exceptions récupérées :
+  | allumettes/Jouer.java:24:       } catch (ConfigurationException e) {
+
+Utilisation de 'Scanner' : NON
+
+Utilisation de 'split' : ok
+  | allumettes/Jouer.java:67:       String[] argumentsSepare = arguments.split("@");
+
+Utilisation de 'Random' : ok
+  | allumettes/Joueur.java:2:import java.util.Random;
+  | allumettes/Joueur.java:58:      final Random nombre = new Random();
+
+Utilisation de '3' : Ne pas utiliser de constante littérale hors -1, 0 ou 1 (peut-être PRISE_MAX ?)
+  |     allumettes/Joueur.java:75:      case 3 :
+  |     allumettes/Joueur.java:80:          choix = 3;
+
+Affichage de 'Impossible !' : jamais affiché (ERREUR)
+
+Utilisation de 'System.exit' : ok
+
+Compilation de Jouer.java : ERREUR, pas de allumettes/Jouer.class	(voir evaluations/evaluation1/Jouer.java.log)
+J'arrête les tests...

@@ -1,0 +1,59 @@
+Nom       : Peyremorte
+Prénom    : Romain
+Groupe TP : E
+
+Les « ... » indiquent les endroits à compléter.
+
+=====[ Temps passé ]============================================================
+
+Ces informations de temps sont demandées à titre indicatif et ne sont pas
+prises en compte dans la notation du projet.
+
+
+* Temps passé sur la V1 : ... heures ... minutes
+* Temps passé sur la V2 : ... heures ... minutes
+
+Pour la V2 on ne tiendra pas compte du temps passé sur la V1.
+
+
+=====[ Questions ]==============================================================
+
+--------------------------------------------------------------------------------
+Pourquoi l'exception OperationInterditeException ne peut pas être définie
+comme vérifiée par le compilateur ?
+--------------------------------------------------------------------------------
+
+Si l'exception OperationInterditeException est définie comme vérifiée par le compilateur, il faudrait l'implémenter dans le "throws" de la méthode où elle est utilisée. Or cette exception est utilisée dans la méthode "retirer" dans la classe JeuProcuration, cette dernière implémentant le "retirer de Jeu qui n'a que CoupInvalideException comme "throws". Donc pour éviter d'avoir des problèmes de compilation et pour respecter l'interface Jeu dans JeuProcuration, l'exception OperationInterditeException n'est pas définie comme vérifiée par le compilateur, pour ne pas préciser son "throw" dans la méthode où elle est utilisée.
+
+
+--------------------------------------------------------------------------------
+Expliquer ce qu'il faut faire pour ajouter un nouveau niveau de jeu, par
+exemple la stratégie lente (C13).  Pour plus de précision, on numérotera
+les étapes à faire.
+--------------------------------------------------------------------------------
+
+Au début, je pensais implémenter les différentes stratégies comme étant des méthodes différentes dans la classe Joueur. Cependant, cette solution ne permet pas de respecter la condition C13. La solution choisie est donc de définir une classe par stratégie :
+        - la première étape est de créer une interface Strategie pour être sûr que chaque stratégie respectent la même forme ;
+        - la seconde étape est de créer une classe par stratégie où la seule méthode est celle du getPrise(Jeu jeu) qui change dans chaque cas ;
+        - il suffit ensuite dans un troisième temps d'implémenter Joueur avec un attribut de type Strategie, qui réuni toutes les stratégies, celles présentes comme celles à venir ;
+        - cependant, cette méthode nécessite une quatrième étape qui est une modification de Jouer à chaque ajout/suppression de stratégie, car c'est dans cette classe que le jeu fera la liaison entre le texte d'entrée et la classe de stratégie correspondante à associer au joueur.
+
+
+--------------------------------------------------------------------------------
+Expliquer ce qui permet, dans votre conception, de changer dynamiquement
+(en cours d'exécution du programme) la stratégie d'un joueur (C14).
+--------------------------------------------------------------------------------
+
+Dans la classe Joueur, la méthode setStrategie a été implémentée, ce qui permet de modifier la stratégie du joueur de façon dynamique à tout moment dans le programme. Il suffit simplement de mettre en arguments un objet d'une classe respectant l'interface Strategie.
+
+
+=====[ Explications ]===========================================================
+
+--------------------------------------------------------------------------------
+Donner ici les explications supplémentaires utiles à la compréhension du
+travail rendu.
+--------------------------------------------------------------------------------
+
+...
+
+--------------------------------------------------------------------------------

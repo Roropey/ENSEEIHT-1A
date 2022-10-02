@@ -1,0 +1,7 @@
++ C11 : Pas d'utilisation des exceptions pour la robustesse du traitement des arguments de la ligne de commande
+
++ C16 : Tests unitaires de la stratégie rapide
+	+ non présents
+
++ Correction sur les pénalités automatiques : 0
+

@@ -1,0 +1,56 @@
+package Ressources;
+
+import java.util.Random;
+import Utile.*;
+
+public class Ressource {
+
+    protected Position position;
+    protected String nom;
+    protected int valeurNutritive;
+    protected boolean existe; 
+    private final Random alea = new Random();
+
+    public Ressource(double x, double y, String nom, int nutrition){
+        if ((x<0) | (y<0)){
+            throw new ValeurInterditeException("Position de la ressource strictement négative.\n");
+        } else {
+            this.position = new Position(x,y);
+            this.nom = nom;
+            this.valeurNutritive = nutrition;
+            this.existe = true;
+        } 
+    }
+
+    public Ressource(double min_x, double max_x, double min_y, double max_y, String nom, int nutrition){
+        if ((max_x < min_x) | (max_y < min_y)){
+            throw new ValeurInterditeException("Les minimums ne peuvent pas être inférieurs aux maximums.\n");
+        } else if ((min_x < 0) | (max_x < 0) | (min_y < 0 ) | (max_y < 0)) {
+            throw new ValeurInterditeException("Les minimums et maximums ne peuvent être strictement négatifs.\n");
+        } else {
+            double x = min_x + alea.nextDouble()*(max_x-min_x);
+            double y = min_y + alea.nextDouble()*(max_y-min_y);
+            //this(x,y,nom,nutrition);
+            this.position = new Position(x,y);
+            this.nom = nom;
+            this.valeurNutritive = nutrition;
+            this.existe = true;
+        } 
+    }
+
+    public Position getPosition() {
+        Position position = new Position(this.position.getX(), this.position.getY());
+        return position;
+    }
+
+    public int getValeurNutritive(){
+        return this.valeurNutritive;
+    }
+
+    public boolean estMangee(){
+        boolean estVivant = this.existe;
+        this.existe = false;
+        return estVivant;
+    }
+}
+

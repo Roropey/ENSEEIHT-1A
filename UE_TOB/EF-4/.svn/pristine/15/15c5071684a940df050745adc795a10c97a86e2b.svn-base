@@ -1,0 +1,36 @@
+package Affichage;
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.event.*;
+import javax.swing.text.JTextComponent;
+
+import java.util.List;
+
+
+import java.awt.event.*;
+import java.util.*;
+import java.util.concurrent.Flow;
+
+public class Menu {
+    JPanel panelMenu = new JPanel();
+    public Menu(Evolution evolution, JFrame fenetre){
+        JLabel Titre = new JLabel("Simultaeur d'evolution");
+        
+        JButton Lancer = new JButton("Lancer");
+        panelMenu.setLayout(new GridLayout(4,1));
+
+        panelMenu.add(Titre);
+        panelMenu.add(Lancer);
+        panelMenu.setPreferredSize(new Dimension(400,400));
+
+        Lancer.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                evolution.panelSimu.setVisible(true);
+                panelMenu.setVisible(false);
+                fenetre.pack();
+            }
+        });
+    }
+}

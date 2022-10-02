@@ -1,0 +1,76 @@
+package Affichage;
+
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.event.*;
+import javax.swing.text.JTextComponent;
+
+import Environement.Prairie;
+import Espece.Espece;
+import Espece.Individu;
+import Espece.Loup;
+import Espece.Sardine;
+import Simulation.Simulation;
+import Utile.Position;
+
+import java.util.List;
+
+
+import java.awt.event.*;
+import java.util.*;
+import java.util.concurrent.Flow;
+
+public class SimulationSwing {
+    private JFrame fenetre = new JFrame();
+    public SimulationSwing(){
+
+        this.fenetre = new JFrame("Simulateur d'evolution");
+        Dimension tailleEcran = Toolkit.getDefaultToolkit().getScreenSize();
+        int height = tailleEcran.height;
+        int width = tailleEcran.width;
+		this.fenetre.setSize(width/2, height/2);
+
+		// Construire le contrôleur (gestion des événements)
+		this.fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JPanel panel = new JPanel();
+        
+
+        fenetre.setContentPane(panel);
+        //Creation du Panel Simulation
+        List<Espece> listeEspeces = new ArrayList<>();
+        Loup loup = new Loup();
+        Sardine sardine = new Sardine();
+        listeEspeces.add(loup);
+        listeEspeces.add(sardine);
+        
+
+        Evolution evolution = new Evolution(listeEspeces);
+        
+        //Creatio, du panel Choix
+        Choix choix = new Choix(evolution, fenetre);
+        Simulation simu = new Simulation(choix.environnement);
+        Individu indiv = new Individu(loup, true, new Position(2, 2), 2);
+       
+        evolution.evolution.add(new JLabel(indiv.getEspece().getNom()));
+        //Creation du panel Menu
+        Menu menu = new Menu(choix, fenetre);
+        panel.add(choix.choixPanel);
+        panel.add(menu.panelMenu);
+        panel.add(evolution.panelSimu);
+        evolution.panelSimu.setVisible(false);
+        choix.choixPanel.setVisible(false);
+		// afficher la fenêtre
+        fenetre.setLocationRelativeTo(null);
+		fenetre.pack();			// redimmensionner la fenêtre
+
+		fenetre.setVisible(true);	// l'afficher
+
+    }
+    public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				new SimulationSwing();
+			}
+		});
+	}
+}

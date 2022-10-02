@@ -1,0 +1,129 @@
+package Tests;
+
+import Ressources.Ressource;
+import Utile.*;
+
+public class TestRessource {
+
+    public static void testerPosition(Ressource ressourceTestConnu, Ressource ressourceTestAleatoire){
+        Position positionConnue = ressourceTestConnu.getPosition();
+        Position positionAleatoire = ressourceTestAleatoire.getPosition();
+        Assert.assertEquals(positionConnue.getX(),5,"Problème Connu X");
+        Assert.assertEquals(positionConnue.getY(),6,"Problème Connu Y");
+        Assert.assertGreater(positionAleatoire.getX(),10,"Problème Aléatoire X borne inf");
+        Assert.assertGreater(50,positionAleatoire.getX(),"Problème Aléatoire X borne sup");
+        Assert.assertGreater(positionAleatoire.getY(),20,"Problème Aléatoire Y borne inf");
+        Assert.assertGreater(30,positionAleatoire.getY(),"Problème Aléatoire Y borne sup");
+    }
+
+    public static void testerNutrition(Ressource ressourceTestConnu, Ressource ressourceTestAleatoire){
+        Assert.assertEquals(ressourceTestConnu.getValeurNutritive(),10,"Problème Connu valeur nutritive");
+        Assert.assertEquals(ressourceTestAleatoire.getValeurNutritive(),5,"Problème Aléatoire valeur nutritive");
+    }
+
+    public static void testerNom(Ressource ressourceTestConnu, Ressource ressourceTestAleatoire){
+        Assert.assertEquals(ressourceTestConnu.getNom(),"test connu","Problème Connue nom");
+        Assert.assertEquals(ressourceTestAleatoire.getNom(),"test aléatoire","Problème Aléatoire nom");
+    }
+
+    public static void testerCategorie(Ressource ressourceTestConnu, Ressource ressourceTestAleatoire){
+        Assert.assertEquals(ressourceTestConnu.getCategorie(),Categorie.plante,"Problème Connue catégorie");
+        Assert.assertEquals(ressourceTestAleatoire.getCategorie(),Categorie.fruit,"Problème Aléatoire catégorie");
+    }
+
+    public static void testerExisteMangee(Ressource ressourceTestConnu){
+        Assert.assertTrue(ressourceTestConnu.getExiste());
+        Assert.assertTrue(ressourceTestConnu.estMangee());
+        Assert.assertFalse(ressourceTestConnu.getExiste());
+        Assert.assertFalse(ressourceTestConnu.estMangee());
+    }
+
+    public static void testerExisteMeurt(Ressource ressourceTestAleatoire){
+        Assert.assertTrue(ressourceTestAleatoire.getExiste());
+        ressourceTestAleatoire.meurt();
+        Assert.assertFalse(ressourceTestAleatoire.getExiste());
+    }
+
+    public static void testRobustesseX(){
+        try {
+            Ressource impossibleX = new Ressource(-1,6,"Problème X", 10, Categorie.plante);
+            throw new Echec("Ressource à dimension négative créé !");
+        } catch(ValeurInterditeException e) {
+            ;;
+        }        
+    }
+
+    public static void testRobustesseY(){
+        try {
+            Ressource impossibleY = new Ressource(1,-6,"Problème Y", 10, Categorie.plante);
+            throw new Echec("Ressource à dimension négative créé !");
+        } catch(ValeurInterditeException e) {
+            ;;
+        }        
+    }
+
+    public static void testRobustesseMinX(){
+        try {
+            Ressource impossibleMinX = new Ressource(-5,50,20,30,"Problème min X", 5, Categorie.fruit);
+            throw new Echec("Ressource à potentiel dimension négative créé !");
+        } catch(ValeurInterditeException e) {
+            ;;
+        }        
+    }
+
+    public static void testRobustesseMinY(){
+        try {
+            Ressource impossibleMinY = new Ressource(-5,50,20,30,"Problème min Y", 5, Categorie.fruit);
+            throw new Echec("Ressource à potentiel dimension négative créé !");
+        } catch(ValeurInterditeException e) {
+            ;;
+        }        
+    }
+
+    public static void testRobustesseMinMaxX(){
+        try {
+            Ressource impossibleMinMaxX = new Ressource(5,1,20,30,"Problème min>max X", 5, Categorie.fruit);
+            throw new Echec("Ressource à potentiel dimension négative créé !");
+        } catch(ValeurInterditeException e) {
+            ;;
+        }        
+    }
+
+    public static void testRobustesseMinMaxY(){
+        try {
+            Ressource impossibleMinMaxY = new Ressource(5,50,20,3,"Problème min>max Y", 5, Categorie.fruit);
+            throw new Echec("Ressource à potentiel dimension négative créé !");
+        } catch(ValeurInterditeException e) {
+            ;;
+        }        
+    }
+
+    public static void main (String[] args){
+         
+        System.out.print("Création ressources de test\n");
+        Ressource ressourceTestConnu = new Ressource(5,6,"test connu", 10, Categorie.plante);
+        Ressource ressourceTestAleatoire = new Ressource(10,50,20,30,"test aléatoire", 5, Categorie.fruit);
+        System.out.print("Vérification des positions\n");
+        testerPosition(ressourceTestConnu, ressourceTestAleatoire);
+        System.out.print("Vérification des valeurs nutritionnaires\n");
+        testerNutrition(ressourceTestConnu, ressourceTestAleatoire);
+        System.out.print("Vérification des noms\n");
+        testerNom(ressourceTestConnu, ressourceTestAleatoire);
+        System.out.print("Vérification des catégories\n");
+        testerCategorie(ressourceTestConnu, ressourceTestAleatoire);
+        System.out.print("Vérification d'existe et de la fonction estMangee()\n");
+        testerExisteMangee(ressourceTestConnu);
+        System.out.print("Vérification d'existe et de la fonction meurt()\n");
+        testerExisteMeurt(ressourceTestAleatoire);
+        System.out.print("Tests de robustesse de X et Y\n");
+        testRobustesseX();
+        testRobustesseY();
+        System.out.print("Tests de robustesse des intervalles X et Y\n");
+        testRobustesseMinX();
+        testRobustesseMinY();
+        testRobustesseMinMaxX();
+        testRobustesseMinMaxY();
+        System.out.print("Tous les tests ont réussis\n");
+    }
+
+}

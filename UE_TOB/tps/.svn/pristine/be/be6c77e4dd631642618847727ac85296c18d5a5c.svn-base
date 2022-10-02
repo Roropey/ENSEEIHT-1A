@@ -1,0 +1,36 @@
+Nom       : Peyremorte
+Prénom    : Romain
+Groupe TP : E
+
+
+Consigne :  Ci-dessous, répondre à la place des « ... ».
+
+
+=====[ Temps ]==================================================================
+
+Temps passé sur la V1 : 5 heures 00 minutes
+Temps passé sur la V2 : 1 heures 00 minutes
+Pour la V2 on ne tiendra pas compte du temps passé sur la V1.
+Bien sûr, les temps renseignés ici ne sont pas pris en compte dans la notation.
+
+
+=====[ Questions ]==============================================================
+
+Indiquer la relation UML entre Cercle et le Point centre du cercle.
+-------------------------------------------------------------------
+        
+Relation de composition entre Cercle et le Point centre du cercle. Sans Point, Cercle ne pourrait pas fonctionner, exister. De plus Cercle utilise les méthodes de Point. Aussi le Point dans Cercle sert au centre qui est propre au cercle : un centre Point par Cercle, ce qui fait que si le centre Point est détruit, le Cercle est détruit. 
+
+Comment est réalisée l'exigence E18 ?
+-------------------------------------
+
+Les variables dans la classe sont privées. De plus, lorsque l'on obtient le centre (getCentre), on ne le renvoie pas réellement, mais plus une copie, tandis que lors de la création du centre, on crée toujours un nouveau point pour ne pas utiliser un point extérieur à la classe (non privé à la classe) qui risque d'être modifié.
+
+
+
+=====[ Explications ]===========================================================
+
+(Facultatif) Donner ici les explications supplémentaires utiles à la
+compréhension du travail rendu.
+
+...

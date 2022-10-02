@@ -1,0 +1,34 @@
+Date de l'évaluation : ven. 25 févr. 2022 19:06:25 CET
+
+Nombre de similitudes (voir evaluations/evaluation1/sim_java.txt) : 0
+
+Erreurs checkstyle (différentes/types) : 6/4	(voir evaluations/evaluation1//checkstyle.log)
+
+Classe OperationInterditeException : NON DÉFINIE (ou pas sur SVN)
+
+Procuration sur le jeu réel : Non identifiée
+
+OperationInterditeException : JAMAIS LEVÉE
+OperationInterditeException : JAMAIS RECUPÉRÉE
+
+Throwable, Exception et RuntimeException ne devraient pas être récupérées car trop générales... ok
+
+AssertionError ne doit pas être récupérée... ok
+
+Autres exceptions récupérées :
+  | allumettes/Jouer.java:21:       } catch (ConfigurationException e) {
+
+Utilisation de 'Scanner' : NON
+
+Utilisation de 'split' : NON
+
+Utilisation de 'Random' : NON
+
+Utilisation de '3' : ok
+
+Affichage de 'Impossible !' : jamais affiché (ERREUR)
+
+Utilisation de 'System.exit' : ok
+
+Compilation de Jouer.java : ERREUR, pas de allumettes/Jouer.class	(voir evaluations/evaluation1/Jouer.java.log)
+J'arrête les tests...

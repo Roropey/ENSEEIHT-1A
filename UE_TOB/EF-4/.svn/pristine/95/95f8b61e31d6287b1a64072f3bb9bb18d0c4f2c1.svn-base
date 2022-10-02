@@ -1,0 +1,28 @@
+package Tests;
+
+import org.junit.*;
+import Environement.Foret;
+import Ressources.*;
+
+public class TestForetJUnit  {
+
+    protected Foret foretTest;
+
+    @Before
+    public void setUp(){
+        this.foretTest = new Foret(100,100);
+    }
+
+    @Test
+    public void testerCaracteristique(){
+        assertEquals(50,this.foretTest.getCaracteristique());
+    }
+    @Test
+    public void testerApparition(){
+        for (int i=0; i<=100; i++){
+            Ressource ressource = this.foretTest.apparaitre();
+            assertFalse(ressource.getNom().equals("Cactus"));
+            assertFalse(ressource.getNom().equals("Algue")); 
+        }
+    }
+}

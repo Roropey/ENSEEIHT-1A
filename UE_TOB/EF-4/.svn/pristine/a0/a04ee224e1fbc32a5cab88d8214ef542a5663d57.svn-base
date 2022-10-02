@@ -1,0 +1,107 @@
+package Affichage;
+import javax.swing.*;
+import java.awt.*;
+import java.util.Map;
+import java.util.Observable;
+import java.util.Observer;
+
+import javax.swing.event.*;
+import javax.swing.text.JTextComponent;
+
+import Environement.Environnement;
+import Environement.Prairie;
+import Espece.Espece;
+import Espece.Sardine;
+import Espece.Loup;
+import Espece.Aigle;
+import Espece.Mouton;
+import Espece.Dauphin;
+
+public class VueParametres implements Observer {
+    private JPanel EspeceJpanel;
+    private Map<String, Espece> espPerso;
+    public VueParametres(JPanel EspeceJpanel, Map<String, Espece> espPerso){
+        this.EspeceJpanel = EspeceJpanel;
+        this.espPerso = espPerso;
+    }
+    /*@Override
+    public void update(Observable arg0, Object arg1) {
+        
+        
+        if(simu.getIndividus().size() != 0){   
+            String mapstring = arg1.toString().substring(1,arg1.toString().length()-1);
+            String[] liste = mapstring.split(",");
+            
+            
+            for (String especenbre : liste){
+                String nom = especenbre.split("=")[0].replaceAll("\\s+", "");
+                Espece espece = findEspece(nom);
+
+                EspeceJpanel.add(new JLabel("Duree de vie :" + espece.getDureeDeVie()));
+                EspeceJpanel.add(new JLabel("Taux de reproduction :" + espece.getTauxReproduction(espece.getMajorite()+1)));
+                EspeceJpanel.add(new JLabel("Esperance de vie : " +espece.getDureeDeVie()));
+                EspeceJpanel.add(new JLabel("Marin : " + (espece.getEstMarin()? "Oui ": "Non") ));
+                EspeceJpanel.add(new JLabel("Volant : " + (espece.getEstVolant()? "Oui ": "Non") ));
+            }
+            
+            EspeceJpanel.setVisible(false);
+            EspeceJpanel.setVisible(true);
+        }
+    }*/
+    @Override
+    public void update(Observable arg0, Object arg1) {
+        String mapstring = arg1.toString().substring(1,arg1.toString().length()-1);
+        EspeceJpanel.removeAll();
+    
+        if (mapstring.length() !=0){
+            String[] liste = mapstring.split(", ");
+            EspeceJpanel.setLayout(new GridLayout(liste.length,1));
+
+            for (String especenbre : liste){
+                JPanel parametreEsp = new JPanel();
+                parametreEsp.setLayout(new GridLayout(16,1));
+                String nom = especenbre.split("=")[0].replaceAll("\\s+", "");
+                String nombre = especenbre.split("=")[1];
+                Espece espece = findEspece(nom);
+                parametreEsp.add(new JLabel(espece.getNom()+" Nombre : "+nombre));
+
+                parametreEsp.add(new JLabel("Duree de vie :" + espece.getDureeDeVie()));
+                parametreEsp.add(new JLabel("Taux de reproduction :" + espece.getTauxReproduction(espece.getMajorite()+1)));
+                parametreEsp.add(new JLabel("Esperance de vie : " +espece.getDureeDeVie()));
+                parametreEsp.add(new JLabel("Marin : " + (espece.getEstMarin()? "Oui ": "Non ") ));
+                parametreEsp.add(new JLabel("Volant : " + (espece.getEstVolant()? "Oui ": "Non ") ));
+                parametreEsp.add(new JLabel("Majorite : " + espece.getMajorite()));
+                parametreEsp.add(new JLabel("Ecart type : " + espece.getEcartTypeEspece()));
+                parametreEsp.add(new JLabel("Portee d'action : " + espece.getPorteeAction()));
+                parametreEsp.add(new JLabel("Portee de la vision : " + espece.getPorteeVision()));
+                parametreEsp.add(new JLabel("Satiete maximum : " + espece.getSatieteMax()));
+                parametreEsp.add(new JLabel("Ferveur seuille : " + espece.getFerveurSeuil()));
+                parametreEsp.add(new JLabel("Valeur nutritive : " + espece.getValeurNutritive()));
+                parametreEsp.add(new JLabel("Nombre d'enfants : " + espece.getNbEnfantsMin() + "-" + espece.getNbEnfantsMax()));
+                parametreEsp.add(new JLabel("Vitesse : " + espece.getVitesse()));
+                EspeceJpanel.add(parametreEsp);
+                
+            }
+           
+       }
+       
+
+        
+    }
+    private Espece findEspece(String str){
+        switch (str){
+            case "Sardine" :
+                return new Sardine();
+            case "Aigle" : 
+                return new Aigle();
+            case "Dauphin" : 
+                return new Dauphin();
+            case "Mouton" : 
+                return new Mouton();
+            case "Loup" : 
+                return new Loup();
+            default : return espPerso.get(str);
+        }
+    };
+
+}

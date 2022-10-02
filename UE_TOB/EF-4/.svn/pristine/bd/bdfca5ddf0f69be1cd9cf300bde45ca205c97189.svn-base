@@ -1,0 +1,80 @@
+package Simulation;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Environement.Environement;
+import Environement.Environnement;
+import Ressources.Ressources;
+import Espece.Individu;
+public class Simulation {
+
+    private Environnement environnement;
+    private ArrayList<Individu> individus;
+    private ArrayList<Ressources> ressources;
+
+    public Simulation(Environnement env) {
+        this.environnement = env;
+    }
+
+    public void ajouterIndividu(Individu indiv) {
+        this.individus.add(indiv);
+    }
+
+    public void ajouterRessource(Ressources ress) {
+        this.ressources.add(ress);
+    }
+
+    public ArrayList<Individu> getIndividus() {
+        return this.individus;
+    }
+
+    public ArrayList<Ressources> getRessources() {
+        return this.ressources;
+    }
+
+    public Environnement getEnvironnement() {
+        return this.environnement;
+    }
+
+    public void iterer() {
+        for (Individu i : individus) {
+            i.deplacer();
+            i.iterer();
+            if (i.estMort()) {
+                individus.remove(i);
+            }
+        }
+
+        ArrayList<Individu> individusATester;
+        individusATester.addAll(individus);
+
+        for (Individu i : individus) {
+            individusATester.remove(i);
+            for (Individu j : individusATester) {
+                if (i.estAPorteeAction(j.getPosition())) {
+                    i.mange(j);
+                    j.mange(i);
+                    individus.addAll(i.seReproduit(j));
+                    if (i.estMort()) {
+                        individus.remove(i);
+                    } else if (j.estMort()) {
+                        individus.remove(j);
+                    }
+                }
+            }
+
+            for (Ressources r : ressources) {
+                if (i.estAPortee(r.getPosition())) {
+                    i.mange(r);
+                    if (r.estMangee()) {
+                        ressources.remove(r);
+                    } 
+                }
+            }
+        }
+
+        Ressources nouvelleRessources = environnement.Apparaitre();
+        ressources.add(nouvelleRessources);
+    }
+}

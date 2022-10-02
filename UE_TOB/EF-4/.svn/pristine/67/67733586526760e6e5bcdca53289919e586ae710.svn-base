@@ -1,0 +1,72 @@
+package Affichage;
+
+import java.awt.Graphics;
+import java.util.Observable;
+import java.util.Observer;
+import java.util.Random;
+
+import Espece.Espece;
+import Espece.Individu;
+import Espece.Sardine;
+import Espece.Loup;
+import Espece.Aigle;
+import Espece.Mouton;
+import Espece.Dauphin;
+
+import Simulation.Simulation;
+import Utile.Position;
+
+public class ajouterSimu implements Observer {
+    public boolean debut;
+    private Simulation simu;
+    public ajouterSimu(Simulation simu){
+        this.simu = simu;
+        this.debut = true;
+    }
+
+    @Override
+    public void update(Observable arg0, Object arg1) {
+        // TODO Auto-generated method stub
+        if (debut){
+            String mapstring = arg1.toString().substring(1,arg1.toString().length()-1);
+            String[] liste = mapstring.split(", ");
+            simu.getIndividus().clear();
+
+            for (String especenbre : liste){
+                String nom = especenbre.split("=")[0];
+                int nombre = Integer.parseInt(especenbre.split("=")[1]);
+                Espece espece = findEspece(nom);
+                for (int i = 0;i<nombre;i++){
+                    Random random = new Random();
+                    int x, y, type;
+                    do{
+                        x = random.nextInt(simu.getEnvironnement().getDimensions()[0]);
+                        y = random.nextInt(simu.getEnvironnement().getDimensions()[1]);
+                        type = simu.getEnvironnement().getType(new Position(x,y));
+                    }while(espece.getEstMarin() ? type>=0 : type<0 && !espece.getEstVolant());
+                    
+                    Individu indivtest = new Individu(espece, espece.getPorteeAction(),
+                    espece.getPorteeVision(), new Position(x, y), espece.getVitesse(), espece.getDureeDeVie(), espece.getSatieteMax(), espece.getFerveurSeuil(), espece.getValeurNutritive());
+                    
+                    simu.ajouterIndividu(indivtest);
+                }
+            }
+    
+        }
+        
+    }
+    private Espece findEspece(String str){
+        switch (str){
+            case "Sardine" :
+                return new Sardine();
+            case "Aigle" : 
+                return new Aigle();
+            case "Dauphin" : 
+                return new Dauphin();
+            case "Mouton" : 
+                return new Mouton();
+            case "Loup" : 
+            default : return new Loup();
+        }
+    };
+}

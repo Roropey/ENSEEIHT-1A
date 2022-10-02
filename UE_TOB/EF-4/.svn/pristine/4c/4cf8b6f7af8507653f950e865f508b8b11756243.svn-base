@@ -1,0 +1,34 @@
+package Environement;
+
+import src.Ressources.Ressource;
+
+public abstract class Environnement {
+
+    private int taille_x;
+    private int taille_y;
+    private double tauxVegetalisation; //taux de vegetalisation : 1 forêt, 0 désert
+    private double tauxHumidite; //niveau d'eau : 1 mer, 0 désert
+    
+    public Environnement(int x, int y, double Veget, double Hum){
+        this.taille_x = x;
+        this.taille_y = y;
+        this.tauxVegetalisation = Veget;
+        this.tauxHumidite = Hum;
+    }
+
+    // Methodes Generales
+    public int[] getDimensions(){
+        int[] dimensions = {this.taille_x,this.taille_y};
+        return dimensions;
+    }
+
+    public double[] getTauxEnvironnement(){
+        double[] taux = {this.tauxVegetalisation,this.tauxHumidite};
+        return taux;
+    }
+
+    // Methodes Gestion des ressources
+    // emplacement | quoi ou
+    abstract public Ressource apparaitre();
+
+}

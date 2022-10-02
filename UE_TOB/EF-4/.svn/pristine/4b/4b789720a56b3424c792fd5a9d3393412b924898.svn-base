@@ -1,0 +1,17 @@
+package Environement;
+
+import java.util.*;
+
+public class Mer extends Environnement {
+
+    public Mer(int x, int y){
+       super(x,y,"Mer",100,40);
+       for (int i = 0; i<=x; i++){
+           for (int j = 0; j<=y; j++){
+               this.altitudes[i][j] = -3;
+           }
+       }
+        //Arrays.fill(this.altitudes,-3);
+    }
+
+}

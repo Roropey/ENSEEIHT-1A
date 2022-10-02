@@ -1,0 +1,50 @@
+package Affichage;
+
+import javax.swing.*;
+
+import Espece.Espece;
+
+import java.awt.*;
+import java.util.Map;
+
+
+public class JCanvas extends JPanel{
+    private String nom;
+    private Map<String, Espece> espPerso;
+    public JCanvas(String nom) {
+        this.nom = nom;
+        this.espPerso = espPerso;
+    }
+
+    public void paint(Graphics g) {
+        super.paint(g);
+        g.setColor(couleurEspece(nom));
+        g.fillRect(0,0,5,5);
+
+    }
+
+    public Color couleurEspece(String nom){
+        switch (nom){
+            case "Sardine" : 
+                return Color.GRAY;
+            case "Aigle" : 
+                return Color.YELLOW;
+            case "Dauphin" : 
+                return new Color(51,193,255);
+            case "Mouton" : 
+                return Color.WHITE;
+            case "Loup" : 
+            return Color.BLACK;
+            case "Algue":
+            case "Arbre" :
+            case "Arbuste" :
+            case "Baie" :
+            case "Cactus" :
+            case "Nenuphar":
+            case "Pomme" :
+                return new Color(0,100,0);
+            default : 
+            return Color.MAGENTA;
+        }
+    }
+}

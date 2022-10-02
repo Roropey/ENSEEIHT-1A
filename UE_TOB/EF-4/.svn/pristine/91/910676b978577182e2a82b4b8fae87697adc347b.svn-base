@@ -1,0 +1,48 @@
+package Tests;
+
+import Ressources.Cactus;
+import Utile.*;
+
+public class TestCactus {
+
+    public static void testerPosition(Cactus cactusTestConnu, Cactus cactusTestAleatoire){
+        Position positionConnue = cactusTestConnu.getPosition();
+        Position positionAleatoire = cactusTestAleatoire.getPosition();
+        assert positionConnue.getX()==4;
+        assert positionConnue.getY()==10.5;
+        assert (positionAleatoire.getX()>=10.5)&(positionAleatoire.getX()<=50);
+        assert (positionAleatoire.getY()>=20)&(positionAleatoire.getY()<=30);
+    }
+
+    public static void testerNutrition(Cactus cactusTestConnu, Cactus cactusTestAleatoire){
+        assert cactusTestConnu.getValeurNutritive()==3;
+        assert cactusTestAleatoire.getValeurNutritive()==3;
+    }
+
+    public static void testerNom(Cactus cactusTestConnu, Cactus cactusTestAleatoire){
+        assert cactusTestConnu.getNom().equals("Cactus");
+        assert cactusTestAleatoire.getNom().equals("Cactus");
+    }
+
+    public static void testerCategorie(Cactus cactusTestConnu, Cactus cactusTestAleatoire){
+        assert cactusTestConnu.getCategorie()==Categorie.plante;
+        assert cactusTestAleatoire.getCategorie()==Categorie.plante;
+    }
+
+    public static void main (String[] args){
+         
+        System.out.print("Création cactus de test\n");
+        Cactus cactusTestConnu = new Cactus(4,10.5);
+        Cactus cactusTestAleatoire = new Cactus(10.5,50,20,30);
+        System.out.print("Vérification des positions\n");
+        testerPosition(cactusTestConnu, cactusTestAleatoire);
+        System.out.print("Vérification des valeurs nutritionnaires\n");
+        testerNutrition(cactusTestConnu, cactusTestAleatoire);
+        System.out.print("Vérification des noms\n");
+        testerNom(cactusTestConnu, cactusTestAleatoire);
+        System.out.print("Vérification des catégories\n");
+        testerCategorie(cactusTestConnu, cactusTestAleatoire);
+        System.out.print("Tous les tests ont réussis\n");
+    }
+
+}

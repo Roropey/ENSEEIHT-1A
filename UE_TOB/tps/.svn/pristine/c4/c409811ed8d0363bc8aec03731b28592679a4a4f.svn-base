@@ -1,0 +1,36 @@
+package allumettes;
+import java.util.Random;
+
+public class Joueur {
+	
+	private String nom;
+	private Strategie strategie;
+	
+	public Joueur(String nom, Strategie strategie) {
+		this.nom = nom;
+		this.strategie = strategie;
+	}
+	
+	public Joueur(String nom) {
+		this(nom,new StrategieHumain());
+	}
+
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public String getStrategie() {
+		return this.strategie.toString();
+	}
+	
+	public void setStrategie(Strategie strategie) {
+		this.strategie = strategie;
+	}
+	
+	public int getPrise(Jeu jeu) {
+		return this.strategie.getPrise(jeu);
+	}
+	
+}
