@@ -1,0 +1,11 @@
+cp ~/Téléchargements/tps_C.tar .
+tar -xvf tps_C.tar
+cd TPS_C
+mkdir Sources
+mkdir Executables
+mv TP[123]/*.c Sources
+mv TP[123]/* Executables
+rmdir TP[123]
+cd ..
+mv TPS_C Progs_C
+tar -cvf progs_C.tar Progs_C
