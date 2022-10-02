@@ -1,0 +1,14 @@
+
+Je suis le processus principal de pid 210248
+
+Processus de pid 210248 a cree un fils numero 1, de pid 210249 
+
+Processus de pid 210248 a cree un fils numero 2, de pid 210250 
+
+Processus de pid 210248 a cree un fils numero 3, de pid 210251 
+
+     Processus fils numero 1, de pid 210249, de pere 210248.
+
+     Processus fils numero 2, de pid 210250, de pere 210248.
+
+     Processus fils numero 3, de pid 210251, de pere 210248.

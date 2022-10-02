@@ -1,0 +1,209 @@
+V "GNAT Lib v2021"
+A -gnatA
+A -gnata
+A -g
+A -gnatwa
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U flux_binaire%b	flux_binaire.adb	edc52bb0 NE OO PK
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+Z liste_chainee%s	liste_chainee.adb	liste_chainee.ali  ED
+Z system%s		system.ads		system.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+
+U flux_binaire%s	flux_binaire.ads	f6ea61fd BN EE NE OO PK
+W ada%s			ada.ads			ada.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.unchecked_deallocation%s
+W liste_chainee%s	liste_chainee.adb	liste_chainee.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+D ada.ads		20210520051130 76789da1 ada%s
+D a-assert.ads		20210520051127 a718b65c ada.assertions%s
+D a-charac.ads		20210520051127 2d3ec45b ada.characters%s
+D a-chlat1.ads		20210520051127 66457d31 ada.characters.latin_1%s
+D a-except.ads		20210520051127 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051127 bf4f806b ada.finalization%s
+D a-stream.ads		20210520051128 119b8fb3 ada.streams%s
+D a-string.ads		20210520051128 90ac6797 ada.strings%s
+D a-strmap.ads		20210520051128 5a88892a ada.strings.maps%s
+D a-sttebu.ads		20210520051128 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051128 03325227 ada.strings.unbounded%s
+D a-stuten.ads		20210520051128 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051129 9eaa38c6 ada.tags%s
+D a-unccon.ads		20210520051129 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051129 c3a8ac65 ada.unchecked_deallocation%s
+D flux_binaire.ads	20220104101317 6b5e7383 flux_binaire%s
+D flux_binaire.adb	20220104102631 85a90a14 flux_binaire%b
+D interfac.ads		20210520051131 edec285f interfaces%s
+D liste_chainee.ads	20211230184609 9db4127e liste_chainee%s
+D liste_chainee.adb	20211222182058 00001659 liste_chainee%b
+D system.ads		20210520051134 a2da961d system%s
+D s-assert.ads		20210520051131 6a49a4e4 system.assertions%s
+D s-atocou.ads		20210520051131 b45c2d8d system.atomic_counters%s
+D s-exctab.ads		20210520051131 54135002 system.exception_table%s
+D s-finmas.ads		20210520051131 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051131 4ff27390 system.finalization_root%s
+D s-memory.ads		20210520051132 597d6634 system.memory%s
+D s-parame.ads		20210520051133 4752c4cb system.parameters%s
+D s-putima.ads		20210520051133 4e095881 system.put_images%s
+D s-secsta.ads		20210520051133 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051133 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051133 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051133 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051133 977290bf system.standard_library%b
+D s-stoele.ads		20210520051133 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051133 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051133 e9fa2dd8 system.storage_pools%s
+D s-stratt.ads		20210520051133 7bdda3fa system.stream_attributes%s
+D s-traent.ads		20210520051133 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051133 2b077493 system.unsigned_types%s
+D unchconv.ads		20210520051134 ca2f9e18 unchecked_conversion%s
+G a e
+G c s s s [s flux_binaire 3 1 none]
+G c Z s b [initialiser flux_binaire 14 19 none]
+G c Z s b [est_vide flux_binaire 19 18 none]
+G c Z s b [taille flux_binaire 23 18 none]
+G c Z s b [le_bit flux_binaire 28 14 none]
+G c Z s b [l_octet flux_binaire 33 18 none]
+G c Z s b [ajouter_bit flux_binaire 37 15 none]
+G c Z s b [ajouter_octet flux_binaire 41 15 none]
+G c Z s b [ajouter_flux flux_binaire 45 15 none]
+G c Z s b [vider flux_binaire 49 19 none]
+G c Z s b [une_chaine flux_binaire 53 14 none]
+G c Z s s [initialiser flux_binaire__liste_octet 8 19 61_5]
+G c Z s s [est_vide flux_binaire__liste_octet 13 18 61_5]
+G c Z s s [taille flux_binaire__liste_octet 17 18 61_5]
+G c Z s s [ajouter flux_binaire__liste_octet 23 15 61_5]
+G c Z s s [enregistrer flux_binaire__liste_octet 27 15 61_5]
+G c Z s s [inserer_avant flux_binaire__liste_octet 30 15 61_5]
+G c Z s s [supprimer flux_binaire__liste_octet 35 19 61_5]
+G c Z s s [supprimer_indice flux_binaire__liste_octet 38 19 61_5]
+G c Z s s [valeur_presente flux_binaire__liste_octet 42 18 61_5]
+G c Z s s [la_valeur flux_binaire__liste_octet 46 14 61_5]
+G c Z s s [l_indice flux_binaire__liste_octet 50 14 61_5]
+G c Z s s [vider flux_binaire__liste_octet 54 19 61_5]
+G c Z s s [t_celluleIP flux_binaire__liste_octet 67 10 61_5]
+G c Z s s [free flux_binaire__liste_octet 5 15 61_5]
+G c Z s s [t_flux_binaireIP flux_binaire 64 10 none]
+G c Z b b [Tt_tableau_masquesBIP flux_binaire 6 5 none]
+G r i none [s flux_binaire 3 1 none] [liste_chainee standard 3 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 17|1r6 1r33
+X 8 a-string.ads
+16K13*Strings 35e16 17|1r10 1r37
+X 11 a-strunb.ads
+83K21*Unbounded 765e26 17|1w18 1r45
+88R9*Unbounded_String<6|43R9> 744e15 17|113r18 117r53
+104V13*To_Unbounded_String{88R9} 17|118s14 118s41 120s19
+117V13*To_String{string} 17|136s16
+128U14*Append 17|126s17 133s13
+X 16 flux_binaire.ads
+3K9*Flux_Binaire 61E13 68l5 68e17 17|3b14 147l5 147t17
+4M10*T_Bit 5r9 28r70 37r67 17|39r70 41r16 53r67 98r36 117r43
+7M10*T_Octet 8r9 28r33 33r81 41r71 57r44 61r59 17|6r68 39r33 46r77 54r17
+. 57r34 61r31 69r71 70r25 88r25 114r17
+10R10*T_Flux_Binaire 14r42 19r38 23r36 33r37 37r42 41r44 45r43 45r74 49r40
+. 53r36 58r38 64c10 67e15 17|18r38 26r34 33r32 46r33 53r42 69r44 86r43 86r74
+. 105r36 112r36 140r38
+14U19*Initialiser 14<32 17|18b15 22l9 22t20
+14r32 Flux{10R10} 15r35 17|18b28 20m9 21m22 21r22
+19V18*Est_Vide{boolean} 15s25 19>28 25s51 50s25 17|26b14 29l9 29t17 90s16
+19r28 Flux{10R10} 17|26b24 28r26
+23V18*Taille{integer} 23>26 24r25 25r30 17|33b14 36l9 36t15 91s28 122s24
+23r26 Flux{10R10} 25r61 17|33b22 35r24
+28V14*Le_Bit{4M10} 28>22 28>42 17|39b14 42l9 42t15 126s50 133s46
+28m22 Octet{7M10} 17|39b22 41r23
+28i42 Indice{integer} 29r20 29r31 17|39b42 41r42
+33V18*L_Octet{7M10} 33>27 33>53 17|46b14 49l9 49t16 93s38 96s30 124s22 131s18
+33r27 Flux{10R10} 17|46b23 48r27
+33i53 Indice{integer} 17|46b49 48r39
+37U15*Ajouter_Bit 37=28 37>58 17|53b15 65l9 65t20 98s17
+37r28 Flux{10R10} 17|53b28 56r12 56r62 57m22 57r22 58m13 60r33 60r53 61r53
+. 62m26 62r26 62r53 63m13 63r44
+37m58 Bit{4M10} 17|53b58 57r43 61r40
+41U15*Ajouter_Octet 41=30 41>60 17|69b15 82l9 82t22 93s17
+41r30 Flux{10R10} 17|69b30 72r12 72r62 73m22 73r22 75r41 75r61 76r84 76r127
+. 77m26 77r26 77r61 79r64 79r101 80m22 80r22
+41m60 Octet{7M10} 17|69b60 73r34 76r49 79r31
+45U15*Ajouter_Flux 45=29 45>59 17|86b15 101l9 101t21
+45r29 Flux{10R10} 17|86b29 93m32 98m30
+45r59 Flux_deux{10R10} 17|86b59 90r26 91r36 93r47 96r39 97r30
+49U19*Vider 49=26 17|105b15 109l9 109t14
+49r26 Flux{10R10} 50r35 17|105b22 107m9 108m16 108r16
+53V14*Une_Chaine{string} 53>26 17|112b14 137l9 137t19
+53r26 Flux{10R10} 17|112b26 122r32 124r31 131r27 132r28
+57U24 Traiter 57>33 17|141r80
+57m33 Octet{7M10}
+58u15*Pour_Chaque 58>28 17|140b15 144l13 144t24
+58r28 Flux{10R10} 17|140b28 143r28
+61K13 Liste_Octet[19|3] 62r9 17|141r44
+65i9*Nombre_Bits_Inutilises{integer} 17|20m14 56r17 58m18 61r58 63m18 63r49
+. 72r17 76r89 76r132 79r69 79r106 97r40 107m14 132r33
+66p9*Liste{19|4P10[61]} 17|21m27 28r31 35r29 48r32 56r67 57m27 60r38 60r58
+. 62m31 62r58 72r67 73m27 75r46 75r66 77m31 77r66 80m27 108m21 143r33
+X 17 flux_binaire.adb
+5i5 Taille_Tableau_Masques{integer} 6r41
+6A10 T_Tableau_Masques(16|7M10)<integer> 8r34 12r36
+8a5 Masques_Un_Droite{6A10} 79r41
+12a5 Masques_Zero_Droite{6A10} 76r59
+54m9 Octet{16|7M10} 60m13 61m13 61r22 62r38
+70m9 Dernier_Octet{16|7M10} 75m13 76m13 76r30 77r38 79m13 80r34
+87i9 Taille_Deux{integer} 91m13 92r26 96r50
+88m9 Dernier_Octet{16|7M10} 96m13 98r43
+92i17 I{integer} 93r58
+97i17 I{integer} 98r70
+113r9 Chaine{11|88R9} 120m9 126m25 126r25 133m21 133r21 136r27
+114m9 Octet{16|7M10} 124m13 126r58 131m9 133r54
+115i9 Taille_Flux{integer} 122m9 123r24 131r33
+117a9 Bit_Vers_Chaine(11|88R9) 126r33 133r29
+123i13 I{integer} 124r37
+125i17 J{integer} 126r65
+132i13 I{integer} 133r61
+141U19 Pour_Chaque_Octet[19|61] 143s9
+X 19 liste_chainee.ads
+2+10 T_Valeur 16|61r47
+3k9*Liste_Chainee 16|1w6 61r32 19|71e18
+4P10*T_Liste_Chainee 16|66r17[61]
+8U19*Initialiser 17|21s9[16|61]
+13V18*Est_Vide{boolean} 17|28s16[16|61] 56s52[16|61] 72s52[16|61]
+17V18*Taille{integer} 17|35s16[16|61] 60s45[16|61] 62s45[16|61] 75s53[16|61]
+. 77s53[16|61]
+23U15*Ajouter 17|57s13[16|61] 73s13[16|61] 80s13[16|61]
+27U15*Enregistrer 17|62s13[16|61] 77s13[16|61]
+46V14*La_Valeur{16|7M10} 17|48s16[16|61] 60s22[16|61] 75s30[16|61]
+54U19*Vider 17|108s9[16|61]
+60U32 Traiter 17|141r69[16|61]
+61u15*Pour_Chaque 17|141r56[16|61]
+X 21 system.ads
+67M9*Address
+X 27 s-memory.ads
+53V13*Alloc{21|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{21|67M9} 105i<c,__gnat_realloc>22
+X 34 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+

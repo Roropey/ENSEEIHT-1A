@@ -1,0 +1,235 @@
+V "GNAT Lib v2021"
+M P W=b
+A -gnatA
+A -gnata
+A -g
+A -gnatwa
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_NESTED_FINALIZATION
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_STREAMS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U decompresser%b	decompresser.adb	be17fb59 NE OO SU
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.streams%s		a-stream.adb		a-stream.ali
+W ada.streams.stream_io%s  a-ststio.adb		a-ststio.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W flux_binaire%s	flux_binaire.adb	flux_binaire.ali
+W interface_utilisateur%s  interface_utilisateur.adb  interface_utilisateur.ali
+Z system%s		system.ads		system.ali
+Z system.exception_table%s  s-exctab.adb	s-exctab.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.stream_attributes%s  s-stratt.adb	s-stratt.ali
+W types_huffman%s	types_huffman.ads	types_huffman.ali
+
+D ada.ads		20210520051130 76789da1 ada%s
+D a-charac.ads		20210520051127 2d3ec45b ada.characters%s
+D a-chlat1.ads		20210520051127 66457d31 ada.characters.latin_1%s
+D a-except.ads		20210520051127 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051127 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051127 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20210520051128 119b8fb3 ada.streams%s
+D a-ststio.ads		20210520051128 d6d358e8 ada.streams.stream_io%s
+D a-string.ads		20210520051128 90ac6797 ada.strings%s
+D a-strmap.ads		20210520051128 5a88892a ada.strings.maps%s
+D a-sttebu.ads		20210520051128 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051128 03325227 ada.strings.unbounded%s
+D a-stuten.ads		20210520051128 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051129 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051129 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051129 0e9b276f ada.unchecked_conversion%s
+D arbre.ads		20211222162917 bd783b00 arbre%s
+D decompresser.adb	20220114120249 3df3f091 decompresser%b
+D flux_binaire.ads	20220104101317 6b5e7383 flux_binaire%s
+D interface_utilisateur.ads  20220113225707 9d8d89ba interface_utilisateur%s
+D interfac.ads		20210520051131 edec285f interfaces%s
+D i-cstrea.ads		20210520051131 e53d8b8e interfaces.c_streams%s
+D liste_chainee.ads	20211230184609 9db4127e liste_chainee%s
+D system.ads		20210520051134 a2da961d system%s
+D s-atocou.ads		20210520051131 b45c2d8d system.atomic_counters%s
+D s-crtl.ads		20210520051131 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051131 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051131 078245e4 system.file_control_block%s
+D s-finroo.ads		20210520051131 4ff27390 system.finalization_root%s
+D s-memory.ads		20210520051132 597d6634 system.memory%s
+D s-parame.ads		20210520051133 4752c4cb system.parameters%s
+D s-putima.ads		20210520051133 4e095881 system.put_images%s
+D s-secsta.ads		20210520051133 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051133 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051133 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051133 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051133 977290bf system.standard_library%b
+D s-stoele.ads		20210520051133 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051133 ed88f8fb system.storage_elements%b
+D s-stratt.ads		20210520051133 7bdda3fa system.stream_attributes%s
+D s-traent.ads		20210520051133 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051133 2b077493 system.unsigned_types%s
+D s-wchcon.ads		20210520051134 1b7d22d2 system.wch_con%s
+D types_huffman.ads	20220111100416 0e222e53 types_huffman%s
+D unchconv.ads		20210520051134 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z b b [decompresser standard 9 11 none]
+G r s t_flux_fichier [decompresser standard 9 11 none] [t_flux_fichierIP types_huffman 30 10 none]
+G r c none [decompresser standard 9 11 none] [recuperer_infos_utilisateur interface_utilisateur 14 15 none]
+G r c none [decompresser standard 9 11 none] [initialiser types_huffman__liste_chainee_octet 8 19 27_5]
+G r c none [decompresser standard 9 11 none] [ajouter types_huffman__liste_chainee_octet 23 15 27_5]
+G r c none [decompresser standard 9 11 none] [inserer_avant types_huffman__liste_chainee_octet 30 15 27_5]
+G r c none [decompresser standard 9 11 none] [initialiser types_huffman__arbre_integer_octet 21 15 14_5]
+G r c none [decompresser standard 9 11 none] [le_bit flux_binaire 28 14 none]
+G r c none [decompresser standard 9 11 none] [la_valeur types_huffman__liste_chainee_octet 46 14 27_5]
+G r c none [decompresser standard 9 11 none] [enregistrer types_huffman__arbre_integer_octet 30 15 14_5]
+G r c none [decompresser standard 9 11 none] [vider types_huffman__liste_chainee_octet 54 19 27_5]
+G r c none [decompresser standard 9 11 none] [est_vide types_huffman__arbre_integer_octet 26 14 14_5]
+G r c none [decompresser standard 9 11 none] [afficher_arbre interface_utilisateur 20 15 none]
+G r c none [decompresser standard 9 11 none] [vider types_huffman__arbre_integer_octet 33 15 14_5]
+X 1 ada.ads
+16K9*Ada 20e8 18|1r6 1r33 2r6 2r23 3r6 3r33 17r15 168r31 201r18
+X 7 a-stream.ads
+36K13*Streams 87e16 18|1r10 1r37 17r19 168r35
+X 8 a-ststio.ads
+39K21*Stream_IO 224e26 18|1w18 1r45 17r27 168r43
+42P9*Stream_Access(7|39R9) 18|18r25 34r46 169r36
+44P9*File_Type 18|17r37 168r53
+47n23*In_File{47E9} 18|199r28
+47n32*Out_File{47E9} 18|175r38
+68U14*Create 18|175s9
+74U14*Open 18|199s13
+80U14*Close 18|188s9 218s9
+92V13*Stream{42P9} 18|176s37 203s30
+X 9 a-string.ads
+16K13*Strings 35e16 18|3r10 3r37
+X 12 a-strunb.ads
+83K21*Unbounded 765e26 18|3w18 3r45
+88R9*Unbounded_String<5|43R9> 744e15 18|16r19 162r63
+104V13*To_Unbounded_String{88R9} 18|214s42 214s66
+117V13*To_String{string} 18|166s13 166s43 195s8 195s33 195s70 199s37
+X 15 a-textio.ads
+58K13*Text_IO 725e16 18|2w10 2r27 201r22
+506U14*Put_Line 18|227s38 228s37 229s42 230s39 231s32 232s37
+542X4*Name_Error 18|201r30
+X 17 arbre.ads
+7R10*Noeud
+9P10*T_Arbre(7R10[44|14]) 18|23r21[44|14] 89r60[44|14] 93r52[44|14] 122r58[44|14]
+. 137r50[44|14] 140r25[44|14] 163r65[44|14]
+12i9*Cle{integer} 18|157r42[44|14]
+13m9*Valeur{19|7M10} 18|156r34[44|14]
+14p9*Gauche{9P10[44|14]} 18|111m48[44|14] 148r43[44|14] 150r48[44|14]
+15p9*Droite{9P10[44|14]} 18|112m48[44|14] 152r48[44|14]
+21U15*Initialiser 18|96s13[44|14]
+26V14*Est_Vide{boolean} 18|144s12[44|14] 148s19[44|14]
+30U15*Enregistrer 18|106s17[44|14] 110s17[44|14]
+33U15*Vider 18|219s9[44|14]
+X 18 decompresser.adb
+9U11*Decompresser 9b11 234l5 234t17
+16r5 Nom_Fichier{12|88R9} 193m43 195r18 195r43 195r80 199r47 210r54
+17p5 Fichier{8|44P9} 199m19 199r19 203r38 218m16 218r16
+18p5 Flux_Fichier_Brut{8|42P9} 203m9 204r36
+19r5 Flux_Fichier{44|30R10} 204m22 207m32 207r32 210m40 210r40
+21m5 Symbole_Fin{19|7M10} 82r63
+23p5 Arbre_Huffman{17|9P10[44|14]} 207m46 207r46 210r67 214r28 219m16 219r16
+25X5 Fichier_Inexistant_Exception 201r50 229r10
+26X5 Arbre_Huffman_Vide 145r19 231r10
+27X5 Pas_Compression_Huffman 222r15 232r10
+29b5 Affichage{boolean} 193m33 213r12
+33U15 Initialiser 33b15 33<28 34>28 39l9 39t20 204s9
+33r28 Flux_Fichier{44|30R10} 36m9 37m9 38m9
+34p28 Flux_Interne{8|42P9} 36r38
+42V14 Lire_Bit{19|4M10} 42b14 42=24 52l9 52t17 97s20 149s16
+42r24 Flux_Fichier{44|30R10} 44r12 45m13 45r40 47m13 48m13 48r50 51r24 51r44
+54V14 Lire_Octet{19|7M10} 54b14 54=26 59l9 59t19 71s42 74s20 78s24
+54r26 Flux_Fichier{44|30R10} 56m9 56r46 58r16
+62U15 Decoder_Liste_Positions 62b15 62=40 63<40 64<40 83l9 83t32 127s9
+62r40 Flux_Fichier{44|30R10} 71m54 71r54 74m32 74r32 78m36 78r36
+63p40 Liste_Positions{23|4P10[44|27]} 68m22 76m22 82m24
+64i40 Position_Symbole_Fin{integer} 71m9 82r41
+65m9 Symbole{19|7M10} 74m9 76r39 77r32 78m13 79r19
+66m9 Dernier_Symbole{19|7M10} 77m13 79r29
+86U15 Decoder_Structure_Arbre 86b15 86=40 87>40 88>40 89<40 118l9 118t32
+. 130s9
+86r40 Flux_Fichier{44|30R10} 97m30 97r30
+87p40 Liste_Positions{23|4P10[44|27]} 107r41
+88i40 Position_Symbole_Fin{integer} 100r31
+89p40 Arbre_Huffman{17|9P10[44|14]} 117m22
+90i9 Position{integer} 100r20 107r58 108m17 108r29 116m9
+91i9 Pas_Symbole_Fin{integer} 101m21 103m21 106r45
+93U19 Decoder_Rec 93b19 93<32 111s17 112s17 114l13 114t24 117s9
+93p32 Arbre_Huffman{17|9P10[44|14]} 96m26 106m30 110m30 111r30 112r30
+94m13 Bit{19|4M10} 97m13 99r16
+121U15 Recreer_Arbre_Huffman 121b15 121=38 122<38 133l9 133t30 207s9
+121r38 Flux_Fichier{44|30R10} 127m34 130m34
+122p38 Arbre_Huffman{17|9P10[44|14]} 130m87
+123p9 Liste_Positions{23|4P10[44|27]} 127m48 127r48 130r48 132m16 132r16
+124i9 Position_Symbole_Fin{integer} 127m65 130r65
+136U15 Decoder_Symbole 136b15 136=32 137>31 138<31 139<31 158l9 158t24 181s13
+136r32 Flux_Fichier{44|30R10} 149m26 149r26
+137p31 Arbre_Huffman{17|9P10[44|14]} 142r26
+138m31 Symbole{19|7M10} 156m9
+139b31 Est_Symbole_Fin{boolean} 157m9
+140p9 Noeud_Courant{17|9P10[44|14]} 142m9 144r22 148r29 150m17 150r34 152m17
+. 152r34 156r20 157r28
+161U15 Reconstruire_Fichier_Original 161b15 161=46 162>46 163>46 189l9 189t38
+. 210s9
+161r46 Flux_Fichier{44|30R10} 181m30
+162r46 Nom_Fichier{12|88R9} 166r23 166r53
+163p46 Arbre_Huffman{17|9P10[44|14]} 181r44
+165a9 Nom_Fichier_Decompresse{string} 175r48
+168p9 Fichier_Decompresse{8|44P9} 175m17 175r17 176r45 188m16 188r16
+169p9 Flux_Fichier_Decompresse{8|42P9} 176m9 184r32
+171m9 Symbole{19|7M10} 181m59 184r58
+172b9 Est_Fin_Du_Fichier{boolean} 179m9 180r19 181m68 183r20
+X 19 flux_binaire.ads
+3K9*Flux_Binaire 18|7w6 7r24 19|68e17
+4M10*T_Bit 18|42r69 94r19
+7M10*T_Octet 18|21r28 21r39 48r35 54r71 56r31 65r19 66r27 138r45 171r19 184r17
+28V14*Le_Bit{4M10} 18|51s16
+X 20 interface_utilisateur.ads
+6K9*Interface_utilisateur 18|5w6 5r33 20|24e26
+8X5*Trop_Arguments_Exception 18|227r10
+9X5*Peu_Arguments_Exception 18|228r10
+10X5*Option_Inconnue_Exception 18|230r10
+14U15*Recuperer_Infos_Utilisateur 18|193s5
+20U15*Afficher_Arbre 18|214s13
+X 23 liste_chainee.ads
+4P10*T_Liste_Chainee 18|63r62[44|27] 87r61[44|27] 123r27[44|27]
+8U19*Initialiser 18|68s9[44|27]
+23U15*Ajouter 18|76s13[44|27]
+30U15*Inserer_Avant 18|82s9[44|27]
+46V14*La_Valeur{19|7M10} 18|107s30[44|27]
+54U19*Vider 18|132s9[44|27]
+X 24 system.ads
+67M9*Address
+X 30 s-memory.ads
+53V13*Alloc{24|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{24|67M9} 105i<c,__gnat_realloc>22
+X 37 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+X 44 types_huffman.ads
+7K9*Types_Huffman 18|6w6 6r25 44|36e18
+14K13*Arbre_Integer_Octet[17|5] 18|11r9
+27K13*Liste_Chainee_Octet[23|3] 18|12r9
+30R10*T_Flux_Fichier 18|19r20 33r47 42r46 54r48 62r62 86r62 121r60 136r54
+. 161r68 44|34e15
+31p9*Flux_Interne{8|42P9} 18|36m22 48r63 56r59
+32m9*Octet{19|7M10} 18|37m22 48m26 51r37 56m22 58r29
+33i9*Indice_Bit{integer} 18|38m22 44r25 45m26 45r53 47m26 51r57
+

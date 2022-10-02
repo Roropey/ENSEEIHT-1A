@@ -1,0 +1,58 @@
+
+
+
+
+
+with Ada.Text_IO;            use Ada.Text_IO;
+with Ada.Strings.Unbounded;   use Ada.Strings.Unbounded;
+with TH;
+with LCA;
+
+procedure th_sujet is
+
+    procedure Afficher(Cle : in Unbounded_String; Donnee : in Integer) is
+    begin
+        Put_Line("Clé '"&To_String(Cle)&"' correspond à la donnée'"&Integer'Image(Donnee)&"'.");
+    end Afficher;
+
+    function Hachage(Cle : in Unbounded_String) return Integer is
+        Indice : Integer;
+        Ancien_Indice : Integer;
+    begin
+        Indice := 0;
+        for lettre of To_String(Cle) loop
+            Indice := Indice + 1;
+        end loop;
+        Ancien_Indice := Indice;
+        while Indice > 11 loop
+            Indice :=  Indice - 11;
+        end loop;
+        if Ancien_Indice > 11 then
+            Indice := Indice + 1;
+        end if;
+        return Indice;
+    end Hachage ;
+
+    package Liste_Chainee is
+            new LCA (T_Cle => Unbounded_String , T_Donnee => Integer);
+
+    package Tableau_Hache is
+            new TH (T_Cle => Unbounded_String , T_Donnee => Integer, fonction_de_hachage => Hachage, Taille_Max => 11, P_LCA => Liste_Chainee);
+    use Tableau_Hache;
+
+    procedure Afficher_Couple is new Tableau_Hache.Pour_Chaque (Traiter => Afficher);
+
+    Tableau : T_TH;
+
+begin
+    Initialiser(Tableau);
+    Enregistrer(Tableau,To_Unbounded_String("un"),1);
+    Enregistrer(Tableau,To_Unbounded_String("deux"),2);
+    Enregistrer(Tableau,To_Unbounded_String("trois"),3);
+    Enregistrer(Tableau,To_Unbounded_String("quatre"),4);
+    Enregistrer(Tableau,To_Unbounded_String("cinq"),5);
+    Enregistrer(Tableau,To_Unbounded_String("quatre-vingt-dix-neuf"),99);
+    Enregistrer(Tableau,To_Unbounded_String("vingt-et-un"),21);
+    Afficher_Couple(Tableau);
+    Vider(Tableau);
+end th_sujet;

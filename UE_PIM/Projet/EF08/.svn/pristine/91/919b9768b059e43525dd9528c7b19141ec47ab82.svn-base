@@ -1,0 +1,33 @@
+Structure des tests :
+
+Ce qui est rentré dans la table de commande => ce qui doit s'afficher
+
+COMPRESSION
+
+./compresser exemple.txt
+
+./compresser -b exemple.txt => Affichage des fréquences des caractères, de l'arbre d'Huffman et du code de chaque caractère
+
+./compresser exemple.tx => Fichier à compresser inexistant.
+
+./compresser 1 2 3 => Vous avez entré trop d'arguments.
+
+./compresser => Vous n'avez pas entré d'arguments.
+
+./compresser -a exemple.txt => Option entrée non reconnue
+
+DECOMPRESSION
+
+./decompresser exemple.txt.hff
+./decompresser -b exemple.txt.hff => Affichage de l    'arbre d'Huffman et du code de chaque caractère
+
+./decompresser exempe.txt => Fichier à decompresser inexistant.
+
+./decompresser exemple.txt => Le fichier à décompresser n'a pas été compressé par Huffman.
+
+./decompresser 1 2 3 => Vous avez entré trop d'arguments.
+
+./decompresser => Vous n'avez pas entré d'arguments.
+ 
+./decompresser -a exemple.txt => Option entrée non reconnue
+

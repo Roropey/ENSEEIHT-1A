@@ -1,0 +1,162 @@
+
+-- Auteur: Romain Peyremorte
+-- Gérer un stock de matériel informatique.
+
+package Stocks_Materiel is
+
+
+    CAPACITE : constant Integer := 10;      -- nombre maximum de matériels dans un stock
+
+    type T_Nature is (UNITE_CENTRALE, DISQUE, ECRAN, CLAVIER, IMPRIMANTE);
+
+
+    type T_Stock is limited private;
+
+
+    -- Créer un stock vide.
+    --
+    -- paramètres
+    --     Stock : le stock à créer
+    --
+    -- Assure
+    --     Nb_Materiels (Stock) = 0
+    --
+    procedure Creer (Stock : out T_Stock) with
+        Post => Nb_Materiels (Stock) = 0;
+
+
+    -- Obtenir le nombre de matériels dans le stock Stock.
+    --
+    -- Paramètres
+    --    Stock : le stock dont ont veut obtenir la taille
+    --
+    -- Nécessite
+    --     Vrai
+    --
+    -- Assure
+    --     Résultat >= 0 Et Résultat <= CAPACITE
+    --
+    function Nb_Materiels (Stock: in T_Stock) return Integer with
+            Post => Nb_Materiels'Result >= 0 and Nb_Materiels'Result <= CAPACITE;
+    
+        
+    -- Obtenir le nombre de matériels hors d'état de fonctionnement dans le stock Stock.
+    --
+    -- Paramètres
+    --    Stock : le stock dont ont veut obtenir le nombre de matériels non fonctionnels
+    --
+    -- Nécessite
+    --     Vrai
+    --
+    -- Assure
+    --     Résultat >= 0 Et Résultat <= CAPACITE
+    --
+    function Nb_non_fonctionnement (Stock : in T_Stock) return Integer with
+            Post => Nb_non_fonctionnement'Result <= CAPACITE and Nb_non_fonctionnement'Result>= 0;
+    
+    
+    -- Modifier l'état d'un matériel à partir de son numéro de série.
+    --
+    -- Paramètres
+    --    Stock : le stock où l'on veut modifer l'état d'un matériel
+    --    Numero_Serie : numéro de série du matériel dont l'on veut modifié l'état
+    --
+    --Nécessite
+    --    Vrai
+    --
+    -- Assure
+    --    Vrai
+    --
+    procedure Modifier_etat_materiel (Stock : in out T_Stock; Numero_Serie : in Integer);
+    
+    
+    -- Supprimer un materiel du stock
+    --
+    -- Paramètres
+    --    Stock : le stock dont ont veut supprimer un élément
+    --    Numero_Serie : numéro de série du matériel que l'on veut supprimer
+    --
+    -- Nécessite
+    --     Nb_Materiels (Stock) > 0
+    --
+    -- Assure
+    --     Nb_Materiels (Stock) = Nb_Materiels (Stock)'Avant - 1
+    --
+    procedure Supprimer_materiel (Stock : in out T_Stock; Numero_Serie : in  Integer) with
+            Pre => Nb_Materiels (Stock) > 0,
+            Post => Nb_Materiels (Stock) = Nb_Materiels (Stock)'Old - 1;
+           
+            
+    -- Afficher les materiels du stock
+    --
+    -- Paramètres
+    --    Stock : le stock dont on veut regarder le contenu
+    --
+    -- Necessité
+    --    Vrai
+    --
+    -- Assure
+    --    Vrai
+    --
+    procedure Afficher_stock (Stock : in T_Stock);
+    
+    
+    -- Supprimer tous les matériels non fonctionnel
+    --
+    -- Paramètres
+    --    Stock : le stock dont l'on veut supprimer les matériels non fonctionnels
+    --
+    -- Nécessite
+    --    Vrai
+    --
+    -- Assure
+    --    Nb_Materiels (Stock) = Nb_Materiels (Stock)'Avant - Nb_Materiels_non_fonctionnement (Stock)'Avant
+    --
+    procedure Supprimer_non_fonctionnels (Stock : in out T_Stock) with
+        Post => Nb_Materiels (Stock) = Nb_Materiels (Stock)'Old - Nb_non_fonctionnement (Stock)'Old;
+            
+    
+    -- Enregistrer un nouveau métériel dans le stock.  Il est en
+    -- fonctionnement.  Le stock ne doit pas être plein.
+    -- 
+    -- Paramètres
+    --    Stock : le stock à compléter
+    --    Numero_Serie : le numéro de série du nouveau matériel
+    --    Nature       : la nature du nouveau matériel
+    --    Annee_Achat  : l'année d'achat du nouveau matériel
+    -- 
+    -- Nécessite
+    --    Nb_Materiels (Stock) < CAPACITE
+    -- 
+    -- Assure
+    --    Nouveau matériel ajouté
+    --    Nb_Materiels (Stock) = Nb_Materiels (Stock)'Avant + 1
+    --
+    procedure Enregistrer (
+            Stock        : in out T_Stock;
+            Numero_Serie : in     Integer;
+            Nature       : in     T_Nature;
+            Annee_Achat  : in     Integer
+        ) with
+            Pre => Nb_Materiels (Stock) < CAPACITE,
+            Post => Nb_Materiels (Stock) = Nb_Materiels (Stock)'Old + 1;
+    
+    
+
+private    
+    
+    type T_Materiel_Info is record
+        Numero_Serie : Integer;
+        Nature : T_Nature;
+        Annee_Achat : Integer;
+        Etat : Boolean;
+    end record;
+    
+    type Stock is array (1..CAPACITE) of T_Materiel_Info;
+    
+    type T_Stock is record
+        Taille : Integer;
+        Contenu : Stock;
+    end record;
+        
+end Stocks_Materiel;

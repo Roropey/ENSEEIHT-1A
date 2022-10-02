@@ -1,0 +1,63 @@
+
+Nous montrerons d'abord la compression puis la décompression.
+
+Pour la compression, nous commencerons par le fichier d'exemple du sujet, une fois sans l'option bavarde et une fois avec.
+Dans la suite nous lancerons plusieurs fois la compression avec des arguments différents,
+pour montrer comment le programme se comporte si l'utilisateur ne fait pas ce qu'il devrait.
+La démonstration de la compression se termine en testant trois cas limites :
+- le fichier ne contenant que des octets 255, il n'y a donc que le bit 1 présent
+- le fichier contenant les 256 octets possibles
+- le fichier vide
+
+La démonstration de la décompression sera le "mirroir" de la compression.
+Nous décompresserons les fichiers et afficherons leur contenu pour montrer que les fichiers originaux sont bien reconstruits.
+Un exemple avec l'option bavarde sera lancé pour montrer un exemple d'arbre reconstruit.
+
+
+Ci-après la liste des commandes que nous allons faire.
+
+
+Structure des demonstrations :
+
+"Ce qui est entré dans l'invite de commande"  => "ce qui doit s'afficher"
+
+
+COMPRESSION
+
+./compresser exemple.txt
+
+./compresser -b exemple.txt => "Affichage des fréquences des caractères, de l'arbre d'Huffman et du code de chaque caractère"
+
+./compresser inconnu.txt => Fichier à compresser inexistant.
+
+./compresser 1 2 3 => Vous avez entré trop d'arguments.
+
+./compresser => Vous n'avez pas entré d'arguments.
+
+./compresser -a exemple.txt => Option entrée non reconnue.
+
+./compresser -b que-des-uns.txt => "affichage bavard"
+
+xxd -b un-de-chaque.txt
+
+./compresser -b un-de-chaque.txt => "affichage du code de fin sur 9 bits"
+
+./compresser -b vide.txt => Le fichier vide a bien été encodé
+
+
+DECOMPRESSION
+
+./decompresser exemple.txt.hff
+
+cat exemple.txt
+
+./decompresser -b exemple.txt.hff => "Affichage de l'arbre d'Huffman"
+
+./decompresser inconnu.txt => Fichier à decompresser inexistant.
+
+./decompresser exemple.txt => Le fichier à décompresser n'a pas été compressé par Huffman.
+
+./decompresser vide.txt.hff => Le fichier vide a bien été décodé
+
+
+Eventuellement nous ajouterons des "cat" et "xxd" pour montrer que les fichiers originels sont bien reconstruits.

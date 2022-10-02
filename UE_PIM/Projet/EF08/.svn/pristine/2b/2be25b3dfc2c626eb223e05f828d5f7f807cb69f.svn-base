@@ -1,0 +1,2 @@
+exemple de texte :
+exempte tempete lexeme

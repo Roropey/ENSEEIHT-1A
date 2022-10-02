@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project >
+    <file_marker column=" 1" line=" 58" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/liste_chainee.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 22" line=" 17" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/liste_chainee.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 67" line=" 30" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/liste_chainee.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 16" line=" 61" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/liste_chainee.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 67" line=" 30" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/liste_chainee.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 30" line=" 31" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/liste_chainee.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 6" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/liste_chainee.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 32" line=" 62" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 19" line=" 78" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 8" line=" 81" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 11" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 31" line=" 71" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 27" line=" 93" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 12" line=" 102" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 33" line=" 6" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 29" line=" 21" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 10" line=" 27" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 34" line=" 42" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 28" line=" 44" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 58" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 52" line=" 88" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 95" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 33" line=" 173" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 31" line=" 174" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 29" line=" 175" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 29" line=" 176" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 35" line=" 177" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 36" line=" 177" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 31" line=" 178" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 37" line=" 179" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 37" line=" 180" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 32" line=" 181" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 31" line=" 182" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 28" line=" 183" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 33" line=" 184" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 45" line=" 17" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 10" line=" 18" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 24" line=" 21" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 30" line=" 24" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 30" line=" 26" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 22" line=" 27" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 23" line=" 40" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 30" line=" 67" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 30" line=" 85" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 30" line=" 89" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 28" line=" 107" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 28" line=" 21" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 30" line=" 24" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 30" line=" 26" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 22" line=" 27" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 50" line=" 92" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 50" line=" 92" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 28" line=" 175" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 28" line=" 24" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 30" line=" 27" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 30" line=" 29" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 22" line=" 30" >
+      <vfs_project>/home/vfontain/pim/projet/src/projet.gpr</vfs_project>
+      <vfs_file>/home/vfontain/pim/projet/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

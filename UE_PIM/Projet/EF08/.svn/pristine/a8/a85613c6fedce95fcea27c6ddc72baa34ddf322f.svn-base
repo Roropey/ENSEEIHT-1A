@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project>
+    <vfs_file />
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/projet.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/programme_test.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 1" line=" 47" >
+      <vfs_project />
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/Arbre.ads</vfs_file>
+    </file_marker>
+  </Project>
+  <Project >
+    <vfs_file >/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/projet.gpr</vfs_file>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/projet.gpr</vfs_project>
+      <vfs_file >/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/programme_test.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 1" line=" 47">
+      <vfs_project  />
+      <vfs_file >/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/Arbre.ads</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

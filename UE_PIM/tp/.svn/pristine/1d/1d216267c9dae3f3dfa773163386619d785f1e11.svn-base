@@ -1,0 +1,136 @@
+with Ada.Text_IO;          use Ada.Text_IO;
+with Ada.Integer_Text_IO;  use Ada.Integer_Text_IO;
+
+-- Auteur: Romain Peyremorte
+-- Gérer un stock de matériel informatique.
+--
+package body Stocks_Materiel is
+
+    procedure Creer (Stock : out T_Stock) is
+ 
+    begin
+        Stock.Taille := 0;
+    end Creer;
+
+
+    function Nb_Materiels (Stock: in T_Stock) return Integer is
+    begin
+        return Stock.Taille;
+    end Nb_Materiels;
+    
+    function Nb_non_fonctionnement (Stock: in T_Stock) return Integer is
+        Compteur : Integer;
+    begin
+        Compteur := 0;
+        --Parcourir Stock via Indice pour voir qui a un état False (non fonctionnel)
+        for Indice in 1..Stock.Taille loop
+            if not(Stock.Contenu(Indice).Etat) then
+                Compteur := Compteur + 1;
+            end if;
+        end loop;        
+        return Compteur;
+    end Nb_non_fonctionnement;
+    
+    procedure Modifier_etat_materiel (Stock : in out T_Stock; Numero_Serie : in Integer) is
+    begin
+        --Parcourir le Stock pour trouver le matériel correspondant au numéro de série
+        for Indice in 1..Stock.Taille loop
+            if Stock.Contenu(Indice).Numero_serie = Numero_Serie then
+                if Stock.Contenu(Indice).Etat then
+                    Stock.Contenu(Indice).Etat := False;
+                else
+                    Stock.Contenu(Indice).Etat := True;
+                end if;
+            end if;
+        end loop;
+    end Modifier_etat_materiel;
+
+    procedure Supprimer_materiel (Stock : in out T_Stock; Numero_Serie : in  Integer) is
+        Compteur : Integer;
+    begin
+	    Compteur:=1; 
+        loop
+            if Stock.Contenu(Compteur).Numero_Serie = Numero_Serie then                
+                for Indice in Compteur+1..Stock.Taille loop
+                    Stock.Contenu(Indice-1) := Stock.Contenu(Indice);
+                end loop;
+                Stock.Taille := Stock.Taille - 1;
+            else
+                Compteur := Compteur + 1;
+    	            
+            end if;
+        exit when Compteur = Stock.Taille+1;
+        end loop;
+      
+    end Supprimer_materiel;
+
+    procedure Afficher_stock (Stock : in T_Stock) is
+        
+    begin
+        if Stock.Taille /= 0 then
+            Put_Line("Il y a dans le stock :");
+            for Indice in 1..Stock.Taille loop
+                Put_Line(" - "&T_Nature'Image(Stock.Contenu(Indice).Nature)&" "&Integer'Image(Stock.Contenu(Indice).Numero_serie));
+            end loop;
+        else
+            Put_Line("Le stock est vide");
+        end if;
+    end Afficher_stock;
+    
+    -- Renvoyer le premier matériel non fonctionnel
+    -- 
+    -- Paramètres
+    --    Stock : le stock à compléter
+    -- 
+    -- Nécessite
+    --    Vrai
+    -- 
+    -- Assure
+    --    Vrai
+    --
+    function Renvoyer_premier_non_fontionnel(Stock : in T_Stock) return Integer is
+        Indice : Integer;
+    begin
+        Indice := 0;
+        while Stock.Contenu(Indice).Etat loop
+            Indice := Indice + 1;
+        exit when Indice > Stock.Taille;
+        end loop;
+        if Indice <= Stock.Taille then
+            return Stock.Contenu(Indice).Numero_Serie; 
+        else
+            return -1;
+        end if;
+    end Renvoyer_premier_non_fontionnel;
+    
+    procedure Supprimer_non_fonctionnels (Stock : in out T_Stock) is
+    
+    begin
+        for Indice in 1..Nb_non_fonctionnement(Stock) loop
+            
+            Supprimer_materiel (Stock , Renvoyer_premier_non_fontionnel(Stock));
+        
+        end loop;
+    end Supprimer_non_fonctionnels;
+
+    procedure Enregistrer (
+            Stock        : in out T_Stock;
+            Numero_Serie : in     Integer;
+            Nature       : in     T_Nature;
+            Annee_Achat  : in     Integer
+        ) is
+    begin
+        Stock.Taille := Stock.Taille + 1;
+        Stock.Contenu(Stock.Taille).Numero_Serie := Numero_Serie;
+        Stock.Contenu(Stock.Taille).Nature := Nature;
+        Stock.Contenu(Stock.Taille).Annee_Achat := Annee_Achat;
+        Stock.Contenu(Stock.Taille).Etat := True;
+    end Enregistrer;
+
+    
+    
+    
+    
+
+
+end Stocks_Materiel;

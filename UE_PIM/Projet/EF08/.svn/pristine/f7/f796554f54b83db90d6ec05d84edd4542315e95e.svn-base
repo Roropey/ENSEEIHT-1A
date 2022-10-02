@@ -1,0 +1,56 @@
+with Liste_Chainee;
+
+package Flux_Binaire is
+    type T_Bit is mod 2;
+    for T_Bit'Size use 1;
+
+    type T_Octet is mod 256;
+    for T_Octet'Size use 8;
+
+    type T_Flux_Binaire is limited private;
+
+
+	-- Initialiser un flux. Le flux est Vide;
+	procedure Initialiser (Flux: out T_Flux_Binaire) with
+		Post => Est_Vide (Flux);
+
+
+	-- Est-ce qu'un flux est vide ?
+	function Est_Vide (Flux : in T_Flux_Binaire) return Boolean;
+
+
+	-- Obtenir le nombre d'octets d'un flux. 
+	function Taille (Flux : in T_Flux_Binaire) return Integer with
+		Post => Taille'Result >= 0
+			and (Taille'Result = 0) = Est_Vide (Flux);
+
+
+	-- Obtenir l'octet d'indice Indice. 
+	function L_Octet (Flux : in T_Flux_Binaire; Indice : Integer) return T_Octet;
+    
+    
+	-- Ajouter un bit au flux
+    procedure Ajouter_Bit (Flux : in out T_Flux_Binaire; Bit : in T_Bit);
+
+    
+	-- Ajouter un octet au flux
+    procedure Ajouter_Octet (Flux : in out T_Flux_Binaire; Octet : in T_Octet);
+
+    
+ 	-- Ajouter un flux a un autre flux
+    procedure Ajouter_Flux (Flux : in out T_Flux_Binaire; Flux_deux : in T_Flux_Binaire);
+
+
+	-- Supprimer tous les octets d'un flux
+	procedure Vider (Flux : in out T_Flux_Binaire) with
+		Post => Est_Vide (Flux);
+
+private
+    package Liste_Octet is new Liste_Chainee (T_Valeur => T_Octet);
+    use Liste_Octet;
+
+    type T_Flux_Binaire is record
+        Nombre_Bits_Inutilises : Integer;
+        Liste : T_Liste_Chainee;
+    end record;
+end Flux_Binaire;

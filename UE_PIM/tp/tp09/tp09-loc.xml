@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project >
+    <file_marker column=" 5" line=" 10" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp09/tp09.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp09/exemple_vecteurs_creux.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 10" line=" 166" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp09/tp09.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp09/vecteurs_creux.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 18" line=" 80" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp09/tp09.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp09/vecteurs_creux.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 56" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp09/tp09.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp09/exemple_vecteurs_creux.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 20" line=" 53" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp09/tp09.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp09/exemple_vecteurs_creux.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 5" line=" 10" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp09/tp09.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp09/exemple_vecteurs_creux.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 20" line=" 52" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp09/tp09.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp09/exemple_vecteurs_creux.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 5" line=" 10" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp09/tp09.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp09/exemple_vecteurs_creux.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

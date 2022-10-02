@@ -1,0 +1,97 @@
+with Ada.Text_IO;           use Ada.Text_IO;
+with Ada.Integer_Text_IO;   use Ada.Integer_Text_IO;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+with Arbre;
+
+procedure Test_Arbre is
+
+    package Arbre_Integer_Unbounded_String is
+            new Arbre (T_Cle => Integer, T_Valeur => Unbounded_String);
+    use Arbre_Integer_Unbounded_String;
+
+    procedure Afficher (Cle : in Integer ; Valeur : in Unbounded_String) is
+    begin
+        Put_Line("Le noeud à la valeur " & Integer'Value(Cle) & " pour la lettre " & To_String(Valeur));
+    end Afficher;
+
+    procedure Afficher_noeud is new Pour_Chaque(Traiter => Afficher);
+
+    procedure Test_Affichage(Arbre : in T_Arbre) is
+    begin
+        Put_Line("Afficher Arbre");
+        Afficher_noeud(Arbre);
+    end Test_Affichage;
+
+    total : Integer;
+
+    procedure Somme (Cle : in Integer ; Valeur : in Unbounded_String) is
+    begin
+        total := total + Cle;
+    end Somme;
+
+    procedure Somme_noeud is new Pour_Chaque (Traiter => Somme);
+
+    procedure Test_Pour_Chaque_Somme (Arbre : in T_Arbre ; total : in out Integer) is
+    begin
+        Somme_Noeud(Arbre);
+        pragma Assert(total=80);
+    end Test_Pour_Chaque_Somme;
+
+
+    procedure Initialiser_Arbre(Arbre : out T_Arbre) is
+        Arbre_null_0 : T_Arbre;
+        Arbre_null_1 : T_Arbre;
+        Arbre_null_2 : T_Arbre;
+        Arbre_null_3 : T_Arbre;
+        Arbre_null_4 : T_Arbre;
+        Arbre_null_5 : T_Arbre;
+        Arbre_null_6 : T_Arbre;
+        Arbre_null_7 : T_Arbre;
+        Arbre_null_8 : T_Arbre;
+        Arbre_null_9 : T_Arbre;
+    begin
+
+        Put_Line("Création d'arbres vides");
+        Initialiser(Arbre);
+        Initialiser(Arbre_null_0);
+        Initialiser(Arbre_null_1);
+        Initialiser(Arbre_null_2);
+        Initialiser(Arbre_null_3);
+
+        Put_Line("Modification du noeud d'un arbre");
+        Enregistrer(Arbre,10,To_Unbounded_String("e"),Arbre_null_1,Arbre_null_0);
+        pragma Assert(Valeur(Arbre)="e");
+        pragma Assert(Cle(Arbre)=10);
+
+        Put_Line("Modification de l'arbre gauche directement");
+        Enregistrer(Arbre_null_1,20,To_Unbounded_String("a"),Arbre_null_2,Arbre_null_3);
+        pragma Assert(Valeur(Gauche(Arbre))=To_Unbounded_String("a"));
+        pragma Assert(Cle(Gauche(Arbre))=20);
+
+        Put_Line("Modification de l'arbre droit par autre pointeur");
+        Enregistrer(Arbre_null_0,50,To_Unbounded_String("o"),Arbre_null_4,Arbre_null_5);
+        pragma Assert(Valeur(Arbre_null_0)=To_Unbounded_String("o"));
+        pragma Assert(Cle(Arbre_null_0)=50);
+
+        pragma Assert(Valeur(Droite(Arbre))=To_Unbounded_String("o"));
+        pragma Assert(Cle(Droite(Arbre))=50);
+    end Initialiser_Arbre;
+
+    procedure Test_vider(Arbre : in out T_Arbre) is
+
+    begin
+        Put_Line("Suppression Arbre");
+        Vider(Arbre);
+        pragma Assert(Est_Vide(Arbre));
+    end Test_vider;
+
+    Arbre_test : T_Arbre;
+
+begin
+    Initialiser_Arbre(Arbre_test);
+    Test_Affichage(Arbre_test);
+    total := 0;
+    Test_Pour_Chaque_Somme(Arbre_test, total);
+    Test_vider(Arbre_test);
+    Put_Line ("Fin des tests : OK.");
+end Test_Arbre;

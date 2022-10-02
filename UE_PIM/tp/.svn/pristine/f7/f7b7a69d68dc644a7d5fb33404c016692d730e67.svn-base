@@ -1,0 +1,33 @@
+Indiquer vos réponses aux questions de l'exercice 1 du Bilan 2 ci-après : 
+
+[B1.1] Quelle est la portée de chaque variable déclarée ? Pour chaque variable, on donnera le numéro de ligne où commence et se termine sa portée.
+n : début 8,pas de portée entre les lignes 21 et 25, fin 36 (fin du programme)
+*p : début 9, fin 36
+a : début 5, fin 17
+n : début 22, fin 24
+r : début 30, fin 32
+
+[B1.2] Y a-t-il un exemple de masquage de variable dans ce programme ?
+Le n défini à la ligne 22 masque le n défini à la ligne 8 jusqu'à la
+ligne 24.
+
+
+[B1.3] Peut-on savoir ce que devrait afficher l’exécution de ce programme ?
+Ligne 10 : afficher les coordonnées de la variable n.
+Ligne 11 : afficher les coordonnées où pointe p (null).
+Ligne 15 : afficher les coordonnées de la variable a.
+Ligne 16 : afficher les coordonnées où pointe p.
+...
+
+On ne peut pas savoir quelles sont les coordonnées affichées car elles
+dépendent de la machine.
+
+[B1.4] Même s’il compile sans erreur, ce programme est faux. Pourquoi ?
+Le fait d'afficher ce qui se trouve à une coordonnée vide ou qui ne contient
+rien entraine des problèmes que lors de l'exécution.
+
+[B1.5] La valeur de `p` change-t-elle après l’initialisation de la ligne 14 ?
+Nan, elle ne change pas.
+
+[B1.6] Que se passerait-il si on modifiait `*p` après la ligne 19 ?
+*p n'est plus existant après la ligne 19, donc cela poserait problème.

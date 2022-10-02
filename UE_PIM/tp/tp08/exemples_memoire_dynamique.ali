@@ -1,0 +1,107 @@
+V "GNAT Lib v2021"
+M P W=b
+A -gnatA
+A -gnatwa
+A -gnata
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_RECURSION
+RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U exemples_memoire_dynamique%b  exemples_memoire_dynamique.adb  cfd27f70 NE OO SU
+W ada%s			ada.ads			ada.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W ada.unchecked_deallocation%s
+W piles%s		piles.adb		piles.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.concat_2%s	s-conca2.adb		s-conca2.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+
+D ada.ads		20210520051130 76789da1 ada%s
+D a-assert.ads		20210520051127 a718b65c ada.assertions%s
+D a-except.ads		20210520051127 946f3014 ada.exceptions%s
+D a-ioexce.ads		20210520051127 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20210520051128 119b8fb3 ada.streams%s
+D a-string.ads		20210520051128 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051128 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051128 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051129 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051129 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051129 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051129 c3a8ac65 ada.unchecked_deallocation%s
+D exemples_memoire_dynamique.adb  20211108163610 071b1a9e exemples_memoire_dynamique%b
+D interfac.ads		20210520051131 edec285f interfaces%s
+D i-cstrea.ads		20210520051131 e53d8b8e interfaces.c_streams%s
+D piles.ads		20211108161208 a5951ce6 piles%s
+D piles.adb		20211026071138 43a1d5bc piles%b
+D system.ads		20210520051134 a2da961d system%s
+D s-assert.ads		20210520051131 6a49a4e4 system.assertions%s
+D s-conca2.ads		20210520051131 02a0d7d0 system.concat_2%s
+D s-crtl.ads		20210520051131 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051131 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051131 078245e4 system.file_control_block%s
+D s-imagei.ads		20210520051132 0d3f86a7 system.image_i%s
+D s-imgint.ads		20210520051132 bdb6f5ec system.img_int%s
+D s-parame.ads		20210520051133 4752c4cb system.parameters%s
+D s-putima.ads		20210520051133 4e095881 system.put_images%s
+D s-secsta.ads		20210520051133 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051133 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051133 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051133 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051133 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051133 ed88f8fb system.storage_elements%b
+D s-traent.ads		20210520051133 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051133 2b077493 system.unsigned_types%s
+D s-wchcon.ads		20210520051134 1b7d22d2 system.wch_con%s
+D unchconv.ads		20210520051134 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z b b [exemples_memoire_dynamique standard 5 11 none]
+X 1 ada.ads
+16K9*Ada 20e8 13|2r6 2r34 3r6 12r24
+X 10 a-textio.ads
+58K13*Text_IO 725e16 13|2w10 2r38
+506U14*Put_Line 13|21s17 33s9 60s17 95s17 113s17 115s9
+X 12 a-uncdea.ads
+20u15*Unchecked_Deallocation 13|3w10 12r28
+X 13 exemples_memoire_dynamique.adb
+5U11*Exemples_Memoire_Dynamique 5b11 129l5 129t31
+8P14 T_Pointeur_Integer(integer) 12r61 17r24 29r24 43r30 83r40 88r23
+11U19 Free[12|20] 22s17 34s9 51s9 65s9 97s17
+16U19 Illustrer_Memoire_Dynamique 16b19 24l13 24t40 124s9
+17p17 Ptr1{8P14} 19m17 20r17 21r58 22m23 22r23 23r32
+28U19 Illustrer_Memoire_Dynamique_Sans_Free 28b19 36l13 36t50 125s9
+29p17 Ptr1{8P14} 31m17 32r17 33r50 34m14 34r14 35r23
+41U19 Illustrer_Memoire_Dynamique_Erreur 41b19 76l13 76t47 126s9
+43p17 Ptr1{8P14} 45m17 46r25 47r17 48r32 51m15 51r15 56r32
+43p23 Ptr2{8P14} 46m17 49r32 53m9 54r9 57r32 60r58 62r17 63r24 65m14 65r14
+81U19 Illustrer_Pointeur_In 81b19 98l13 98t34
+83U27 SP 83b27 83>31 86l21 86t23 93s17
+83p31 Ptr{8P14} 85r25
+88p17 Ptr{8P14} 91m17 92r17 93r21 95r67 97m23 97r23
+103U19 Illustrer_Pile_Locale 103b19 120l13 120t34
+105K25 Pile[16|6] 107r21
+109p17 P{16|8P14[105]} 111m30 111r30 112m26 112r26 113r64 114m26 114r26 115r56
+. 116m18 116r18
+X 16 piles.ads
+6k9*Piles 13|1w6 106r29 16|59e10
+8P14 T_Pile 13|109r21[105]
+12U19 Initialiser 13|111s17[105]
+21V18 Sommet{integer} 13|113s56[105] 115s48[105]
+27U19 Empiler 13|112s17[105] 114s17[105]
+38U19 Detruire 13|116s9[105]
+

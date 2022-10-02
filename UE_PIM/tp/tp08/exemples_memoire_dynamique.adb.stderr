@@ -1,0 +1,2 @@
+exemples_memoire_dynamique.adb:81:19: warning: procedure "Illustrer_Pointeur_In" is not referenced [-gnatwu]
+exemples_memoire_dynamique.adb:103:19: warning: procedure "Illustrer_Pile_Locale" is not referenced [-gnatwu]

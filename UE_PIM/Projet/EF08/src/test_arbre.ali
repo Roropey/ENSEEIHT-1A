@@ -1,0 +1,170 @@
+V "GNAT Lib v2021"
+M P W=b
+A -gnatA
+A -gnata
+A -g
+A -gnatwa
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_NESTED_FINALIZATION
+RV NO_RECURSION
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U test_arbre%b		test_arbre.adb		b683cf21 NE OO SU
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z ada.unchecked_deallocation%s
+W arbre%s		arbre.adb		arbre.ali
+Z system%s		system.ads		system.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
+
+D ada.ads		20210520051130 76789da1 ada%s
+D a-assert.ads		20210520051127 a718b65c ada.assertions%s
+D a-charac.ads		20210520051127 2d3ec45b ada.characters%s
+D a-chlat1.ads		20210520051127 66457d31 ada.characters.latin_1%s
+D a-except.ads		20210520051127 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051127 bf4f806b ada.finalization%s
+D a-inteio.ads		20210520051127 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20210520051127 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20210520051128 119b8fb3 ada.streams%s
+D a-string.ads		20210520051128 90ac6797 ada.strings%s
+D a-strmap.ads		20210520051128 5a88892a ada.strings.maps%s
+D a-sttebu.ads		20210520051128 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051128 03325227 ada.strings.unbounded%s
+D a-stuten.ads		20210520051128 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051129 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051129 aef4d56d ada.text_io%s
+D a-tiinio.ads		20210520051129 390edddb ada.text_io.integer_io%s
+D a-unccon.ads		20210520051129 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051129 c3a8ac65 ada.unchecked_deallocation%s
+D arbre.ads		20211222162917 bd783b00 arbre%s
+D arbre.adb		20220104101332 fb6cc46e arbre%b
+D interfac.ads		20210520051131 edec285f interfaces%s
+D i-cstrea.ads		20210520051131 e53d8b8e interfaces.c_streams%s
+D system.ads		20210520051134 a2da961d system%s
+D s-assert.ads		20210520051131 6a49a4e4 system.assertions%s
+D s-atocou.ads		20210520051131 b45c2d8d system.atomic_counters%s
+D s-crtl.ads		20210520051131 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051131 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051131 078245e4 system.file_control_block%s
+D s-finmas.ads		20210520051131 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051131 4ff27390 system.finalization_root%s
+D s-memory.ads		20210520051132 597d6634 system.memory%s
+D s-parame.ads		20210520051133 4752c4cb system.parameters%s
+D s-pooglo.ads		20210520051133 ede33ef8 system.pool_global%s
+D s-putima.ads		20210520051133 4e095881 system.put_images%s
+D s-secsta.ads		20210520051133 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051133 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051133 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051133 472fbca8 system.standard_library%s
+D s-stalib.adb		20210520051133 977290bf system.standard_library%b
+D s-stoele.ads		20210520051133 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051133 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051133 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051133 e251976f system.storage_pools.subpools%s
+D s-stratt.ads		20210520051133 7bdda3fa system.stream_attributes%s
+D s-traent.ads		20210520051133 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051133 2b077493 system.unsigned_types%s
+D s-wchcon.ads		20210520051134 1b7d22d2 system.wch_con%s
+D test_arbre.adb	20211222173224 5076facf test_arbre%b
+D unchconv.ads		20210520051134 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z b b [test_arbre standard 6 11 none]
+G r i none [test_arbre standard 6 11 none] [arbre standard 5 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 49|1r6 1r33 2r6 2r33 3r6 3r33
+X 7 a-inteio.ads
+18K13*Integer_Text_IO[17|46] 49|2w10 2r37
+X 10 a-string.ads
+16K13*Strings 35e16 49|3r10 3r37
+X 13 a-strunb.ads
+83K21*Unbounded 765e26 49|3w18 3r45
+88R9*Unbounded_String<6|43R9> 744e15 49|9r54 15r60 36r57
+104V13*To_Unbounded_String{88R9} 49|57s35 58s41 61s30 66s43 70s36 71s42
+117V13*To_String{string} 49|20s17
+239V14*"="{boolean} 49|58s40 66s42 71s41
+245V14*"="{boolean} 49|62s35
+X 16 a-textio.ads
+58K13*Text_IO 725e16 49|1w10 1r37
+262U14*New_Line 49|22s13
+463U14*Put 49|17s13 19s13 20s13 21s13
+506U14*Put_Line 49|27s9 43s9 53s9 56s9 69s8 79s9 92s5
+X 17 a-tiinio.ads
+80U14*Put 49|18s13[7|18]
+X 20 arbre.ads
+3+10 T_Cle 49|9r24
+4+10 T_Valeur 49|9r42
+5k9*Arbre 43e10 49|4w6 9r17
+7R10 Noeud
+9P10 T_Arbre(7R10[49|8]) 49|14r41[8] 35r50[8] 49r45[8] 50r22[8] 76r41[8]
+. 84r18[8]
+12i9 Cle{integer} 49|59r34[8] 63r29[8] 67r36[8] 72r35[8]
+13r9 Valeur{13|88R9} 49|58r34[8] 62r29[8] 66r36[8] 71r35[8]
+14p9 Gauche{9P10[49|8]} 49|66r29[8] 67r29[8]
+15p9 Droite{9P10[49|8]} 49|70m26[8] 71r28[8] 72r28[8]
+21U15 Initialiser 49|54s9[8]
+26V14 Est_Vide{boolean} 49|81s23[8]
+30U15 Enregistrer 49|57s9[8] 61s9[8] 70s8[8]
+33U15 Vider 49|80s9[8]
+37U24 Traiter 49|25r53[8] 41r51[8]
+38u15 Pour_Chaque 49|25r41[8] 41r38[8]
+X 24 system.ads
+67M9*Address
+X 32 s-memory.ads
+53V13*Alloc{24|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{24|67M9} 105i<c,__gnat_realloc>22
+X 40 s-stalib.adb
+89U14 Break_Start 90i<c,__gnat_break_start>22
+X 49 test_arbre.adb
+6U11*Test_Arbre 6b11 93l5 93t15
+8K13 Arbre_Integer_Unbounded_String[20|5] 10r9
+14U15 Test_Affichage 14b15 14>30 29l9 29t23 88s5
+14p30 Arbre{20|9P10[8]} 28r24
+15U19 Afficher 15b19 15>29 15>48 23l13 23t21 25r64
+15i29 Cle{integer} 18r17
+15r48 Valeur{13|88R9} 20r27
+25U19 Afficher_noeud[20|38] 28s9
+31i5 total{integer} 89m5 90m40 90r40
+35U15 Test_Pour_Chaque_Somme 35b15 35>39 35=60 46l9 46t31 90s5
+35p39 Arbre{20|9P10[8]} 44r21
+35i60 total{integer} 38m13 38r22 45r23
+36U19 Somme 36b19 36>26 36>45 39l13 39t18 41r62
+36i26 Cle{integer} 38r30
+36r45 Valeur{13|88R9}
+41U19 Somme_noeud[20|38] 44s9
+49U15 Initialiser_Arbre 49b15 49<33 74l9 74t26 87s5
+49p33 Arbre{20|9P10[8]} 61m21 62r23 63r23 66r23 67r23 70r20 71r22 72r22
+50p9 Sous_arbre{20|9P10[8]} 54m21 54r21 57m21 57r21 58r23 59r23 61r55
+76U15 Test_vider 76b15 76=26 82l9 82t19 91s5
+76p26 Arbre{20|9P10[8]} 80m15 81r32
+84p5 Arbre_test{20|9P10[8]} 87m23 87r23 88r20 90r28 91m16 91r16
+

@@ -1,0 +1,1 @@
+vecteurs_creux.adb:165:09: warning: variable "Resultat" is never read and never assigned [-gnatwv]

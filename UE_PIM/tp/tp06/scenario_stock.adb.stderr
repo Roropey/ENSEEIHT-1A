@@ -1,0 +1,4 @@
+scenario_stock.adb:1:09: warning: no entities of "Ada.Text_IO" are referenced [-gnatwu]
+scenario_stock.adb:1:28: warning: use clause for package "Text_IO" has no effect [-gnatwu]
+scenario_stock.adb:2:09: warning: no entities of "Ada.Integer_Text_IO" are referenced [-gnatwu]
+scenario_stock.adb:2:28: warning: use clause for package "Integer_Text_IO" has no effect [-gnatwu]

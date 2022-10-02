@@ -1,0 +1,1 @@
+exemple_vecteurs_creux.adb:10:09: warning: constant "Epsilon" is not referenced [-gnatwu]

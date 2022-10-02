@@ -1,0 +1,12 @@
+project Projet is
+
+   for Source_Dirs use ("./**");
+   for Object_Dir use ".";
+   for Main use ("decompresser.adb", "compresser.adb", "test_flux_binaire.adb", "test_liste_chainee.adb", "arbre.adb", "test_arbre.adb", "main.adb");
+
+   package Compiler is
+      for Switches ("ada") use ("-gnata", "-g", "-gnatwa");
+   end Compiler;
+
+end Projet;
+

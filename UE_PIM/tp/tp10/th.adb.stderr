@@ -1,0 +1,2 @@
+th.adb:2:06: warning: no entities of "SDA_Exceptions" are referenced [-gnatwu]
+th.adb:2:30: warning: use clause for package "SDA_Exceptions" has no effect [-gnatwu]

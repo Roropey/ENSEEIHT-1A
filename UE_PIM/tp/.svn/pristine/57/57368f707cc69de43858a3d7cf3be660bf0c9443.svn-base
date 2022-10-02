@@ -1,0 +1,89 @@
+--with Ada.Text_IO;            use Ada.Text_IO;
+with SDA_Exceptions;         use SDA_Exceptions;
+with Ada.Unchecked_Deallocation;
+with lca;
+
+package body TH is
+
+    package LCA is
+            new LCA (T_Cle => T_Cle, T_Donnee => T_Donnee);
+    use LCA;
+
+
+
+    procedure Initialiser(Sda: out T_TH) is
+    begin
+        for Liste in Sda.Tableau loop
+            LCA.Initialiser(Liste);
+        end loop;
+        Sda.Taille := 0;
+	end Initialiser;
+
+
+	function Est_Vide (Sda : T_TH) return Boolean is
+	begin
+        return (Sda.Taille = 0);
+	end;
+
+
+    function Taille (Sda : in T_TH) return Integer is
+    begin
+        return Sda.Taille;
+	end Taille;
+
+
+     procedure Enregistrer (Sda : in out T_TH ; Cle : in T_Cle ; Donnee : in T_Donnee) is
+        Indice : Integer;
+	begin
+        Indice := fonction_de_hachage(Cle);
+        if Sda.Tableau(Indice) = null then
+            LCA.Initialiser(Sda.Tableau(Indice));
+        end if;
+        LCA.Enregistrer(Sda.Tableau(Indice),Cle,Donnee);
+        Sda.Taille := Sda.Taille + 1;
+	end Enregistrer;
+
+
+    function Cle_Presente (Sda : in T_TH ; Cle : in T_Cle) return Boolean is
+        Indice : Integer;
+     begin
+        Indice := fonction_de_hachage(Cle);
+        return LCA.Cle_Presente(Sda.Tableau(Indice),Cle);
+	end;
+
+
+    function La_Donnee (Sda : in T_TH ; Cle : in T_Cle) return T_Donnee is
+        Indice : Integer;
+     begin
+        Indice := fonction_de_hachage(Cle);
+        return LCA.La_Donnee(Sda.Tableau(Indice),Cle);
+	end La_Donnee;
+
+     procedure Supprimer (Sda : in out T_TH ; Cle : in T_Cle) is
+        Indice : Integer;
+     begin
+        Indice := fonction_de_hachage(Cle);
+        LCA.Supprimer(Sda.Tableau(Indice),Cle);
+        Sda.Taille := Sda.Taille - 1;
+	end Supprimer;
+
+
+	procedure Vider (Sda : in out T_TH) is
+	begin
+        for liste in Sda.Tableau loop
+            LCA.Vider(liste);
+        end loop;
+        Sda.Taille := 0;
+	end Vider;
+
+
+    procedure Pour_Chaque (Sda : in T_Th) is
+        procedure Traiter is new LCA.Pour_Chaque (Traiter => Traiter);
+	begin
+        for liste in Sda.Tableau loop
+            LCA.Pour_Chaque(liste);
+        end loop;
+    end Pour_Chaque;
+
+
+end TH;

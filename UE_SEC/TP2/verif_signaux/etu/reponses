@@ -1,0 +1,6 @@
+1-Combien de SIGUSR1 et de SIGUSR2 seront ils affichés ?
+--> 2 SIGUSR2 et 1 SIGUSR1
+2-Quel sera l'ordre d'affichage ?
+--> Les 2 SIGUSR2 d'abord puis le SIGUSR1
+3-Au bout de combien de temps (à 2 secondes près) s'affichera le message de terminaison ?
+--> 10s

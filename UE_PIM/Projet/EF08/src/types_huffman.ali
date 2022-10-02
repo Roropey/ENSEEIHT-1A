@@ -1,0 +1,140 @@
+V "GNAT Lib v2021"
+A -gnatA
+A -gnata
+A -g
+A -gnatwa
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_RECURSION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U types_huffman%s	types_huffman.ads	d4d0aacc NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.streams%s		a-stream.adb		a-stream.ali
+W ada.streams.stream_io%s  a-ststio.adb		a-ststio.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.text_io%s		a-textio.adb		a-textio.ali
+Z ada.unchecked_deallocation%s
+W arbre%s		arbre.adb		arbre.ali  ED
+W flux_binaire%s	flux_binaire.adb	flux_binaire.ali
+W liste_chainee%s	liste_chainee.adb	liste_chainee.ali  ED
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+D ada.ads		20210520051130 76789da1 ada%s
+D a-assert.ads		20210520051127 a718b65c ada.assertions%s
+D a-except.ads		20210520051127 946f3014 ada.exceptions%s
+D a-ioexce.ads		20210520051127 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20210520051128 119b8fb3 ada.streams%s
+D a-ststio.ads		20210520051128 d6d358e8 ada.streams.stream_io%s
+D a-string.ads		20210520051128 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051128 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051128 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051129 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051129 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051129 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051129 c3a8ac65 ada.unchecked_deallocation%s
+D arbre.ads		20211222162917 bd783b00 arbre%s
+D arbre.adb		20220104101332 fb6cc46e arbre%b
+D flux_binaire.ads	20220104101317 6b5e7383 flux_binaire%s
+D interfac.ads		20210520051131 edec285f interfaces%s
+D i-cstrea.ads		20210520051131 e53d8b8e interfaces.c_streams%s
+D liste_chainee.ads	20211230184609 9db4127e liste_chainee%s
+D liste_chainee.adb	20211222182058 00001659 liste_chainee%b
+D system.ads		20210520051134 a2da961d system%s
+D s-assert.ads		20210520051131 6a49a4e4 system.assertions%s
+D s-crtl.ads		20210520051131 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051131 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051131 078245e4 system.file_control_block%s
+D s-parame.ads		20210520051133 4752c4cb system.parameters%s
+D s-putima.ads		20210520051133 4e095881 system.put_images%s
+D s-secsta.ads		20210520051133 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051133 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051133 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051133 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051133 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051133 ed88f8fb system.storage_elements%b
+D s-traent.ads		20210520051133 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051133 2b077493 system.unsigned_types%s
+D s-wchcon.ads		20210520051134 1b7d22d2 system.wch_con%s
+D types_huffman.ads	20220114152445 4991a8d9 types_huffman%s
+D unchconv.ads		20210520051134 ca2f9e18 unchecked_conversion%s
+G a e
+G c s s s [s types_huffman 7 1 none]
+G c Z s s [initialiser types_huffman__arbre_integer_octet 21 15 14_5]
+G c Z s s [est_vide types_huffman__arbre_integer_octet 26 14 14_5]
+G c Z s s [enregistrer types_huffman__arbre_integer_octet 30 15 14_5]
+G c Z s s [vider types_huffman__arbre_integer_octet 33 15 14_5]
+G c Z s s [noeudIP types_huffman__arbre_integer_octet 11 10 14_5]
+G c Z s s [free types_huffman__arbre_integer_octet 7 15 14_5]
+G c Z s s [initialiser types_huffman__liste_chainee_octet 8 19 27_5]
+G c Z s s [est_vide types_huffman__liste_chainee_octet 13 18 27_5]
+G c Z s s [taille types_huffman__liste_chainee_octet 17 18 27_5]
+G c Z s s [ajouter types_huffman__liste_chainee_octet 23 15 27_5]
+G c Z s s [enregistrer types_huffman__liste_chainee_octet 27 15 27_5]
+G c Z s s [inserer_avant types_huffman__liste_chainee_octet 30 15 27_5]
+G c Z s s [supprimer types_huffman__liste_chainee_octet 35 19 27_5]
+G c Z s s [supprimer_indice types_huffman__liste_chainee_octet 38 19 27_5]
+G c Z s s [valeur_presente types_huffman__liste_chainee_octet 42 18 27_5]
+G c Z s s [la_valeur types_huffman__liste_chainee_octet 46 14 27_5]
+G c Z s s [l_indice types_huffman__liste_chainee_octet 50 14 27_5]
+G c Z s s [vider types_huffman__liste_chainee_octet 54 19 27_5]
+G c Z s s [t_celluleIP types_huffman__liste_chainee_octet 67 10 27_5]
+G c Z s s [free types_huffman__liste_chainee_octet 5 15 27_5]
+G c Z s s [Tt_frequencesBIP types_huffman 12 5 none]
+G c Z s s [Tt_listeBIP types_huffman 18 5 none]
+G c Z s s [t_tableauIP types_huffman 20 10 none]
+G c Z s s [Tt_codageBIP types_huffman 25 5 none]
+G c Z s s [t_flux_fichierIP types_huffman 30 10 none]
+G r i none [s types_huffman 7 1 none] [arbre standard 5 9 none]
+G r i none [s types_huffman 7 1 none] [liste_chainee standard 3 9 none]
+G r s t_flux_binaire [Tt_codageBIP types_huffman 25 5 none] [t_flux_binaireIP flux_binaire 64 10 none]
+X 1 ada.ads
+16K9*Ada 20e8 37|1r6 1r33
+X 5 a-stream.ads
+36K13*Streams 87e16 37|1r10 1r37
+X 6 a-ststio.ads
+39K21*Stream_IO 224e26 37|1w18 1r45
+42P9*Stream_Access(5|39R9) 37|31r24
+X 14 arbre.ads
+3+10 T_Cle 37|15r24
+4+10 T_Valeur 37|15r42
+5k9*Arbre 43e10 37|2w6 15r17
+7R10*Noeud
+9P10*T_Arbre(7R10[37|14]) 37|18r59[14]
+X 16 flux_binaire.ads
+3K9*Flux_Binaire 68e17 37|4w6 4r24
+7M10*T_Octet 37|10r33 10r47 10r64 15r54 28r44 32r17
+10R10*T_Flux_Binaire 67e15 37|25r50
+X 19 liste_chainee.ads
+2+10 T_Valeur 37|28r32
+3k9*Liste_Chainee 71e18 37|3w6 28r17
+X 37 types_huffman.ads
+7K9*Types_Huffman 36l5 36e18
+10M13*Intervalle_Ascii{16|7M10} 12r33 25r29
+12A10*T_Frequences(integer)<16|7M10>
+14K13*Arbre_Integer_Octet[14|5] 18r39
+18A10*T_Liste(14|9P10[14])<integer> 22r19
+20R10*T_Tableau 23e15
+21i9*Taille{integer}
+22a9*Tableau{18A10}
+25A10*T_Codage(16|10R10)<16|7M10>
+27K13*Liste_Chainee_Octet[19|3]
+30R10*T_Flux_Fichier 34e15
+31p9*Flux_Interne{6|42P9}
+32m9*Octet{16|7M10}
+33i9*Indice_Bit{integer}
+

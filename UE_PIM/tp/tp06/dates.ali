@@ -1,0 +1,109 @@
+V "GNAT Lib v2021"
+A -gnatwa
+A -gnata
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IO
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLICIT_LOOPS
+
+U dates%b		dates.adb		6128d388 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U dates%s		dates.ads		cb41c0f4 EE NE OO PK
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+
+D ada.ads		20210520051130 76789da1 ada%s
+D a-assert.ads		20210520051127 a718b65c ada.assertions%s
+D a-except.ads		20210520051127 946f3014 ada.exceptions%s
+D a-inteio.ads		20210520051127 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20210520051127 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20210520051128 119b8fb3 ada.streams%s
+D a-string.ads		20210520051128 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051128 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051128 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051129 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051129 aef4d56d ada.text_io%s
+D a-tiinio.ads		20210520051129 390edddb ada.text_io.integer_io%s
+D a-unccon.ads		20210520051129 0e9b276f ada.unchecked_conversion%s
+D dates.ads		20211018121652 cb41c0f4 dates%s
+D dates.adb		20211018120519 f2d64fb5 dates%b
+D interfac.ads		20210520051131 edec285f interfaces%s
+D i-cstrea.ads		20210520051131 e53d8b8e interfaces.c_streams%s
+D system.ads		20210520051134 a2da961d system%s
+D s-assert.ads		20210520051131 6a49a4e4 system.assertions%s
+D s-crtl.ads		20210520051131 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051131 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051131 078245e4 system.file_control_block%s
+D s-parame.ads		20210520051133 4752c4cb system.parameters%s
+D s-putima.ads		20210520051133 4e095881 system.put_images%s
+D s-secsta.ads		20210520051133 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051133 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051133 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051133 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051133 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051133 ed88f8fb system.storage_elements%b
+D s-traent.ads		20210520051133 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051133 2b077493 system.unsigned_types%s
+D s-wchcon.ads		20210520051134 1b7d22d2 system.wch_con%s
+D unchconv.ads		20210520051134 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s b [initialiser dates 30 15 none]
+G c Z s b [afficher dates 39 15 none]
+G c Z s b [le_mois dates 44 14 none]
+G c Z s b [le_jour dates 49 14 none]
+G c Z s b [l_annee dates 54 14 none]
+G c Z s s [t_dateIP dates 59 10 none]
+G c Z b b [afficher_deux_positions dates 29 15 none]
+X 1 ada.ads
+16K9*Ada 20e8 15|3r6 4r6 5r6 6r6
+X 4 a-inteio.ads
+18K13*Integer_Text_IO[12|46] 15|5w10 6r10
+X 11 a-textio.ads
+58K13*Text_IO 725e16 15|3w10 4r10
+390U14*Put 15|40s9 42s9
+X 12 a-tiinio.ads
+80U14*Put 15|33s9[4|18] 34s9[4|18]
+X 14 dates.ads
+7K9*Dates 59E10 70l5 70e10 15|8b14 66l5 66t10
+9E10*T_Mois 10e66 32r41 44r48 62r20 15|12r41 41r34 54r47
+9n21*JANVIER{9E10}
+9n30*FEVRIER{9E10}
+9n39*MARS{9E10}
+9n45*AVRIL{9E10}
+9n52*MAI{9E10}
+9n57*JUIN{9E10}
+9n63*JUILLET{9E10}
+10n21*AOUT{9E10}
+10n27*SEPTEMBRE{9E10}
+10n38*OCTOBRE{9E10}
+10n47*NOVEMBRE{9E10}
+10n57*DECEMBRE{9E10}
+12R10*T_Date 30r41 39r35 44r33 49r33 54r33 59c10 68e19 15|10r41 37r35 48r33
+. 54r32 60r33
+30U15*Initialiser 30<29 31>29 32>29 33>29 15|10b15 18l9 18t20
+30r29 Date{12R10} 36r26 36r52 36r78 15|10b29 15m9 16m9 17m9
+31i29 Jour{integer} 35r31 35r45 36r34 15|11b29 15r22
+32e29 Mois{9E10} 36r60 15|12b29 16r22
+33i29 Annee{integer} 35r16 36r86 15|13b29 17r23
+39U15*Afficher 39>25 15|37b15 45l9 45t17
+39r25 Date{12R10} 15|37b25 39r34 41r46 43r34 44r34
+44V14*Le_Mois{9E10} 36s43 44>23 15|54b14 57l9 57t16
+44r23 Date{12R10} 15|54b22 56r16
+49V14*Le_Jour{integer} 36s17 49>23 15|48b14 51l9 51t16
+49r23 Date{12R10} 15|48b23 50r16
+54V14*L_Annee{integer} 36s69 54>23 15|60b14 63l9 63t16
+54r23 Date{12R10} 15|60b23 62r16
+61i13*Jour{integer} 15|15m14 39r39 50r21
+62e13*Mois{9E10} 15|16m14 41r51 56r21
+63i13*Annee{integer} 15|17m14 43r39 44r39 62r21
+X 15 dates.adb
+29U15 Afficher_Deux_Positions 29b15 29>40 35l9 35t32 39s9 41s9 43s9 44s9
+29i40 Nombre{integer} 30r16 33r14 34r14
+

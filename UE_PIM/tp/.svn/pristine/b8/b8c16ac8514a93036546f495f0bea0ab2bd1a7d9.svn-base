@@ -1,0 +1,29 @@
+Dans ce fichier `reponses1.txt`, 
+
+
+[Question 1.1] Indiquer 
+- comment obtenir le ou les exécutables par compilation séparée.
+Commandes à entrer :
+c99 -Wextra -pedantic -c file.c
+c99 -Wextra -pedantic -c test_file.c
+c99 -Wextra -pedantic -c exemple_file.c
+c99 file.o test_file.o -o test_file
+c99 file.o exemple_file.o -o exemple_file
+On aura alors 2 exécutables : test_file et exemple_file.
+
+- les dépendances entre les fichiers qui constituent l’application.
+file.c inclut (et est donc dépendant de) file.h.
+exemple_file.c et test_file.c inclut file.h et utilise des fonctions définies dans file.c donc sont dépendant de file.h et file.c.
+
+- le rôle de la règle `.PHONY` dans Makefile.
+Le '.PHONY' permet d'indiquer au make que les éléments mis derrières sont des règles dans le Makefile et non un fichier dans le répertoire : cela permet d'assurer que lorsque, par exemple avec '.PHONY clean', que l'on entre 'make clean', le terminal ne cherche par à appliquer make à un fichier se nommant 'clean' mais éxecute bien la partie 'clean' du Makefile.
+
+[Question 1.5] Indiquer
+- Quel est le sous-programme non-visible des autres modules et défini dans le module File.
+Le sous-programme 'cellule' n'est pas visible des autres modules car pas présent dans File.h, ainsi que les deux fonctions 'longueur-chaine' et 'detruire_chaine' ajoutées pour mieux implémenter le module.
+
+- Que se passe-t-il si on enlève le mot-clé static à la compilation ?  
+Les programmes se compilent normalement car aucun autre module compilé n'utilise de fonction au même identificateur.
+
+- Quel est le risque de ne pas le mettre ?
+Le static permet d'assurer que l'utilisation de la méthode static soit local au module. Si le module File est utilisé ailleurs où dans un autre module, une méthode ayant un même identificateur, il risque d'avoir des problèmes de références : le static assure l'utilisation local d'une fonction, pour qu'elle soit propre à ce module, pour éviter l'utilisation d'une autre fonction d'un autre module ayant le même identificateur. Le bonne exemple est l'utilisation d'un 'max' local dans un cas où le module 'math.h' est inclu : le fait de mettre static assure l'utilisation du 'max local' au lieu du max de 'math.h'. Dans notre cas, cette fonction static a pour identificateur un nom que l'on pourrait retrouver dans d'autres interfaces, comme une interface 'cellule.h' qui définirait les méthodes applicables à un objet 'cellule'.

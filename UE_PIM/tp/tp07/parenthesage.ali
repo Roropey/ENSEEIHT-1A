@@ -1,0 +1,95 @@
+V "GNAT Lib v2021"
+M P W=b
+A -gnatwa
+A -gnata
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_DYNAMIC_SIZED_OBJECTS
+
+U parenthesage%b	parenthesage.adb	73dcb477 NE OO SU
+W ada%s			ada.ads			ada.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.text_io%s		a-textio.adb		a-textio.ali
+W piles%s		piles.adb		piles.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+D ada.ads		20210520051130 76789da1 ada%s
+D a-assert.ads		20210520051127 a718b65c ada.assertions%s
+D a-except.ads		20210520051127 946f3014 ada.exceptions%s
+D a-ioexce.ads		20210520051127 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20210520051128 119b8fb3 ada.streams%s
+D a-string.ads		20210520051128 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051128 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051128 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051129 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051129 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051129 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20210520051131 edec285f interfaces%s
+D i-cstrea.ads		20210520051131 e53d8b8e interfaces.c_streams%s
+D parenthesage.adb	20211105160510 8b662b38 parenthesage%b
+D piles.ads		20211018120520 f8ba9f4f piles%s
+D piles.adb		20211018120520 f5008280 piles%b
+D system.ads		20210520051134 a2da961d system%s
+D s-assert.ads		20210520051131 6a49a4e4 system.assertions%s
+D s-crtl.ads		20210520051131 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051131 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051131 078245e4 system.file_control_block%s
+D s-parame.ads		20210520051133 4752c4cb system.parameters%s
+D s-putima.ads		20210520051133 4e095881 system.put_images%s
+D s-secsta.ads		20210520051133 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051133 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051133 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051133 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051133 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051133 ed88f8fb system.storage_elements%b
+D s-traent.ads		20210520051133 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051133 2b077493 system.unsigned_types%s
+D s-wchcon.ads		20210520051134 1b7d22d2 system.wch_con%s
+D unchconv.ads		20210520051134 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z b b [parenthesage standard 3 11 none]
+G r i none [parenthesage standard 3 11 none] [piles standard 7 9 none]
+X 14 parenthesage.adb
+3U11*Parenthesage 3b11 170l5 170t17
+8V14 Index{integer} 8b14 8>21 8>40 9r32 9r54 10r23 10r64 28l9 28t14 35s28
+. 36s28 37s28 38s28 39s28 40s28 41s28 42s28 43s28 83s16 88s19 90s50 90s79
+8a21 Meule{string} 9r17 9r70 10r38 10r57 19r25 21r19
+8e40 Aiguille{character} 10r80 21r33
+12i9 Indice{integer} 15m9 18m13 18r23 19r16 21r25 27r16
+13b9 Bool{boolean} 16m9 20m17 22m17 24r23
+32U15 Tester_Index 32b15 44t8 168s5
+33a9 ABCDEF{string} 35r35 36r35 37r35 38r35 39r35 40r35 41r35 42r35 43r35
+57U15 Verifier_Parenthesage 57b15 57>38 57<58 57<82 112l9 112t30 123s9 126s9
+. 129s9 133s9 137s9 141s9 145s9 149s9 152s9 155s9 159s9 162s9
+57a38 Chaine{string} 64r23 68r23 73r19 81r24 102r29
+57b58 Correct{boolean} 107m13 109m13
+57i82 Indice_Erreur{integer} 106m13
+58a9 Ouvrants{string} 83r22 83r41 90r56
+59a9 Fermants{string} 88r25 88r44 90r85
+60i9 Indice{integer} 73m9 80m13 80r23 81r32 86r37 97r45 102r19
+61b9 Etat{boolean} 74m9 99m21 102r44 105r12
+62e9 Charact{character} 81m13 83r31 85r31 88r34 90r94
+63K17 PPC1[15|7] 65r13 66r16
+66r9 Pile{15|9R10[63]} 75m21 85m25 85r25 90r34 90r72 92m30 92r30 96r33
+67K17 PPC2[15|7] 69r13 70r23
+70r9 Pile_Indice{15|9R10[67]} 76m21 86m25 86r25 93m30 93r30 97m33 97r33 105r34
+. 106r37
+116U15 Tester_Verifier_Parenthesage 116b15 165l9 165t37 169s5
+117a9 Exemple1{string} 152r32
+118a9 Exemple2{string} 155r32 159r32 162r32
+120i9 Indice{integer} 123m52 126m52 129m53 131r24 133m53 135r24 137m52 139r24
+. 141m48 143r24 145m50 147r24 149m45 152m51 155m51 157r24 159m59 162m59 164r24
+121b9 Correct{boolean} 123m43 124r24 126m43 127r24 129m44 130r28 133m44 134r28
+. 137m43 138r28 141m39 142r28 145m41 146r28 149m36 150r24 152m42 153r24 155m42
+. 156r28 159m50 160r24 162m50 163r28
+X 15 piles.ads
+7k9*Piles 14|1w6 64r17 68r17 15|58e10
+9R10 T_Pile 14|66r21[63] 70r28[67]
+14U15 Initialiser 14|75s9[63] 76s9[67]
+19V14 Est_Vide{boolean} 14|90s25[63] 96s24[63] 105s25[67]
+27V14 Sommet{character} 14|90s65[63] 106s30[67]
+32U15 Empiler 14|85s17[63] 86s17[67] 97s25[67]
+38U15 Depiler 14|92s21[63] 93s21[67]
+

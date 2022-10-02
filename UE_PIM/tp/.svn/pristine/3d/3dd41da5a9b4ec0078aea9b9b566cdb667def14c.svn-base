@@ -1,0 +1,86 @@
+% Compte-rendu minimal du mini-projet SDA : LCA et TH
+% Auteur : PEYREMORTE Romain
+% Groupe de TP : E
+
+
+**Consigne :** Vous devez écrire vos réponse à la place des ... en laissant
+une ligne vide avant et deux après votre réponse.
+
+**Remarque :** Ce document utilise le langage Markdown. On peut en engendrer
+une version PDF en faisant par exemple :
+
+~~~
+pandoc --toc -N -o LISEZ-MOI.pdf LISEZ-MOI.txt
+~~~
+
+
+# Exercice 1
+
+## Question 1.4
+
+**Indiquer les inconvénients/avantages d'une implantation par listes chaînées
+d'une SDA.**
+
+Un inconvénient est qu'il faut parcourir la liste pour trouver un élément 
+(et donc soit pour savoir s'il est présent, soit pour le modifier ou soit 
+pour le supprimer) ce qui fait que certaines tâches atteignent une compléxité
+égale à la taille de la liste, ce qui est génant pour des grandes listes.
+
+Les avantages sont la forme linéaire qui permet de mieux visualiser et mesurer
+la liste, ainsi que le fait que les clés et données peuvent être de tout types
+(pas besoin de comparer comme dans un arbre binaire).
+
+# Évaluation expérimentale.
+
+## Performance comparée de LCA et TH
+
+Indiquer ici les résultats obtenus.
+
+...
+
+
+## Qualité du générateur aléatoire
+
+Indiquer les conclusions quant à la qualité du générateur aléatoire.
+
+...
+
+
+# Principales difficultés rencontrées
+
+Indiquer ici les principales difficultés rencontrées lors de la réalisation de
+ce projet et comment elles ont été surmontées ou contournéeS.
+
+Les principales difficultés rencontrées sont sur la généricité et sa
+définition (tous les détails à ne pas oublier), sur l'utilisation d'un
+paramètre générique dans l'interface d'un programme générique (T_LCA dans
+th.ads). Ces difficultés ont été surmontées en demandant de l'aide et des
+explications à des camarades ayant mieux compris (étant déjà passer par là,
+ils ont pu plus rapidement détecter l'erreur, le détail qui manquait).
+
+
+# Informations complémentaires
+
+Indiquer ici les informations qui pourraient aider à la compréhension du
+travail réalisé.
+
+Cette partie peut être vide.
+
+...
+
+
+
+# Bilan personnel
+
+Quel bilan personnel tirez vous de ce mini-projet ?
+
+Le mini-projet était intéressant mais beaucoup trop gros : nous n'avions
+qu'une seule séance de TP pour bien communiquer avec les professeurs (les
+mails n'étant pas optimum pour expliquer le problème et en trouver la
+source). Je suis d'accord que pour le projet final, le nombre de séance
+de TP est insuffisant pour que travailler durant ces dernières, cependant,
+un minumum de 2 séances permet de commencer à la première, de bloquer entre
+les deux, et de pouvoir poser sa question en physique à la deuxième.
+De plus, le mini-projet abordait certains détail (généricité dans
+généricité) seulement aborder rapidement en cours pour ce qui est de la 
+forme ada à employer, et non en TP, ce qui est à l'origine des principales difficultés que j'ai rencontrées.

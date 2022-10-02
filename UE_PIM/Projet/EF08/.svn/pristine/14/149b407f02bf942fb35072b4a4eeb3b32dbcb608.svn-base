@@ -1,0 +1,84 @@
+with Ada.Text_IO;           use Ada.Text_IO;
+with Ada.Integer_Text_IO;   use Ada.Integer_Text_IO;
+with Arbre;
+
+procedure Test_Arbre is
+
+    package Arbre_Integer_String is
+            new Arbre (T_Cle => Integer, T_Valeur => String);
+    use Arbre_Integer_String;
+
+    procedure Afficher (Cle : in Integer ; Valeur : in String) is
+    begin
+        Put_Line("Le noeud à la valeur "&Integer'Value(Cle)" pour la lettre "&Valeur);
+    end Afficher;
+
+    procedure Afficher_noeud is new Pour_Chaque( Traiter => Afficher);
+
+    procedure Test_Affichage(Arbre : in T_Arbre) is
+    begin
+        Put_Line("Afficher Arbre");
+        Afficher_noeud(Arbre);
+    end Test_Affichage;
+
+    total : Integer;
+
+    procedure Somme (Cle : in Integer ; Valeur in String) is
+    begin
+        total := total + Cle;
+    end Somme;
+
+    procedure Somme_noeud is new Pour_Chaque (Traiter => Somme);
+
+    procedure Test_Pour_Chaque_Somme (Arbre : in T_Arbre ; total : in out Integer) is
+    begin
+        Somme_Noeud(Arbre);
+        assert(total==80);
+    end Test_Pour_Chaque_Somme;
+
+
+    procedure Initialiser_Arbre(Arbre : out T_Arbre) is
+        Arbre_Bis : T_Arbre;
+    begin
+
+        Put_Line("Création d'arbres vides");
+        Initialiser(Arbre);
+        Initiliser(Arbre_Bis);
+
+        Put_Line("Modification du noeud d'un arbre");
+        Enregistrer(Arbre,10,"e",null,Arbre_Bis);
+        assert(Valeur(Arbre))=="e");
+        assert(Cle(Arbre))==10);
+
+        Put_Line("Modification de l'arbre gauche directement");
+        Enregistrer(Gauche(Arbre),20,"a",null,null);
+        assert(Valeur(Gauche(Arbre))=="a");
+        assert(Cle(Gauche(Arbre))==20);
+
+        Put_Line("Modification de l'arbre droit par autre pointeur");
+        Enregistrer(Arbre_bis,50,"o",null,null);
+        assert(Valeur(Arbre_bis))=="o");
+        assert(Cle(Arbre_bis))==50);
+
+        asser(Valeur(Droite(Arbre))=="o");
+        asser(Cle(Droite(Arbre))=="o");
+    end Initialiser_Arbre
+
+    procedure Test_vider(Arbre : in out T_Arbre) is
+
+    begin
+        Put_Line("Suppression Arbre");
+        Vider(Arbre_test);
+        assert(Arbre_test==null);
+    end Test_vider;
+
+    Arbre_test : T_Arbre
+
+begin
+    Initialiser_Arbre(Arbre_test);
+    Test_Affichage(Arbre_test);
+    total := 0;
+    Test_Pour_Chaque_Somme(Arbre_test, total);
+    Test_vider(Arbre_test);
+    Putt_Line ("Fin des tests : OK.");
+end Test_Arbre;

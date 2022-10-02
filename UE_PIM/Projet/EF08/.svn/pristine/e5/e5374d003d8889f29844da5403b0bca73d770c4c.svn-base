@@ -1,0 +1,223 @@
+with Ada.Streams.Stream_IO; use Ada.Streams.Stream_IO;
+with Ada.Text_IO; use Ada.Text_IO;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+
+with Interface_utilisateur; use Interface_utilisateur;
+with Types_Huffman; use Types_Huffman;
+with Flux_Binaire; use Flux_Binaire;
+
+procedure Decompresser is
+    
+    use Arbre_Integer_Octet;
+    use Liste_Chainee_Octet;
+
+    -- Variables
+
+    Nom_Fichier : Unbounded_String;
+    Fichier : Ada.Streams.Stream_IO.File_Type;
+    Flux_Fichier_Brut : Stream_Access;
+    Flux_Fichier : T_Flux_Fichier;
+
+    Symbole_Fin : constant T_Octet := T_Octet'Last;
+    
+    Arbre_Huffman : T_Arbre;
+        
+    Fichier_Inexistant_Exception : Exception;
+    Arbre_Huffman_Vide : Exception;
+    Pas_Compression_Huffman : Exception;
+
+    Affichage : Boolean;
+    
+    -- Sous-programmes
+
+    procedure Initialiser (Flux_Fichier : out T_Flux_Fichier;
+                           Flux_Interne : in Stream_Access) is
+    begin
+        Flux_Fichier.Flux_Interne := Flux_Interne;
+        Flux_Fichier.Octet := 0;
+        Flux_Fichier.Indice_Bit := 8;
+    end Initialiser;
+
+
+    function Lire_Bit (Flux_Fichier : in out T_Flux_Fichier) return T_Bit is
+    begin
+        if Flux_Fichier.Indice_Bit < 7 then
+            Flux_Fichier.Indice_Bit := Flux_Fichier.Indice_Bit + 1;
+        else
+            Flux_Fichier.Indice_Bit := 0;
+            Flux_Fichier.Octet := T_Octet'Input (Flux_Fichier.Flux_Interne);
+        end if;
+
+        return Le_Bit (Flux_Fichier.Octet, Flux_Fichier.Indice_Bit);
+    end Lire_Bit;
+
+    function Lire_Octet (Flux_Fichier : in out T_Flux_Fichier) return T_Octet is
+    begin
+        Flux_Fichier.Octet := T_Octet'Input (Flux_Fichier.Flux_Interne);
+
+        return Flux_Fichier.Octet;
+    end Lire_Octet;
+    
+
+    procedure Decoder_Liste_Positions (Flux_Fichier : in out T_Flux_Fichier;
+                                       Liste_Positions : out T_Liste_Chainee) is
+        Position_Symbole_Fin : Integer;
+        Symbole : T_Octet;
+        Dernier_Symbole : T_Octet;
+    begin
+        Initialiser (Liste_Positions);
+
+        --  Lire et ajouter la position du symbole de fin
+        Position_Symbole_Fin := Integer (Lire_Octet (Flux_Fichier));
+
+        -- Lire les positions des autres symboles
+        Symbole := Lire_Octet (Flux_Fichier);
+        loop
+            Ajouter (Liste_Positions, Symbole, False);
+            Dernier_Symbole := Symbole;
+            Symbole := Lire_Octet (Flux_Fichier);
+        exit when Symbole = Dernier_Symbole;
+        end loop;
+
+        Inserer_Avant (Liste_Positions, Position_Symbole_Fin, Symbole_Fin);
+    end Decoder_Liste_Positions;
+
+
+    procedure Decoder_Structure_Arbre (Flux_Fichier : in out T_Flux_Fichier;
+                                       Liste_Positions : in T_Liste_Chainee;
+                                       Arbre_Huffman : out T_Arbre) is
+        Position : Integer;
+
+        procedure Decoder_Rec (Arbre_Huffman : out T_Arbre) is
+            Bit : T_Bit;
+        begin
+            Initialiser (Arbre_Huffman);
+            Bit := Lire_Bit (Flux_Fichier);
+
+            if Bit = 1 then
+                Enregistrer (Arbre_Huffman, 0,
+                             La_Valeur (Liste_Positions, Position), null, null);
+                Position := Position + 1;
+            else
+                Enregistrer (Arbre_Huffman, 0, 0, null, null);
+                Decoder_Rec (Arbre_Huffman.all.Gauche);
+                Decoder_Rec (Arbre_Huffman.all.Droite);
+		    end if;
+        end Decoder_Rec;
+    begin
+        Position := 0;
+        Decoder_Rec (Arbre_Huffman);
+    end Decoder_Structure_Arbre;
+
+
+    procedure Recreer_Arbre_Huffman (Flux_Fichier : in out T_Flux_Fichier;
+                                     Arbre_Huffman : out T_Arbre) is
+        Liste_Positions : T_Liste_Chainee;
+    begin
+        -- Décoder la liste des positions
+        Decoder_Liste_Positions (Flux_Fichier, Liste_Positions);
+
+        -- Décoder la structure de l’arbre
+        Decoder_Structure_Arbre (Flux_Fichier, Liste_Positions, Arbre_Huffman);
+        
+        Vider (Liste_Positions);
+    end Recreer_Arbre_Huffman;
+
+
+    function Decoder_Symbole (Flux_Fichier : in out T_Flux_Fichier;
+                              Arbre_Huffman : in T_Arbre) return T_Octet is
+        Noeud_Courant : T_Arbre;
+    begin
+        Noeud_Courant := Arbre_Huffman;
+
+        if Est_Vide (Noeud_Courant) then
+            raise Arbre_Huffman_Vide;
+        end if;
+
+        while not Est_Vide (Noeud_Courant.Gauche) loop
+            if Lire_Bit (Flux_Fichier) = 0 then
+                Noeud_Courant := Noeud_Courant.Gauche;
+            else
+                Noeud_Courant := Noeud_Courant.Droite;
+            end if;
+        end loop;
+
+        return Noeud_Courant.Valeur;
+    end Decoder_Symbole;
+
+
+    procedure Reconstruire_Fichier_Original (Flux_Fichier : in out T_Flux_Fichier;
+                                             Nom_Fichier : in Unbounded_String;
+                                             Arbre_Huffman : in T_Arbre) is
+        -- Nom_Fichier_Decompresse := Nom_Fichier - ".hff"
+        Nom_Fichier_Decompresse : constant String :=
+            To_String(Nom_Fichier) (1 .. (To_String(Nom_Fichier)'Length - 4));
+
+        Fichier_Decompresse : Ada.Streams.Stream_IO.File_Type;
+        Flux_Fichier_Decompresse : Stream_Access;
+
+        Symbole : T_Octet;
+        Est_Fin_Du_Fichier : Boolean;
+    begin
+        --  Créer et ouvrir le fichier Nom_Fichier_Decompresse
+        Create (Fichier_Decompresse, Out_File, Nom_Fichier_Decompresse);
+        Flux_Fichier_Decompresse := Stream (Fichier_Decompresse);
+
+        -- Décoder les octets de Nom_Fichier dans Nom_Fichier_Decompresse
+        Est_Fin_Du_Fichier := False;
+        while not Est_Fin_Du_Fichier loop
+            Symbole := Decoder_Symbole (Flux_Fichier, Arbre_Huffman);
+            Est_Fin_Du_Fichier := Symbole = Symbole_Fin;
+
+            if not Est_Fin_Du_Fichier then
+                T_Octet'Write (Flux_Fichier_Decompresse, Symbole);
+            end if;
+        end loop;
+
+        Close (Fichier_Decompresse);
+    end Reconstruire_Fichier_Original;
+
+begin
+    -- Déterminer Nom_Fichier avec les arguments de la ligne de commande
+    Recuperer_Infos_Utilisateur(Affichage,Nom_Fichier);
+    
+    if To_String(Nom_Fichier) ((To_String(Nom_Fichier)'Length - 3)..(To_String(Nom_Fichier)'Length)) = ".hff" then
+    
+        -- Ouvrir le fichier Nom_Fichier   
+        begin
+            Open (Fichier, In_File, To_String(Nom_Fichier));
+        exception
+            when Ada.Text_IO.Name_Error => raise Fichier_Inexistant_Exception;
+        end;
+        Flux_Fichier_Brut := Stream (Fichier);
+        Initialiser (Flux_Fichier, Flux_Fichier_Brut);
+
+        -- Recréer l’arbre de Huffman
+        Recreer_Arbre_Huffman (Flux_Fichier, Arbre_Huffman);
+
+        -- Reconstruire le fichier original
+        Reconstruire_Fichier_Original (Flux_Fichier, Nom_Fichier, Arbre_Huffman);
+    
+        --Afficher l'arbre reconstruit
+        if Affichage then
+            Afficher_Arbre(Arbre_Huffman,To_Unbounded_String(""),To_Unbounded_String(""),False);
+        end if;
+        
+
+        Close (Fichier);
+        Vider (Arbre_Huffman);
+    
+    else
+        raise Pas_Compression_Huffman;
+    end if;
+
+exception
+    
+    when Trop_Arguments_Exception => Put_Line("Vous avez entré trop d'arguments.");
+    when Peu_Arguments_Exception => Put_Line("Vous n'avez pas entré d'arguments.");
+    when Fichier_Inexistant_Exception => Put_Line("Fichier à décompresser inexistant.");
+    when Option_Inconnue_Exception => Put_Line("Option entrée non reconnue.");
+    when Arbre_Huffman_Vide => Put_Line("La décompression donne un arbre de Huffman vide.");
+    when Pas_Compression_Huffman => Put_Line("Le fichier à décompresser n'a pas été compressé par Huffman.");
+ 
+end Decompresser;

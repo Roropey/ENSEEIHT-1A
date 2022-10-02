@@ -1,0 +1,125 @@
+V "GNAT Lib v2021"
+M P W=b
+A -gnatA
+A -gnata
+A -g
+A -gnatwa
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_IO
+RV NO_SECONDARY_STACK
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U test_flux_binaire%b	test_flux_binaire.adb	224f823d NE OO SU
+W ada%s			ada.ads			ada.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W flux_binaire%s	flux_binaire.adb	flux_binaire.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+D ada.ads		20210520051130 76789da1 ada%s
+D a-assert.ads		20210520051127 a718b65c ada.assertions%s
+D a-except.ads		20210520051127 946f3014 ada.exceptions%s
+D a-ioexce.ads		20210520051127 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20210520051128 119b8fb3 ada.streams%s
+D a-string.ads		20210520051128 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051128 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051128 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051129 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051129 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051129 0e9b276f ada.unchecked_conversion%s
+D flux_binaire.ads	20220104101317 6b5e7383 flux_binaire%s
+D interfac.ads		20210520051131 edec285f interfaces%s
+D i-cstrea.ads		20210520051131 e53d8b8e interfaces.c_streams%s
+D liste_chainee.ads	20211230184609 9db4127e liste_chainee%s
+D system.ads		20210520051134 a2da961d system%s
+D s-assert.ads		20210520051131 6a49a4e4 system.assertions%s
+D s-crtl.ads		20210520051131 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051131 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051131 078245e4 system.file_control_block%s
+D s-parame.ads		20210520051133 4752c4cb system.parameters%s
+D s-putima.ads		20210520051133 4e095881 system.put_images%s
+D s-secsta.ads		20210520051133 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051133 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051133 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051133 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051133 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051133 ed88f8fb system.storage_elements%b
+D s-traent.ads		20210520051133 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051133 2b077493 system.unsigned_types%s
+D s-wchcon.ads		20210520051134 1b7d22d2 system.wch_con%s
+D test_flux_binaire.adb	20211230184609 e7e524d3 test_flux_binaire%b
+D unchconv.ads		20210520051134 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z b b [test_flux_binaire standard 4 11 none]
+G r s t_flux_binaire [test_flux_binaire standard 4 11 none] [t_flux_binaireIP flux_binaire 64 10 none]
+G r c none [test_flux_binaire standard 4 11 none] [initialiser flux_binaire 14 19 none]
+G r c none [test_flux_binaire standard 4 11 none] [est_vide flux_binaire 19 18 none]
+G r c none [test_flux_binaire standard 4 11 none] [ajouter_bit flux_binaire 37 15 none]
+G r c none [test_flux_binaire standard 4 11 none] [taille flux_binaire 23 18 none]
+G r c none [test_flux_binaire standard 4 11 none] [ajouter_octet flux_binaire 41 15 none]
+G r c none [test_flux_binaire standard 4 11 none] [l_octet flux_binaire 33 18 none]
+G r c none [test_flux_binaire standard 4 11 none] [le_bit flux_binaire 28 14 none]
+G r c none [test_flux_binaire standard 4 11 none] [vider flux_binaire 49 19 none]
+G r c none [test_flux_binaire standard 4 11 none] [ajouter_flux flux_binaire 45 15 none]
+G r c none [test_flux_binaire standard 4 11 none] [une_chaine flux_binaire 53 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 32|1r6 1r23
+X 10 a-textio.ads
+58K13*Text_IO 725e16 32|1w10 1r27
+262U14*New_Line 32|199s5
+506U14*Put_Line 32|12s9 23s9 34s9 54s9 70s9 88s9 117s9 159s9 170s9 184s9
+. 200s5
+X 12 flux_binaire.ads
+3K9*Flux_Binaire 68e17 32|2w6 2r24
+4M10*T_Bit
+7M10*T_Octet 32|39r17
+10R10*T_Flux_Binaire 67e15 32|6r12 122r21
+14U19*Initialiser 32|10s9 18s9 29s9 41s9 60s9 75s9 94s9 124s9 128s9 165s9
+. 176s9
+19V18*Est_Vide{boolean} 32|19s24 21s28
+23V18*Taille{integer} 32|30s24 32s24 103s24 115s24 153s24 157s24
+28V14*Le_Bit{4M10} 32|45s24 46s24 47s24 48s24 49s24 50s24 51s24 52s24
+33V18*L_Octet{7M10} 32|43s18 65s24 66s24 67s24 68s24 86s24 100s24 101s24
+. 102s24 112s24 113s24 114s24 146s24 147s24 148s24 149s24 150s24 151s24 152s24
+. 155s24 156s24
+37U15*Ajouter_Bit 32|20s9 31s9 76s9 77s9 78s9 79s9 80s9 81s9 82s9 83s9 107s9
+. 108s9 109s9 136s9 137s9 138s9 139s9 141s9 142s9 143s9 144s9 178s9 179s9
+. 180s9
+41U15*Ajouter_Octet 32|42s9 61s9 62s9 63s9 64s9 97s9 98s9 99s9 110s9 111s9
+. 125s9 126s9 129s9 130s9 166s9 167s9 177s9
+45U15*Ajouter_Flux 32|133s9 140s9
+49U19*Vider 32|106s9 168s9
+53V14*Une_Chaine{string} 32|182s24
+X 32 test_flux_binaire.adb
+4U11*Test_Flux_Binaire 4b11 201l5 201t22
+6r5 Flux{12|10R10} 10m22 18m22 19r34 20m22 20r22 21r38 29m22 30r32 31m22
+. 31r22 32r32 41m22 42m24 42r24 43r27 60m22 61m24 61r24 62m24 62r24 63m24
+. 63r24 64m24 64r24 65r33 66r33 67r33 68r33 75m22 76m22 76r22 77m22 77r22
+. 78m22 78r22 79m22 79r22 80m22 80r22 81m22 81r22 82m22 82r22 83m22 83r22
+. 86r33 94m22 97m24 97r24 98m24 98r24 99m24 99r24 100r33 101r33 102r33 103r32
+. 106m16 106r16 107m22 107r22 108m22 108r22 109m22 109r22 110m24 110r24 111m24
+. 111r24 112r33 113r33 114r33 115r32 124m22 125m24 125r24 126m24 126r24 133m23
+. 133r23 136m22 136r22 137m22 137r22 138m22 138r22 139m22 139r22 140m23 140r23
+. 141m22 141r22 142m22 142r22 143m22 143r22 144m22 144r22 146r33 147r33 148r33
+. 149r33 150r33 151r33 152r33 153r32 165m22 166m24 166r24 167m24 167r24 168m16
+. 168r16 176m22 177m24 177r24 178m22 178r22 179m22 179r22 180m22 180r22 182r36
+8U15 Tester_Initialiser 8b15 13l9 13t27 188s5
+16U15 Tester_Est_Vide 16b15 24l9 24t24 189s5
+27U15 Tester_Taille 27b15 35l9 35t22 190s5
+38U15 Tester_Le_Bit 38b15 55l9 55t22 191s5
+39m9 Octet{12|7M10} 43m9 45r32 46r32 47r32 48r32 49r32 50r32 51r32 52r32
+58U15 Tester_L_Octet 58b15 71l9 71t23 192s5
+73U15 Tester_Ajouter_Bit 73b15 89l9 89t27 193s5
+92U15 Tester_Ajouter_Octet 92b15 118l9 118t29 194s5
+121U15 Tester_Ajouter_Flux 121b15 160l9 160t28 195s5
+122r9 Flux_Deux{12|10R10} 128m22 129m24 129r24 130m24 130r24 133r29 140r29
+. 155r33 156r33 157r32
+163U15 Tester_Vider 163b15 171l9 171t21 196s5
+174U15 Tester_Une_Chaine 174b15 185l9 185t26 197s5
+

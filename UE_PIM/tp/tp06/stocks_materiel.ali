@@ -1,0 +1,144 @@
+V "GNAT Lib v2021"
+A -gnatA
+A -gnatwa
+A -gnata
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_ENUMERATION_MAPS
+RV NO_IO
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_IMPLICIT_LOOPS
+
+U stocks_materiel%b	stocks_materiel.adb	c4469069 NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z system.assertions%s	s-assert.adb		s-assert.ali
+Z system.concat_4%s	s-conca4.adb		s-conca4.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+
+U stocks_materiel%s	stocks_materiel.ads	e34c8660 EE NE OO PK
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+
+D ada.ads		20210520051130 76789da1 ada%s
+D a-assert.ads		20210520051127 a718b65c ada.assertions%s
+D a-except.ads		20210520051127 946f3014 ada.exceptions%s
+D a-inteio.ads		20210520051127 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20210520051127 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20210520051128 119b8fb3 ada.streams%s
+D a-string.ads		20210520051128 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051128 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051128 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051129 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051129 aef4d56d ada.text_io%s
+D a-tiinio.ads		20210520051129 390edddb ada.text_io.integer_io%s
+D a-unccon.ads		20210520051129 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20210520051131 edec285f interfaces%s
+D i-cstrea.ads		20210520051131 e53d8b8e interfaces.c_streams%s
+D stocks_materiel.ads	20211018195217 e34c8660 stocks_materiel%s
+D stocks_materiel.adb	20211019162907 7fb54ac0 stocks_materiel%b
+D system.ads		20210520051134 a2da961d system%s
+D s-assert.ads		20210520051131 6a49a4e4 system.assertions%s
+D s-conca4.ads		20210520051131 7e642b20 system.concat_4%s
+D s-crtl.ads		20210520051131 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051131 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051131 078245e4 system.file_control_block%s
+D s-imagei.ads		20210520051132 0d3f86a7 system.image_i%s
+D s-imgint.ads		20210520051132 bdb6f5ec system.img_int%s
+D s-parame.ads		20210520051133 4752c4cb system.parameters%s
+D s-putima.ads		20210520051133 4e095881 system.put_images%s
+D s-secsta.ads		20210520051133 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051133 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051133 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051133 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051133 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051133 ed88f8fb system.storage_elements%b
+D s-traent.ads		20210520051133 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051133 2b077493 system.unsigned_types%s
+D s-wchcon.ads		20210520051134 1b7d22d2 system.wch_con%s
+D unchconv.ads		20210520051134 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s b [creer stocks_materiel 24 15 none]
+G c Z s b [nb_materiels stocks_materiel 39 14 none]
+G c Z s b [nb_non_fonctionnement stocks_materiel 54 14 none]
+G c Z s b [modifier_etat_materiel stocks_materiel 70 15 none]
+G c Z s b [supprimer_materiel stocks_materiel 85 15 none]
+G c Z s b [afficher_stock stocks_materiel 101 15 none]
+G c Z s b [supprimer_non_fonctionnels stocks_materiel 115 15 none]
+G c Z s b [enregistrer stocks_materiel 135 15 none]
+G c Z s s [t_materiel_infoIP stocks_materiel 148 10 none]
+G c Z s s [TstockageBIP stocks_materiel 155 5 none]
+G c Z s s [t_stockIP stocks_materiel 157 10 none]
+G c Z b b [renvoyer_premier_non_fontionnel stocks_materiel 91 14 none]
+X 1 ada.ads
+16K9*Ada 20e8 17|1r6 1r32 2r6 2r32
+X 4 a-inteio.ads
+18K13*Integer_Text_IO[12|46] 17|2w10 2r36
+X 11 a-textio.ads
+58K13*Text_IO 725e16 17|1w10 1r36
+506U14*Put_Line 17|71s13 73s17 76s13
+X 16 stocks_materiel.ads
+5K9*Stocks_Materiel 148E10 162l5 162e20 17|7b14 136l5 136t20
+8i5*CAPACITE{integer} 40r73 55r53 141r43 155r32
+10E10*T_Nature 10e74 138r35 150r18 17|73r32 119r35
+10n23*UNITE_CENTRALE{10E10}
+10n39*DISQUE{10E10}
+10n47*ECRAN{10E10}
+10n54*CLAVIER{10E10}
+10n63*IMPRIMANTE{10E10}
+13R10*T_Stock 24r34 39r38 54r48 70r54 85r50 101r42 115r58 136r35 157c10 160e15
+. 17|9r34 16r38 21r47 34r54 48r50 67r42 91r57 106r58 117r35
+24U15*Creer 24<22 17|9b15 13l9 13t14
+24r22 Stock{13R10} 25r31 17|9b22 12m9
+39V14*Nb_Materiels{integer} 25s17 39>28 40r21 40r50 86s20 87s21 87s44 116s17
+. 116s40 141s20 142s21 142s44 17|16b14 19l9 19t21
+39r28 Stock{13R10} 17|16b28 18r16
+54V14*Nb_non_fonctionnement{integer} 54>37 55r21 55r66 116s67 17|21b14 32l9
+. 32t30 109s26
+54r37 Stock{13R10} 17|21b37 26r26 27r20
+70U15*Modifier_etat_materiel 70=39 70>63 17|34b15 46l9 46t31
+70r39 Stock{13R10} 17|34b39 37r26 38r16 39r20 40m21 42m21
+70i63 Numero_Serie{integer} 17|34b63 38r53
+85U15*Supprimer_materiel 85=35 85>59 17|48b15 65l9 65t27 111s13
+85r35 Stock{13R10} 86r34 87r35 87r58 17|48b35 53r16 54r43 55m21 55r48 57m17
+. 57r33 62r30
+85i59 Numero_Serie{integer} 17|48b59 53r55
+101U15*Afficher_stock 101>31 17|67b15 78l9 78t23
+101r31 Stock{13R10} 17|67b31 70r12 72r30 73r47 73r95
+115U15*Supprimer_non_fonctionnels 115=43 17|106b15 114l9 114t35
+115r43 Stock{13R10} 116r31 116r54 116r90 17|106b43 109r48 111m33 111r73
+135U15*Enregistrer 136=13 137>13 138>13 139>13 17|116b15 128l9 128t20
+136r13 Stock{13R10} 141r34 142r35 142r58 17|117b13 123m9 123r25 124m9 124r23
+. 125m9 125r23 126m9 126r23 127m9 127r23
+137i13 Numero_Serie{integer} 17|118b13 124r53
+138e13 Nature{10E10} 17|119b13 125r47
+139i13 Annee_Achat{integer} 17|120b13 126r52
+148R10 T_Materiel_Info 153e15 155r45
+149i9*Numero_Serie{integer} 17|38r38 53r40 73r117 100r42 124m37
+150e9*Nature{10E10} 17|73r69 125m37
+151i9*Annee_Achat{integer} 17|126m37
+152b9*Etat{boolean} 17|27r42 39r42 40m43 42m43 97r75 127m37
+155A10 Stockage(148R10)<integer> 159r19
+158i9*Taille{integer} 17|12m15 18r22 26r32 37r32 54r49 57m23 57r39 62r36
+. 70r18 72r36 97r34 99r28 123m15 123r31 124r29 125r29 126r29 127r29
+159a9*Contenu{155A10} 17|27r26 38r22 39r26 40m27 42m27 53r22 55m27 55r54
+. 73r53 73r101 97r59 100r26 124m15 125m15 126m15 127m15
+X 17 stocks_materiel.adb
+22i9 Compteur{integer} 24m9 28m17 28r29 31r16
+26i13 Indice{integer} 27r34
+37i13 Indice{integer} 38r30 39r34 40r35 42r35
+49i9 Compteur{integer} 51m13 53r30 54r31 59m17 59r29 62r19
+54i21 Indice{integer} 55r35 55r62
+72i17 Indice{integer} 73r61 73r109
+91V14 Renvoyer_premier_non_fontionnel{integer} 91b14 91>46 104l9 104t40 111s41
+91r46 Stock{16|13R10} 97r28 97r53 99r22 100r20
+92i9 Indice{integer} 94m9 96m13 96r23 97r19 97r67 99r12 100r34
+109i13 Indice{integer}
+

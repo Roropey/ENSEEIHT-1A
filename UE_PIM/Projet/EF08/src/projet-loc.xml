@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project>
+    <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/projet.gpr</vfs_file>
+    <file_marker column=" 45" line=" 36" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/projet.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/test_arbre.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 39" line=" 30" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/projet.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 61" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/projet.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/flux_binaire.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 39" line=" 30" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/projet.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 166" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/projet.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/test_flux_binaire.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/projet.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/test_liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 27" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/projet.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/arbre.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 39" line=" 222" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/projet.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/decompresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 21" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/projet.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/liste_chainee.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 75" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/projet.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/interface_utilisateur.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 53" line=" 22" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/projet.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/interface_utilisateur.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 20" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/projet.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/types_huffman.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/projet.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/arbre.ads</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/projet.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/types_huffman.ads</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

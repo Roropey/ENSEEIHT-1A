@@ -1,0 +1,187 @@
+with Ada.Text_IO; use Ada.Text_IO;
+with Liste_Chainee;
+
+procedure Test_Liste_Chainee is
+    package Liste_Integer is new Liste_Chainee (T_Valeur => Integer);
+    use Liste_Integer;
+
+
+    procedure Tester_Initialiser is
+    begin
+        Initialiser (Liste);
+    end Tester_Initialiser;
+
+
+    procedure Tester_Est_Vide is
+    begin
+        Initialiser (Liste);
+        pragma Assert (Est_Vide (Liste));
+        Ajouter (Liste, 1);
+        pragma Assert (not Est_Vide (Liste));
+    end Tester_Est_Vide;
+
+
+    procedure Tester_Taille is
+    begin
+        Initialiser (Liste);
+        pragma Assert (Taille (Liste) = 0);
+        Ajouter (Liste, 1);
+        pragma Assert (Taille (Liste) = 1);
+    end Tester_Taille;
+
+
+    procedure Tester_Ajouter is
+    begin
+        Initialiser (Liste);
+        Ajouter (Liste, 0);
+        Ajouter (Liste, 1);
+        Ajouter (Liste, 2);
+        pragma Assert (La_Valeur (Liste, 0) = 0);
+        pragma Assert (La_Valeur (Liste, 1) = 1);
+        pragma Assert (La_Valeur (Liste, 2) = 2);
+        pragma Assert (Taille (Liste) = 3);
+    end Tester_Ajouter;
+
+
+    procedure Tester_Inserer_Avant is
+    begin
+        Initialiser (Liste);
+        Ajouter (Liste, 1);
+        Ajouter (Liste, 3);
+        Inserer_Avant (Liste, 1, 2);
+        Inserer_Avant (Liste, 0, 0);
+        Inserer_Avant (Taille (Liste) - 1, 4);
+        pragma Assert (La_Valeur (Liste, 0) = 0);
+        pragma Assert (La_Valeur (Liste, 1) = 1);
+        pragma Assert (La_Valeur (Liste, 2) = 2);
+        pragma Assert (La_Valeur (Liste, 3) = 3);
+        pragma Assert (La_Valeur (Liste, 4) = 4);
+    end Tester_Inserer_Avant;
+
+
+    procedure Tester_Supprimer is
+    begin
+        Initialiser (Liste);
+        Ajouter (Liste, 1);
+        Ajouter (Liste, 1);
+        Ajouter (Liste, 0);
+        Ajouter (Liste, 1);
+        Ajouter (Liste, 0);
+        Ajouter (Liste, 2);
+
+        Supprimer (Liste, 0, True);
+        Supprimer (Liste, 1, False);
+
+        pragma Assert (La_Valeur (Liste, 0) = 0);
+        pragma Assert (La_Valeur (Liste, 1) = 2);
+        pragma Assert (Taille (Liste) = 2);
+    end Tester_Supprimer;
+
+
+    procedure Tester_Supprimer_Indice is
+    begin
+        Initialiser (Liste);
+        Ajouter (Liste, 0);
+        Ajouter (Liste, 1);
+        Ajouter (Liste, 2);
+        Ajouter (Liste, 3);
+        Ajouter (Liste, 4);
+
+        -- 1er indice
+        Supprimer_Indice (Liste, 0);
+        pragma Assert (La_Valeur (Liste, 0) = 1);
+
+        -- dernier indice
+        Supprimer_Indice (Liste, Taille (Liste) - 1);
+        pragma Assert (La_Valeur (Liste, Taille (Liste) - 1) = 3);
+
+        -- indice intermediaire
+        Supprimer_Indice (Liste, 1);
+        pragma Assert (La_Valeur (Liste, 0) = 1);
+        pragma Assert (La_Valeur (Liste, 1) = 3);
+        pragma Assert (Taille (Liste) = 2);
+    end Tester_Supprimer_Indice;
+
+
+    procedure Tester_Valeur_Presente is
+    begin
+        Initialiser (Liste);
+        Ajouter (Liste, 0);
+
+        pragma Assert (Valeur_Presente (Liste, 0));
+        pragma Assert (not Valeur_Presente (Liste, 1));
+    end Tester_Valeur_Presente;
+
+
+    procedure Tester_La_Valeur is
+    begin
+        Initialiser (Liste);
+        Ajouter (Liste, 0);
+        Ajouter (Liste, 1);
+        Ajouter (Liste, 2);
+        pragma Assert (La_Valeur (Liste, 0) = 0);
+        pragma Assert (La_Valeur (Liste, 1) = 1);
+        pragma Assert (La_Valeur (Liste, 2) = 2);
+    end Tester_Valeur;
+
+
+    procedure Tester_L_Indice is
+    begin
+        Initialiser (Liste);
+        Ajouter (Liste, 0);
+        Ajouter (Liste, 1);
+        Ajouter (Liste, 0);
+        pragma Assert (L_Indice (Liste, 0) = 0);
+        pragma Assert (L_Indice (Liste, 1) = 1);
+        pragma Assert (L_Indice (Liste, 2) = -1);
+    end Tester_Indice;
+
+
+    procedure Tester_Vider is
+    begin
+        Initialiser (Liste);
+        Ajouter (Liste, 0);
+        Ajouter (Liste, 1);
+        Ajouter (Liste, 2);
+        Vider (Liste);
+    end Tester_Vider;
+
+    procedure Tester_Pour_Chaque is
+        Somme : Integer;
+
+        procedure Ajouter_A_Somme (Valeur : Integer) is
+        begin
+            Somme :=  Somme + Valeur;
+        end;
+
+        Sommer_Valeurs is new Pour_Chaque (Traiter => Ajouter_A_Somme);
+    begin
+        Somme := 0;
+
+        Initialiser (Liste);
+        Ajouter (Liste, 0);
+        Ajouter (Liste, 1);
+        Ajouter (Liste, 2);
+
+        Sommer_Valeurs (Liste);
+        pragma Assert (Somme = 3);
+    end Tester_Pour_Chaque;
+
+    Liste : T_Liste_Chainee;
+
+begin
+    procedure Tester_Initialiser;
+    procedure Tester_Est_Vide;
+    procedure Tester_Taille;
+    procedure Tester_Ajouter;
+    procedure Tester_Inserer_Avant;
+    procedure Tester_Supprimer;
+    procedure Tester_Supprimer_Indice;
+    procedure Tester_Valeur_Presente;
+    procedure Tester_La_Valeur;
+    procedure Tester_L_Indice;
+    procedure Tester_Vider;
+    procedure Tester_Pour_Chaque;
+
+    Put_Line ("Fin des tests de Liste_Chainee : OK.");
+end Test_Liste_Chainee;

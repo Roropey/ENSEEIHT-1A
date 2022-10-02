@@ -1,0 +1,290 @@
+with Ada.Streams.Stream_IO; use Ada.Streams.Stream_IO;
+with Ada.Text_IO; use Ada.Text_IO;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+
+with Interface_utilisateur; use Interface_utilisateur;
+with Types_Huffman; use Types_Huffman;
+with Flux_Binaire; use Flux_Binaire;
+
+
+
+procedure Compresser is
+
+    use Arbre_Integer_Octet;
+    use Liste_Chainee_Octet;
+      
+    --Variables
+    
+    
+    Nom_Fichier : Unbounded_String;
+    Fichier : Ada.Streams.Stream_IO.File_Type;    
+    Flux_Fichier : Stream_Access;
+    
+    Tableau_Frequences : T_Frequences;
+    Octet : T_Octet; 
+    Liste_Char : T_Tableau;    
+    Code_Vide : T_Flux_Binaire;    
+    Codage : T_Codage;    
+    Liste_Position : T_Liste_Chainee;    
+    Code_Structure_Arbre : T_Flux_Binaire;    
+    Fichier_Encode : T_Flux_Binaire;    
+    
+    Fichier_Inexistant_Exception : Exception;
+    
+    Affichage : Boolean;
+    
+    --Fonctions et procédures    
+    procedure Determiner_Frequence (Nom_Fichier : in Unbounded_String; Tableau_Frequences : out T_Frequences) is        
+        procedure Initialiser_Frequences is        
+        begin
+            for I in Intervalle_Ascii loop
+                Tableau_Frequences (I) := 0;
+            end loop;
+        end Initialiser_Frequences;
+    begin                 
+        -- Initialiser les cases de Tableau_Frequence à 0
+        Initialiser_Frequences;
+        -- Ouvrir le fichier
+        Open (Fichier, In_File, To_String(Nom_Fichier));
+        Flux_Fichier := Stream (Fichier);
+        
+        while not End_Of_File (Fichier) loop
+            -- Lire octet
+            Octet := T_Octet'Input (Flux_Fichier);
+            -- Mettre à jour la fréqience de Octet
+            Tableau_Frequences (Octet) := Tableau_Frequences (Octet) + 1;
+        end loop;
+        Close (Fichier);
+    exception
+        when Ada.Text_IO.Name_Error => raise Fichier_Inexistant_Exception;
+    end Determiner_Frequence;    
+
+    
+    
+    procedure Creer_nouv_noeud(Frequence : in Integer; Caractere: in T_Octet; Noeud_Gauche : in T_Arbre; Noeud_Droite : in T_Arbre; Arbre : in out T_Arbre) is
+    begin
+        Initialiser(Arbre);
+        Enregistrer(Arbre,Frequence,Caractere,Noeud_Gauche,Noeud_Droite);
+    end Creer_nouv_noeud;
+    
+    
+    procedure Initialiser_Tableau(Tableau : out T_Tableau) is
+    begin
+        Tableau.Taille:=0;
+    end Initialiser_Tableau;
+    
+                                
+    procedure Creer_liste_noeud is
+    begin
+        Initialiser_Tableau(Liste_Char);
+        for I in Intervalle_Ascii loop
+            --Ajouter les caractères de fréquences non nulles
+            if Tableau_Frequences(I)/=0 then
+                Liste_Char.Taille:=Liste_Char.Taille+1;
+                -- Créer un nouveau noeud
+                Creer_nouv_noeud(Tableau_Frequences(I),I,null,null,Liste_Char.Tableau(Liste_Char.Taille));
+            end if;
+        end loop;
+        Liste_Char.Taille:=Liste_Char.Taille+1;
+        --Créer un nouveau noeud
+        Creer_nouv_noeud(0,T_Octet'Last,null,null,Liste_Char.Tableau(Liste_Char.Taille));
+    end Creer_liste_noeud;          
+    
+    
+    --Programme de tri par sélection du tp5 modifier
+    procedure Trier (Tab : in out T_Tableau) is
+	    Memoire : T_Arbre;
+	    Indice_Max : Integer;
+	begin
+	    for Indice1 in 1..Tab.Taille-1 loop
+	        
+	        --Determiner le maximum--
+	        Indice_Max := Indice1;
+            for Indice2 in Indice1+1..Tab.Taille loop
+                --Remplacer l'indice du maximum
+	            if Tab.Tableau(Indice2).Cle >= Tab.Tableau(Indice_Max).Cle then
+	                Indice_Max := Indice2;
+	            end if;
+	        end loop;
+	        
+            --Deplacer le maximum--
+	        Memoire:=Tab.Tableau(Indice1);
+	        Tab.Tableau(Indice1):=Tab.Tableau(Indice_Max);
+	        Tab.Tableau(Indice_Max):=Memoire;
+	        
+	   end loop;
+    end Trier;
+    
+    
+    --Création d'un nouveau noeud de l'arbre avec les noeuds de clés les plus faibles en racines
+    procedure Creer_noeud_intermed(Liste : in out T_Tableau) is
+        Noeud_plus_faible_1 : T_Arbre;
+        Noeud_plus_faible_2 : T_Arbre;
+        Nouveau_noeud : T_Arbre;
+    begin
+        Noeud_plus_faible_1 := Liste.Tableau(Liste.Taille);
+        Noeud_plus_faible_2 := Liste.Tableau(Liste.Taille-1);
+        -- Créer un nouveau noeud
+        Creer_nouv_noeud(Noeud_plus_faible_1.Cle+Noeud_plus_faible_2.Cle,0,Noeud_plus_faible_1,Noeud_plus_faible_2,Nouveau_noeud);
+        
+        Liste.Tableau(Liste.Taille):=null;
+        Liste.Taille:=Liste.Taille-1;
+        Liste.Tableau(Liste.Taille):=Nouveau_noeud;
+    end Creer_noeud_intermed;   
+
+    
+    procedure Avoir_Code_Arbre(Arbre : in T_Arbre; Code : in T_Flux_Binaire; Codage : out T_Codage) is
+        Code_Gauche : T_Flux_Binaire;
+        Code_Droite : T_Flux_Binaire;
+    begin
+        if Arbre.Gauche = null then
+            Ajouter_Flux (Codage(Arbre.Valeur), Code);
+        else
+            --Créer code
+            Initialiser (Code_Gauche);
+            Ajouter_Flux (Code_Gauche, Code);
+            Ajouter_Bit(Code_Gauche, 0);
+            --Créer code
+            Initialiser (Code_Droite);
+            Ajouter_Flux (Code_Droite, Code);
+            Ajouter_Bit(Code_Droite, 1);
+
+            Avoir_Code_Arbre(Arbre.Gauche, Code_Gauche, Codage);
+            Avoir_Code_Arbre(Arbre.Droite, Code_Droite, Codage);
+            Vider(Code_Gauche);
+            Vider(Code_Droite);
+        end if;
+    end Avoir_Code_Arbre;
+    
+    
+    procedure Creer_Arbre(Liste_Char : out T_Tableau) is
+    begin
+    
+        -- Créer la liste de noeud
+        Creer_liste_noeud;
+        -- Trier la liste de noeud de manière décroissante
+        Trier (Liste_Char);
+        while Liste_Char.Taille > 1 loop
+            -- Créer un noeud intermédiaire
+            Creer_noeud_intermed (liste_Char);
+            -- Trier la liste de noeud de manière décroissante
+            Trier (Liste_Char);
+        end loop;   
+    end Creer_Arbre;    
+    
+    procedure Encoder_Structure_Position (Arbre : in T_Arbre; Liste_Position : in out T_Liste_Chainee; Code_Structure_Arbre : in out T_Flux_Binaire) is
+    begin
+        if Arbre = null then
+            null;
+        elsif Arbre.Gauche = null then
+            Ajouter_Bit(Code_Structure_Arbre,1);
+            Ajouter(Liste_Position,Arbre.Valeur,False);
+        else
+            Ajouter_Bit(Code_Structure_Arbre,0);
+            Encoder_Structure_Position(Arbre.Gauche,Liste_Position,Code_Structure_Arbre);
+            Encoder_Structure_Position(Arbre.Droite,Liste_Position,Code_Structure_Arbre);
+        end if;  
+    end Encoder_Structure_Position;
+    
+    
+    procedure Encoder_Position (Code_Structure_Arbre : in T_Flux_Binaire; Liste_Position : in out T_Liste_Chainee; Fichier_Encode : in out T_Flux_Binaire) is
+        
+        procedure Ajouter_Octet_Liste (Octet : in T_Octet) is
+        begin
+            Ajouter_Octet(Fichier_Encode,Octet);
+        end Ajouter_Octet_Liste;
+        
+        procedure Ajouter_Tous_Octets_Liste is new Liste_Chainee_Octet.Pour_Chaque (Traiter => Ajouter_Octet_Liste);
+        
+    begin
+        Ajouter_Octet(Fichier_Encode, T_Octet (L_Indice (Liste_Position, T_Octet'Last)));
+        Supprimer(Liste_Position,T_Octet'Last,True);
+        Ajouter_Tous_Octets_Liste(Liste_Position);
+        Ajouter_Octet(Fichier_Encode,La_Valeur(Liste_Position,Taille(Liste_Position)-1));
+        Ajouter_Flux(Fichier_Encode,Code_Structure_Arbre);        
+    end Encoder_Position;
+    
+    
+    procedure Enregistrer_Octet (Octet : in T_Octet) is
+    begin
+        T_Octet'Write(Flux_Fichier, Octet);
+    end Enregistrer_Octet;
+        
+    
+    procedure Enregistrer_Fichier is new Flux_Binaire.Pour_Chaque (Traiter => Enregistrer_Octet);   
+    
+    
+    procedure Encoder_Arbre (Liste_Char : in T_Tableau; Liste_Position : out T_Liste_Chainee; Code_Structure_Arbre : out T_Flux_Binaire; Fichier_Encode : out T_Flux_Binaire) is
+    begin
+        Initialiser(Liste_Position);
+        Initialiser(Code_Structure_Arbre);
+        Initialiser(Fichier_Encode);
+        -- Déterminer la liste des positions des caractères dans l’arbre
+        Encoder_Structure_Position(Liste_Char.Tableau(1),Liste_Position,Code_Structure_Arbre);
+        -- Encoder la liste des positions
+        Encoder_Position(Code_Structure_Arbre,Liste_Position,Fichier_Encode); 
+    end Encoder_Arbre;
+    
+    
+    procedure Encoder_Fichier (Nom_Fichier : in Unbounded_String; Fichier_Encode : in out T_Flux_Binaire) is 
+    begin
+        Open (Fichier, In_File, To_String(Nom_Fichier));
+        Flux_Fichier := Stream (Fichier);
+        while not End_Of_File (Fichier) loop
+            Octet := T_Octet'Input (Flux_Fichier);
+            Ajouter_Flux(Fichier_Encode,Codage(Octet));
+        end loop;
+        Ajouter_Flux (Fichier_Encode, Codage (T_Octet'Last));
+        Close (Fichier);
+        Create (Fichier, Out_File, To_String(Nom_Fichier)&".hff");
+        Flux_Fichier := Stream (Fichier);
+        Enregistrer_Fichier(Fichier_Encode);
+        Close (Fichier);
+    exception
+        when Ada.Text_IO.Name_Error => raise Fichier_Inexistant_Exception;
+    end Encoder_Fichier;
+        
+--Programme :    
+begin
+    -- Déterminer Nom_Fichier avec les arguments de la ligne de commande
+    Recuperer_Infos_Utilisateur(Affichage,Nom_Fichier);
+          
+    -- Déterminer les fréquences des caractères du texte
+    Determiner_Frequence (Nom_Fichier, Tableau_Frequences);
+
+    -- Créer arbre
+    Creer_Arbre(Liste_Char);
+    
+    -- Déterminer les codes des caractères
+    Initialiser (Code_vide);
+         -- Avoire le code de l'arbre
+    Avoir_Code_Arbre (Liste_Char.Tableau(1), Code_vide, Codage);
+    
+    -- Encoder l’arbre de Huffman
+    Encoder_Arbre (Liste_Char, Liste_Position, Code_Structure_Arbre, Fichier_Encode);
+    
+    -- Encoder le fichier grâce à l’arbre
+    Encoder_Fichier(Nom_Fichier,Fichier_Encode);
+
+    
+    --Afficher le déroulement
+    if Affichage then
+        Afficher_Frequences(Tableau_Frequences);
+        Afficher_Arbre(Liste_Char.Tableau(1),To_Unbounded_String(""),To_Unbounded_String(""),True);
+        Afficher_Codage(Codage);
+    end if;
+    
+    Vider(Liste_Char.Tableau(1));
+    Vider(Liste_Position);
+    Vider(Code_Structure_Arbre);
+    Vider(Fichier_Encode);
+            
+            
+exception
+    
+    when Trop_Arguments_Exception => Put_Line("Vous avez entré trop d'arguments.");
+    when Peu_Arguments_Exception => Put_Line("Vous n'avez pas entré d'arguments.");
+    when Fichier_Inexistant_Exception => Put_Line("Fichier à compresser inexistant.");
+    when Option_Inconnue_Exception => Put_Line("Option entrée non reconnue.");
+    
+end Compresser;

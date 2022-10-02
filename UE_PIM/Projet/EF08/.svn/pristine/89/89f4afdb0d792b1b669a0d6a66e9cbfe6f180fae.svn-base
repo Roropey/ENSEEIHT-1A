@@ -1,0 +1,68 @@
+
+generic
+    type T_Cle is private;
+    type T_Valeur is private;
+package Arbre is
+
+
+    type T_Arbre is limited private;
+
+
+    -- Initialiser un Arbre.
+    -- L'Arbre est vide.
+    procedure Initialiser(Arbre: out T_Arbre) with
+	Post => Est_Vide (Arbre);
+
+
+    -- Est-ce qu'un Arbre est vide ?
+    function Est_Vide (Arbre : T_Arbre) return Boolean;
+
+
+    -- Enregistrer un nouveau Noeud dans un arbre
+    procedure Enregistrer (Arbre : in out T_Arbre ; Cle : in T_Cle ; Valeur : in T_Valeur ; Arbre_Gauche : in T_Arbre ; Arbre_Droite : in T_Arbre) with
+	Post => Arbre.Cle = Cle and Arbre.Valeur = Valeur and Arbre.Gauche = Arbre_Gauche and Arbre.Droite = Arbre_Droite;
+
+    -- Supprimer tous les éléments d'un Arbre.
+    procedure Vider (Arbre : in out T_Arbre) with
+            Post => Est_Vide (Arbre);
+
+    function Valeur(Arbre : in T_Arbre) return T_Valeur is
+    begin
+        return Arbre.Valeur;
+    end Valeur;
+
+    function Cle(Arbre : in T_Arbre) return T_Cle is
+    begin
+        return Arbre.Cle;
+    end Cle;
+
+    function Gauche(Arbre : in T_Arbre) return T_Arbre is
+    begin
+        return Arbre.Gauche;
+    end Gauche;
+
+    function Droite(Arbre : in T_Arbre) return T_Arbre is
+    begin
+        return Arbre.Droite;
+    end Droite;
+
+
+    -- Appliquer un traitement (Traiter) pour chaque couple d'une Sda.
+    generic
+	with procedure Traiter (Cle : in T_Cle; Donnee: in T_Donnee);
+    procedure Pour_Chaque (Arbre : in T_Arbre);
+
+private
+
+    type Noeud;
+
+    type T_Arbre is access Noeud;
+
+    type Noeud is record
+        Cle : Entier;
+        Valeur : Caractère;
+        Gauche : T_Arbre;
+        Droite : T_Arbre;
+    end record;
+
+end Arbre;

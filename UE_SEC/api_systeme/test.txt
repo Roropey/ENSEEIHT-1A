@@ -1,0 +1,26 @@
+
+Je suis le processus principal de pid 211163
+
+     Processus fils numero 1, de pid 211164, de pere 211163
+
+Je suis le processus principal de pid 211163
+
+Processus de pid 211163 a cree un fils numero 1, de pid 211164 
+
+     Processus fils numero 2, de pid 211165, de pere 211163
+
+Je suis le processus principal de pid 211163
+
+Processus de pid 211163 a cree un fils numero 1, de pid 211164 
+
+Processus de pid 211163 a cree un fils numero 2, de pid 211165 
+
+     Processus fils numero 3, de pid 211166, de pere 211163
+
+Je suis le processus principal de pid 211163
+
+Processus de pid 211163 a cree un fils numero 1, de pid 211164 
+
+Processus de pid 211163 a cree un fils numero 2, de pid 211165 
+
+Processus de pid 211163 a cree un fils numero 3, de pid 211166 

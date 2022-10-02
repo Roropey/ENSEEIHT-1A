@@ -1,0 +1,22 @@
+[GENERATED OBJECT FILE]
+b__decompresser.o
+[PROJECT FILES]
+/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/projet.gpr
+20220103092700 f32cc8dd49dd2942b8647c0a68631142
+[BOUND OBJECT FILES]
+/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/arbre.o
+/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/liste_chainee.o
+/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/flux_binaire.o
+/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/decompresser.o
+[GENERATED SOURCE FILES]
+b__decompresser.ads
+b__decompresser.adb
+b__decompresser.ali
+[RESULTING OPTIONS]
+-L/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/
+-L/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/
+-L/mnt/n7fs/ens/tp_cregut/GNAT/2021/lib/gcc/x86_64-pc-linux-gnu/10.3.1/adalib/
+-static
+-static-libgcc
+/mnt/n7fs/ens/tp_cregut/GNAT/2021/lib/gcc/x86_64-pc-linux-gnu/10.3.1/adalib/libgnat.a
+-ldl

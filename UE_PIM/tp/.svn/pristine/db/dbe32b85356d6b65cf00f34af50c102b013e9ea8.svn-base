@@ -1,0 +1,27 @@
+with Ada.Text_IO;            use Ada.Text_IO;
+with Ada.Strings.Unbounded;   use Ada.Strings.Unbounded;
+with LCA;
+
+procedure lca_sujet is
+
+    procedure Afficher(Cle : in Unbounded_String; Donnee : in Integer) is
+    begin
+        Put_Line("Clé '"&To_String(Cle)&"' correspond à la donnée'"&Integer'Image(Donnee)&"'.");
+    end Afficher;
+
+    package Liste_Chainee is
+            new LCA (T_Cle => Unbounded_String , T_Donnee => Integer);
+    use Liste_Chainee;
+
+    procedure Afficher_Couple is new Pour_Chaque (Traiter => Afficher);
+
+
+    Liste : T_LCA;
+
+begin
+    Initialiser(Liste);
+    Enregistrer(Liste,To_Unbounded_String("un"),1);
+    Enregistrer(Liste,To_Unbounded_String("deux"),2);
+    Afficher_Couple(Liste);
+    Vider(Liste);
+end lca_sujet;

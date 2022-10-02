@@ -1,0 +1,1 @@
+grep 'Je suis' test.txt |wc -l > .tempres197350

@@ -1,0 +1,20 @@
+[GENERATED OBJECT FILE]
+b__test_arbre.o
+[PROJECT FILES]
+/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/projet.gpr
+20220103092700 f32cc8dd49dd2942b8647c0a68631142
+[BOUND OBJECT FILES]
+/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/arbre.o
+/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/test_arbre.o
+[GENERATED SOURCE FILES]
+b__test_arbre.ads
+b__test_arbre.adb
+b__test_arbre.ali
+[RESULTING OPTIONS]
+-L/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/
+-L/home/rpeyremo/Documents/S5/UE_PIM/Projet/EF08/src/
+-L/mnt/n7fs/ens/tp_cregut/GNAT/2021/lib/gcc/x86_64-pc-linux-gnu/10.3.1/adalib/
+-static
+-static-libgcc
+/mnt/n7fs/ens/tp_cregut/GNAT/2021/lib/gcc/x86_64-pc-linux-gnu/10.3.1/adalib/libgnat.a
+-ldl

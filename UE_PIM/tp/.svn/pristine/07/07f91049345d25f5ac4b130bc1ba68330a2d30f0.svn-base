@@ -1,0 +1,6 @@
+
+* Voir le retour général
+* Voir le retour automatique
+	N'oublier pas de vider la liste dans lca_sujet 
+	Dans la procedure vider le traitement dans le cas sda = null, est inutile
+* ...

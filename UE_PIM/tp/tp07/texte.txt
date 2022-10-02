@@ -1,0 +1,11 @@
+        Ex 1:
+1) Ils ne sont pas utiles dans son implantation mais seulement dans la spécification, d'où leur nom "commentaires de spécification".
+2) Les contrats sont formalisés dans la spécification.
+3) On a 2 variables générique : Capacite et T_Element indiquées au début de la spécification, le module est donc générique. Pour l'utiliser, il faut donc spécifier que sont ces variables (éléments ou valeur).
+4) Il faut spécifier le sous-programme dans Piles.ads (contrat) et le définir dans Piles.adb.
+5) La surcharge concerne l'attribution d'un nom à deux éléments différents : dans l'exemple, un nom fait référence à deux procédure et entraine une erreur de compilation si on appelle à une procédure par ce nom.
+6) Mettre Afficher_Element comme paramètre de généricité de la procédure Afficher et non du module Piles permet de faire appel à la procédure Afficher avec différent paramètre dans le module, alors que si le paramètre était de généricité du module, ce dernier serait fixé dès le début du module (et on ne pourrait pas utiliser différentes procédures de généricité).
+7) On instancie le module Piles en attribuant ce que vaut les variables de généricité puis on déclare une variable propre à l'intanciation du type commun (PPC1.T_Piles par exemple).
+
+        Ex 2:
+2) Pour utiliser cette procédure pour d'autres programmes, il faut indiquer dans un fichier .ads sa spécification.

@@ -1,0 +1,19 @@
+[GENERATED OBJECT FILE]
+b__specifier_et_tester.o
+[PROJECT FILES]
+/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/tp_gps.gpr
+20211011144853 85020af1486b1d3cd2206aefe10b4c44
+[BOUND OBJECT FILES]
+/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/specifier_et_tester.o
+[GENERATED SOURCE FILES]
+b__specifier_et_tester.ads
+b__specifier_et_tester.adb
+b__specifier_et_tester.ali
+[RESULTING OPTIONS]
+-L/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/
+-L/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/
+-L/mnt/n7fs/ens/tp_cregut/GNAT/2021/lib/gcc/x86_64-pc-linux-gnu/10.3.1/adalib/
+-static
+-static-libgcc
+/mnt/n7fs/ens/tp_cregut/GNAT/2021/lib/gcc/x86_64-pc-linux-gnu/10.3.1/adalib/libgnat.a
+-ldl

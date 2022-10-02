@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project >
+    <file_marker column=" 1" line=" 383" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/test_lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 18" line=" 26" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/lca_sujet.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 20" line=" 57" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/th_sujet.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 31" line=" 21" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/test_th.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 114" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/evaluer_alea_th.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 41" line=" 95" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/evaluer_alea_lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 5" line=" 17" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/exemple_alea.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/alea.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 2" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/th.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 5" line=" 27" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/th.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/lca.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/test_lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/lca_sujet.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/lca.ads</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/tp10.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp10/sda_exceptions.ads</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project >
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/tp_gps.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/premier_programme.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 28" line=" 5" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/tp_gps.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/premier_programme.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 81" line=" 7" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/tp_gps.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/premier_programme.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/tp_gps.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/specifier_et_tester.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 3" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/tp_gps.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/specifier_et_tester.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/tp_gps.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/specifier_et_tester.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 12" line=" 13" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/tp_gps.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/specifier_et_tester.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 119" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/tp_gps.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/specifier_et_tester.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 25" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/tp_gps.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/specifier_et_tester.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 4" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/tp_gps.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/specifier_et_tester.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 7" line=" 119" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/tp_gps.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/specifier_et_tester.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 15" line=" 55" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/tp_gps.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp_gps/specifier_et_tester.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

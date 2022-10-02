@@ -1,0 +1,103 @@
+with Ada.Text_IO; use Ada.Text_IO;
+with Ada.Command_Line; use Ada.Command_Line;
+
+
+package body Interface_utilisateur is
+
+    --
+    procedure Recuperer_Infos_Utilisateur(Affichage : out Boolean; Nom_Fichier : out Unbounded_String) is 
+    begin
+        Affichage := False;
+        if Argument_Count > 2 then
+            raise Trop_Arguments_Exception;
+        elsif Argument_Count = 1 then
+            Nom_Fichier := To_Unbounded_String(Argument(1));
+        elsif Argument_Count = 0 then
+            raise Peu_Arguments_Exception;
+        else
+            --Lire le double argument
+            if Argument(1) = "-b" or Argument(1) = "--bavard" then
+                Affichage := True;
+                Nom_Fichier := To_Unbounded_String(Argument(2));
+            else
+                raise Option_Inconnue_Exception;                
+            end if;            
+        end if;
+    end Recuperer_Infos_Utilisateur;
+    
+    
+    function Le_Caractere (Octet : in T_Octet) return String is
+        Caractere : Unbounded_String;
+    begin
+        case Octet is
+            when 10 => Caractere := To_Unbounded_String ("'\n'");
+            when others => Caractere := To_Unbounded_String (Character'Val(Octet)'Image);
+        end case;
+
+        return To_String (Caractere);
+    end Le_Caractere;
+    
+    
+    procedure Afficher_Frequences(Tableau_Frequences : in T_Frequences) is
+    begin
+        New_Line;
+        Put_Line("Fréquences des caractères :");
+        for I in Intervalle_Ascii loop
+            if Tableau_Frequences (I) /= 0 then
+                Put_Line (Le_Caractere (I) & ": " & Tableau_Frequences(I)'Image);
+            end if;
+        end loop;
+    end Afficher_Frequences;
+    
+    
+    procedure Afficher_Arbre (Arbre : in T_Arbre; Indentation : in Unbounded_String; Code : in Unbounded_String; Afficher_Frequence : in Boolean) is
+        Texte_affiche : Unbounded_String;
+        Texte_Cle_sans_espace : Unbounded_String;        
+        Nouvelle_Indentation : Unbounded_String;
+    begin
+        if Arbre = null then
+            null;
+        else
+            if Afficher_Frequence then
+                Texte_Cle_sans_espace := "("&To_Unbounded_String(Integer'Image(Arbre.Cle)(2..Integer'Image(Arbre.Cle)'Last))&")";
+            else
+                Texte_Cle_sans_espace := To_Unbounded_String("");
+            end if;
+                Nouvelle_Indentation := Indentation;
+            if Code = To_Unbounded_String("") then
+                New_Line;
+                Put_Line("Arbre de Huffman :");
+                Texte_affiche := "("&Texte_Cle_sans_espace&")";
+            else                            
+                Texte_affiche:=Texte_affiche &Indentation& " \--"&Code&"--"&Texte_Cle_sans_espace;
+                if Code = To_Unbounded_String("0") then
+                    Nouvelle_Indentation := Nouvelle_Indentation & " |     ";
+                else
+                    Nouvelle_Indentation := Nouvelle_Indentation & "       ";
+                end if;
+            end if;
+            if Arbre.Gauche = null then
+                Texte_affiche := Texte_affiche &' '& To_Unbounded_String(Le_Caractere(Arbre.Valeur));
+            end if;
+            
+            Put_Line(To_String(Texte_affiche));            
+            
+            Afficher_Arbre(Arbre.Gauche, Nouvelle_Indentation, To_Unbounded_String("0"),Afficher_Frequence);
+            Afficher_Arbre(Arbre.Droite, Nouvelle_Indentation, To_Unbounded_String("1"),Afficher_Frequence);
+        end if;        
+    end Afficher_Arbre;
+    
+    
+    procedure Afficher_Codage (Codage : in T_Codage, Code_Fin : in T_Flux_Binaire) is
+    begin
+        New_Line;
+        Put_Line ("Codes des caracteres:");
+        for I in Intervalle_Ascii loop
+            if not Est_Vide (Codage (I)) then
+                Put_Line (Le_Caractere (I) & ": " & Une_Chaine (Codage (I)));
+            end if;
+        end loop;
+        Put_Line("'\$' : " & Une_Chaine(Code_Fin));
+    end Afficher_Codage;
+
+end Interface_utilisateur;

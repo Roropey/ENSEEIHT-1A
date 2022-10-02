@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project >
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/piles.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/test_piles.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 15" line=" 41" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 43" line=" 59" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 15" line=" 81" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 43" line=" 94" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 15" line=" 41" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/piles.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 5" line=" 128" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 15" line=" 41" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 61" line=" 115" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 21" line=" 116" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 15" line=" 41" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 5" line=" 126" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 15" line=" 81" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 23" line=" 54" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 21" line=" 51" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 15" line=" 81" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 5" line=" 128" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 15" line=" 41" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 5" line=" 126" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 15" line=" 81" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 20" line=" 65" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 15" line=" 81" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 52" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 15" line=" 81" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 29" line=" 53" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 15" line=" 81" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 64" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 15" line=" 81" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/illustrer_affectation_pile.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/piles.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/piles.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 33" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/illustrer_affectation_pile.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 5" line=" 22" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/illustrer_affectation_pile.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 33" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/illustrer_affectation_pile.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 5" line=" 22" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/illustrer_affectation_pile.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 81" line=" 27" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/illustrer_affectation_pile.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 44" line=" 59" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 15" line=" 81" >
+      <vfs_project>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/rpeyremo/Documents/S5/UE_PIM/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

@@ -1,0 +1,10 @@
+
+
+
+
+while Indice > Taille_Max loop
+            Indice :=  Indice - Taille_Max;
+        end loop;
+        if Cle > Taille_Max then
+            Indice = Indice + 1;
+        end if;

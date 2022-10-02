@@ -1,0 +1,102 @@
+V "GNAT Lib v2021"
+A -gnatA
+A -gnata
+A -g
+A -gnatwa
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_LOCAL_ALLOCATORS
+RV NO_RECURSION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U arbre%b		arbre.adb		2b488666 NE OO PK GE
+W ada%s			ada.ads			ada.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W ada.unchecked_deallocation%s
+
+U arbre%s		arbre.ads		bd783b00 BN EE NE OO PK GE
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+
+D ada.ads		20210520051130 76789da1 ada%s
+D a-except.ads		20210520051127 946f3014 ada.exceptions%s
+D a-ioexce.ads		20210520051127 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20210520051128 119b8fb3 ada.streams%s
+D a-string.ads		20210520051128 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051128 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051128 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051129 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051129 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051129 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051129 c3a8ac65 ada.unchecked_deallocation%s
+D arbre.ads		20211222162917 bd783b00 arbre%s
+D arbre.adb		20220104101332 fb6cc46e arbre%b
+D interfac.ads		20210520051131 edec285f interfaces%s
+D i-cstrea.ads		20210520051131 e53d8b8e interfaces.c_streams%s
+D system.ads		20210520051134 a2da961d system%s
+D s-crtl.ads		20210520051131 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051131 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051131 078245e4 system.file_control_block%s
+D s-parame.ads		20210520051133 4752c4cb system.parameters%s
+D s-putima.ads		20210520051133 4e095881 system.put_images%s
+D s-secsta.ads		20210520051133 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051133 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051133 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051133 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051133 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051133 ed88f8fb system.storage_elements%b
+D s-traent.ads		20210520051133 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051133 2b077493 system.unsigned_types%s
+D s-wchcon.ads		20210520051134 1b7d22d2 system.wch_con%s
+D unchconv.ads		20210520051134 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s b [arbre standard 5 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 13|1r6 1r34 2r6 8r21
+X 9 a-textio.ads
+58K13*Text_IO 725e16 13|1w10 1r38
+X 11 a-uncdea.ads
+17+9 Object 13|8r49
+18P9 Name(17+9) 13|8r66
+20u15*Unchecked_Deallocation 13|2w10 8r25
+X 12 arbre.ads
+3+10 T_Cle 12r15 30r60 37r42 13|24r60
+4+10 T_Valeur 13r18 30r80 37r60 13|24r80
+5k9*Arbre 3z10 4z10 43l5 43e10 13|5b14 67l5 67t10
+7R10*Noeud 9r28 11c10 16e15 13|8r59 28r24
+9P10*T_Arbre(7R10) 14r18 15r18 21r36 26r33 30r41 30r109 30r137 33r35 38r37
+. 13|8r74 11r37 18r32 24r41 24r109 24r137 39r35 51r37
+12*9 Cle{3+10} 13|30m13 56r25
+13*9 Valeur{4+10} 13|31m13 56r33
+14p9 Gauche{9P10} 13|32m13 45m27 57r29 63r29
+15p9 Droite{9P10} 13|33m13 46m27 58r29 64r29
+21U15*Initialiser 21<27 13|11b15 15l9 15t20
+21p27 Abr{9P10} 22r27 13|11b27 14m9
+26V14*Est_Vide{boolean} 22s17 26>24 34s21 13|18b14 22l9 22t17
+26p24 Abr{9P10} 13|18b23 21r16
+30U15*Enregistrer 30=28 30>51 30>68 30>91 30>119 13|24b15 34l9 34t20
+30p28 Abr{9P10} 13|24b28 27r12 28m13 30r9 31r9 32r9 33r9
+30*51 Cle{3+10} 13|24b51 30r21
+30*68 Valeur{4+10} 13|24b68 31r23
+30p91 Arbre_Gauche{9P10} 13|24b91 32r23
+30p119 Arbre_Droite{9P10} 13|24b119 33r23
+33U15*Vider 33=22 13|39b15 45s13 46s13 49l9 49t14
+33p22 Abr{9P10} 34r31 13|39b22 42r12 43m18 45r19 46r19 47m18
+37U24 Traiter 37>33 37>49 13|56s13
+37*33 Cle{3+10}
+37*49 Valeur{4+10}
+38u15*Pour_Chaque 38>28 13|51b15 57s13 58s13 63s13 64s13 65l13 65t24
+38p28 Abr{9P10} 13|51b28 53r12 56r21 56r29 57r25 58r25 63r25 64r25
+X 13 arbre.adb
+7U15 Free[11|20] 43s13 47s13
+

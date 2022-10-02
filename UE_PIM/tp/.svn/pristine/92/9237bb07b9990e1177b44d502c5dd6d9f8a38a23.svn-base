@@ -1,0 +1,115 @@
+with Ada.Text_IO;          use Ada.Text_IO;
+with Ada.Integer_Text_IO;  use Ada.Integer_Text_IO;
+
+-- Auteur: 
+-- Gérer un stock de matériel informatique.
+--
+package body Stocks_Materiel is
+
+    procedure Creer (Stockage : out T_Stock) is
+        Stockage : T_Stock;
+        Contenu_vide : Stock;
+    begin
+        Stockage.Taille := 0;
+        Stockage.Contenu := Contenu_vide;
+    end Creer;
+
+
+    function Nb_Materiels (Stock: in T_Stock) return Integer is
+    begin
+        return Stock.Taille;
+    end Nb_Materiels;
+    
+    function Nb_non_fonctionnement (Stock: in T_Stock) return Integer is
+        Compteur : Integer;
+    begin
+        Compteur := 0;
+        for Tableau in Stock.Contenu loop
+            if not(Tableau.Etat) then
+                Compteur := Compteur + 1;
+            end if;
+        end loop;        
+        return Compteur;
+    end Nb_non_fonctionnement;
+    
+    procedure Modifier_etat_materiel (Stock : in out T_Stock; Numero_Serie : in Integer) is
+    begin
+        for Tableau in Stock.Contenu loop
+            if Tableau.Numero_serie = Numero_Serie then
+                if Tableau.Etat then
+                    Tableau.Etat := False;
+                else;
+                    Tableau.Etat := True;
+                end if;
+            end if;
+        end loop;
+    end Modifier_etat_materiel;
+
+    procedure Supprimer_materiel (Stock : in out T_Stock; Numero_Serie : in  Integer) is
+        Compteur : Integer;
+    begin
+	    Compteur:=1;
+	    if T_Stock.Taille /= 0 then
+            loop
+                if T_Stock.Contenu(Compteur).Numero_Serie = Numero_Serie then        	         	    
+                    for Indice in Compteur+1..T_Stock.Taille loop
+                        T_Stock.Contenu(Indice-1) := T_Stock.Contenu(Indice);
+                    end loop;
+                    T_Stock.Taille := T_Stock.Taille - 1;
+                else   
+                    Compteur := Compteur + 1;
+    	            
+                end if;
+                exit when Compteur = T_Stock.Taille+1;
+            end loop;
+        end if;
+    end Supprimer_materiel;
+
+    procedure Afficher_stock (Stock : in T_Stock) is
+        
+    begin
+        if Stock.Taille /= 0 then
+            Put_Line("Il y a dans le stock :");
+            for Tableau in Stock.Contenu loop
+                Put(" - ");
+                Put(Tableau.Nature);
+                Put(" ");
+                Put(Tableau.Numero_serie);
+                New_Line;
+            end loop;
+        else;
+            Put_Line("Le stock est vide");
+        end if;
+    end Afficher_stock;
+    
+    procedure Supprimer_non_fonctionnels (Stock : in out T_Stock) is
+    
+    begin
+        for Tableau in Stock.Contenu loop
+            if not(Tableau.Etat) then
+                Supprimer_materiel (Stock , Tableau.Numero_serie);
+            end if;
+        end loop;
+    end Supprimer_non_fonctionnels;
+
+    procedure Enregistrer (
+            Stock        : in out T_Stock;
+            Numero_Serie : in     Integer;
+            Nature       : in     T_Nature;
+            Annee_Achat  : in     Integer
+        ) is
+    begin
+        Stock.Taille := Stock.Taille + 1;
+        Stock.Contenu(Stock.Taille).Numero_Serie := Numero_Serie;
+        Stock.Contenu(Stock.Taille).Nature := Nature;
+        Stock.Contenu(Stock.Taille).Annee_Achat := Annee_Achat;
+        Stock.Contenu(Stock.Taille).Etat := True;
+    end Enregistrer;
+
+    
+    
+    
+    
+
+
+end Stocks_Materiel;

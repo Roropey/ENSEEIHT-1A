@@ -1,0 +1,54 @@
+with Ada.Text_IO;            use Ada.Text_IO;
+
+
+package body Arbre is
+    
+    procedure Initialiser(Abr : out T_Arbre) is
+        
+    begin
+        Abr:=null;
+    end Initialiser;
+    
+    
+    function Est_Vide(Abr : in T_Arbre) return Boolean is
+        
+    begin
+        return Abr=null;
+    end Est_Vide;
+    
+    procedure Enregistrer (Abr : in out T_Arbre ; Cle : in T_Cle ; Valeur : in T_Valeur ; Arbre_Gauche : in T_Arbre ; Arbre_Droite : in T_Arbre);
+
+    -- Supprimer tous les éléments d'un Abr.
+    procedure Vider (Abr : in out T_Arbre) is
+            
+    begin
+        Abr is new T_Arbre;
+        Abr.Cle :=  Cle;
+        Abr.Valeur := Valeur;
+        Abr.Gauche := Arbre_Gauche;
+        Abr.Droite := Arbre_Droite;
+    end Vider;
+                              
+    function Valeur(Abr : in T_Arbre) return T_Valeur is
+    begin
+        return Abr.Valeur;
+    end Valeur;
+
+    function Cle(Abr : in T_Arbre) return T_Cle is
+    begin
+        return Abr.Cle;
+    end Cle;
+
+    function Gauche(Abr : in T_Arbre) return T_Arbre is
+    begin
+        return Abr.Gauche;
+    end Gauche;
+
+    function Droite(Abr : in T_Arbre) return T_Arbre is
+    begin
+        return Abr.Droite;
+    end Droite;
+
+
+   
+end Arbre;
