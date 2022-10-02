@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="5">
+<prover id="0" name="CVC4" version="1.6" timelimit="5" steplimit="0" memlimit="1000"/>
+<prover id="1" name="Alt-Ergo" version="2.0.0" timelimit="5" steplimit="0" memlimit="1000"/>
+<file>
+<path name=".."/>
+<path name="why3_exercice_4.mlw"/>
+<theory name="Produit">
+ <goal name="VC produit" expl="VC for produit">
+ <transf name="split_vc" >
+  <goal name="VC produit.0" expl="loop invariant init">
+  <proof prover="0"><result status="unknown" time="0.03"/></proof>
+  </goal>
+  <goal name="VC produit.1" expl="loop variant decrease" proved="true">
+  <proof prover="0"><result status="valid" time="0.01"/></proof>
+  </goal>
+  <goal name="VC produit.2" expl="loop invariant preservation" proved="true">
+  <proof prover="0"><result status="valid" time="0.01"/></proof>
+  </goal>
+  <goal name="VC produit.3" expl="postcondition">
+  <proof prover="0"><result status="unknown" time="0.04"/></proof>
+  <proof prover="1" obsolete="true"><result status="unknown" time="0.01"/></proof>
+  </goal>
+  <goal name="VC produit.4" expl="loop invariant init">
+  <proof prover="0"><result status="unknown" time="0.03"/></proof>
+  </goal>
+  <goal name="VC produit.5" expl="loop variant decrease" proved="true">
+  <proof prover="0"><result status="valid" time="0.00"/></proof>
+  </goal>
+  <goal name="VC produit.6" expl="loop invariant preservation" proved="true">
+  <proof prover="0"><result status="valid" time="0.00"/></proof>
+  </goal>
+  <goal name="VC produit.7" expl="postcondition">
+  <proof prover="0" obsolete="true"><result status="unknown" time="0.07"/></proof>
+  <proof prover="1" obsolete="true"><result status="unknown" time="0.01"/></proof>
+  </goal>
+ </transf>
+ </goal>
+</theory>
+</file>
+</why3session>

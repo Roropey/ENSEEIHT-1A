@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="5">
+<prover id="0" name="CVC4" version="1.6" timelimit="5" steplimit="0" memlimit="1000"/>
+<file>
+<path name=".."/>
+<path name="induction-etu.mlw"/>
+<theory name="Induction">
+ <goal name="append_Nil_left" proved="true">
+ <proof prover="0"><result status="valid" time="0.01"/></proof>
+ </goal>
+ <goal name="append_Cons_left" proved="true">
+ <proof prover="0"><result status="valid" time="0.01"/></proof>
+ </goal>
+ <goal name="append_Nil_right">
+ <proof prover="0"><result status="unknown" time="0.01"/></proof>
+ </goal>
+ <goal name="append_associative" proved="true">
+ <proof prover="0"><result status="unknown" time="0.01"/></proof>
+ <transf name="induction_ty_lex" proved="true" >
+  <goal name="append_associative.0" proved="true">
+  <proof prover="0"><result status="valid" time="0.01"/></proof>
+  </goal>
+ </transf>
+ </goal>
+</theory>
+</file>
+</why3session>

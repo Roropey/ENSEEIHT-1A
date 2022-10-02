@@ -1,0 +1,8 @@
+
+
+nu=[1,4];
+L1=1;
+L2=2;
+N1=20;
+N2=20;
+urehf=difussivity(nu,L1,L2,N1,N2)

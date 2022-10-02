@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="5">
+<prover id="1" name="CVC4" version="1.6" timelimit="5" steplimit="0" memlimit="1000"/>
+<file>
+<path name=".."/>
+<path name="enquete.mlw"/>
+<theory name="Enquete">
+ <goal name="quest1_abc">
+ <proof prover="1"><result status="unknown" time="0.01"/></proof>
+ </goal>
+ <goal name="quest1_ab">
+ <proof prover="1"><result status="unknown" time="0.00"/></proof>
+ </goal>
+ <goal name="quest1_ac" proved="true">
+ <proof prover="1"><result status="valid" time="0.00"/></proof>
+ </goal>
+ <goal name="quest1_a">
+ <proof prover="1"><result status="unknown" time="0.00"/></proof>
+ </goal>
+ <goal name="quest1_bc">
+ <proof prover="1"><result status="unknown" time="0.00"/></proof>
+ </goal>
+ <goal name="quest1_b">
+ <proof prover="1"><result status="unknown" time="0.00"/></proof>
+ </goal>
+ <goal name="quest1_c">
+ <proof prover="1"><result status="unknown" time="0.00"/></proof>
+ </goal>
+ <goal name="quest1_not">
+ <proof prover="1"><result status="unknown" time="0.00"/></proof>
+ </goal>
+ <goal name="quest2_deduit_b">
+ <proof prover="1"><result status="unknown" time="0.00"/></proof>
+ </goal>
+ <goal name="quest2_deduit_c" proved="true">
+ <proof prover="1"><result status="valid" time="0.00"/></proof>
+ </goal>
+ <goal name="quest2_deduit_a" proved="true">
+ <proof prover="1"><result status="valid" time="0.00"/></proof>
+ </goal>
+ <goal name="quest3_a_ment" proved="true">
+ <proof prover="1"><result status="valid" time="0.00"/></proof>
+ </goal>
+ <goal name="quest3_b_ment">
+ <proof prover="1"><result status="unknown" time="0.00"/></proof>
+ </goal>
+ <goal name="quest3_c_ment" proved="true">
+ <proof prover="1"><result status="valid" time="0.00"/></proof>
+ </goal>
+ <goal name="quest4_a_coupable">
+ <proof prover="1"><result status="unknown" time="0.01"/></proof>
+ </goal>
+ <goal name="quest4_b_coupable" proved="true">
+ <proof prover="1"><result status="valid" time="0.00"/></proof>
+ </goal>
+ <goal name="quest4_c_coupable">
+ <proof prover="1"><result status="unknown" time="0.00"/></proof>
+ </goal>
+ <goal name="quest5_a">
+ <proof prover="1"><result status="unknown" time="0.00"/></proof>
+ </goal>
+ <goal name="quest5_b" proved="true">
+ <proof prover="1"><result status="valid" time="0.00"/></proof>
+ </goal>
+ <goal name="quest5_c">
+ <proof prover="1"><result status="unknown" time="0.00"/></proof>
+ </goal>
+</theory>
+</file>
+</why3session>

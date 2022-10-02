@@ -1,0 +1,38 @@
+(* Utilisation d'outils de preuve automatique à travers la passerelle Why3 pour résoudre une énigme *)
+theory Enquete
+
+   (* Définition des 3 propositions : A, B, C qui représentent le fait que les accusés sont innocents *)
+   predicate a
+   predicate b
+   predicate c
+
+   predicate da = (not b) /\ c
+   predicate db = (not a) -> (not c)
+   predicate dc = c /\ ((not b) \/ (not a))
+
+   goal quest1_abc : (a/\b/\c) -> (da /\ db /\ dc)
+   goal quest1_ab : (a/\b/\(not c)) -> (da /\ db /\ dc)
+   goal quest1_ac : (a/\(not b)/\c) -> (da /\ db /\ dc)
+   goal quest1_a : (a/\(not b)/\(not c)) -> (da /\ db /\ dc)
+   goal quest1_bc : ((not a)/\b/\c) -> (da /\ db /\ dc)
+   goal quest1_b : ((not a)/\b/\(not c)) -> (da /\ db /\ dc)
+   goal quest1_c : ((not a)/\(not b)/\c) -> (da /\ db /\ dc)
+   goal quest1_not : ((not a)/\(not b)/\(not c)) -> (da /\ db /\ dc)
+
+   goal quest2_deduit_b : (da/\dc) -> db 
+   goal quest2_deduit_c : (da/\db) -> dc
+   goal quest2_deduit_a : (db/\dc) -> da
+
+   goal quest3_a_ment : (a/\b/\c) -> (not da)
+   goal quest3_b_ment : (a/\b/\c) -> (not db)
+   goal quest3_c_ment : (a/\b/\c) -> (not dc)
+
+   goal quest4_a_coupable : (da/\db/\dc) -> (not a)
+   goal quest4_b_coupable : (da/\db/\dc) -> (not b)
+   goal quest4_c_coupable : (da/\db/\dc) -> (not c)
+
+   goal quest5_a : (((not a) -> (not da)) /\ ((not b) -> (not db)) /\ ((not c) -> (not dc))) -> a
+   goal quest5_b : (((not a) -> (not da)) /\ ((not b) -> (not db)) /\ ((not c) -> (not dc))) -> b
+   goal quest5_c : (((not a) -> (not da)) /\ ((not b) -> (not db)) /\ ((not c) -> (not dc))) -> c
+
+end

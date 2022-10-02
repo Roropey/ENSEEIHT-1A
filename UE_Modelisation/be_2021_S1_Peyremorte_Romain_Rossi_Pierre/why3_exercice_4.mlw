@@ -1,0 +1,30 @@
+(* BE : Session 1 2021 *)
+(* Implémentation de la fonction produit de deux entiers relatifs par un algorithme sur les entiers naturels *)
+
+module Produit
+
+  use int.Int
+  use ref.Refint
+
+  let produit (a b : int) : int
+    requires { True }
+    ensures  { result = a * b }
+  =
+    let la = ref a in
+    let lb = ref b in
+    if (!lb < 0) then
+    (
+       la := - !la;
+       lb := - !lb
+    );
+    let s = ref 0 in
+    let i = ref 0 in
+    while  (!i < !lb) do
+      invariant { !s = !la * !i }
+      variant   { !lb - !i }
+      s :=  (!s) + (!la);
+      i := (!i) + 1
+    done;
+    !s
+
+end
