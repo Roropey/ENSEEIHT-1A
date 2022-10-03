@@ -1,0 +1,185 @@
+\documentclass[frenchb]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+%Pour utilisation sous unix
+%\usepackage[utf8]{inputenc}
+%\usepackage[utf8x]{inputenc}
+\usepackage{a4wide}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{babel}
+
+\begin{document}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=5cm]{inp_n7.png}
+\end{figure}
+
+\title{\vspace{4cm} \textbf{Titre du rapport}}
+\author{Nom des auteurs\\ }
+\date{\vspace{7cm} Département Sciences du Numérique - Première année \\
+2019-2020 }
+
+\maketitle
+
+\newpage
+\tableofcontents
+\listoffigures
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+L'objectif du travail présenté dans ce rapport était de ....
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Étude de modulateurs bande de base}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Introduction}
+Ce premier travail va être dédié à l'étude des modulateurs bande de base et, en particulier, à l'identification des éléments ayant un impact sur l'efficacité spectrale obtenue pour la transmission. 
+
+\subsection{Modulateurs à étudier et comparer}
+Les modulateurs suivants ont été étudiés et comparés en termes d'efficacité spectrale :
+\begin{itemize}
+    \item Modulateur $1$:
+        \begin{itemize}
+            \item Mapping : symboles binaires à moyenne nulle.
+            \item Filtre de mise en forme : rectangulaire de durée $T_{s_1}=N_{s_1}T_e$ et de hauteur $1$. 
+        \end{itemize}
+    \item Modulateur $2$:
+        \begin{itemize}
+            \item Mapping : symboles $4$-aires à moyenne nulle.
+            \item Filtre de mise en forme : rectangulaire de durée $T_{s_2}=N_{s_2}T_e$ et de hauteur $1$. 
+        \end{itemize}
+    \item Modulateur $3$:
+        \begin{itemize}
+            \item Mapping : symboles binaires à moyenne nulle.
+            \item Filtre de mise en forme : racine de cosinus surélevé. 
+        \end{itemize}
+\end{itemize}
+
+\subsection{Étude réalisée}
+Les modulateurs précédemment décrits ont été implantés sous Matlab avec une fréquence d'échantillonnage $F_e=24000$ Hz pour transmettre un même débit binaire $R_b=\frac{1}{T_b}=3000$ bits par seconde.
+
+\subsubsection{Modulateur 1}
+Ici mettre le tracé du signal transmis avec une échelle temporelle en secondes, le tracé de la densité spectrale de puissance (DSP) du signal transmis avec une échelle fréquentielle en Hz, la comparaison du tracé obtenu pour la DSP simulée avec celui de la DSP théorique du signal généré (superposition sur une même figure). 
+\subsubsection{Modulateur 2}
+Ici mettre le tracé du signal transmis avec une échelle temporelle en secondes, le tracé de la densité spectrale de puissance (DSP) du signal transmis avec une échelle fréquentielle en Hz, la comparaison du tracé obtenu pour la DSP simulée avec celui de la DSP théorique du signal généré (superposition sur une même figure).
+\subsubsection{Modulateur 3}
+Ici mettre le tracé du signal transmis avec une échelle temporelle en secondes, le tracé de la densité spectrale de puissance (DSP) du signal transmis avec une échelle fréquentielle en Hz, la comparaison du tracé obtenu pour la DSP simulée avec celui de la DSP théorique du signal généré (superposition sur une même figure).
+\subsubsection{Comparaison des modulateurs implantés en termes d'efficacité spectrale}
+Mettre ici les tracés, sur une même figure, des DSP des signaux générés par les différents modulateurs étudiés.
+Les classer par ordre d'efficacité spectrale croissante en expliquant votre classement. 
+Identifier les éléments, les paramètres permettant, quand on implante un modulateur numérique en bande de base, d'augmenter l'efficacité spectrale de la transmission.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Étude des interférences entre symbole et du critère de Nyquist}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Introduction}
+Cette partie va être dédié à l'étude des interférences entre symboles  dans une chaine de transmission et à l'intérêt d'y respecter le critère de Nyquist. La chaine de transmission a été implantée avec une fréquence d'échantillonnage $F_e=24000$ Hz pour transmettre un débit binaire $R_b=\frac{1}{T_b}=3000$ bits par seconde. On a considéré un mapping binaire à moyenne nulle, un filtre de mise en forme et un filtre de réception de même réponse impulsionnelle rectangulaire de durée $T_s$ et de hauteur $1$.
+
+\subsection{Étude sans canal de propagation} \label{sec_chaine_ref}
+\begin{itemize}
+	\item Donnez le tracé le signal en sortie du filtre de réception et expliquez en quoi il est conforme à ce qui est attendu en théorie (voir cours et TDs).
+    \item Donnez le tracé de la réponse impulsionnelle globale de la chaine de transmission, $g$, en expliquant en quoi elle est conforme à ce qui est attendu en théorie (voir cours et TDs). 
+    \item Expliquez comment il est possible de déterminer, en utilisant $g$, l'instant $n_0$ optimal permettant d'échantillonner aux instants sans interférences entre symboles  $n_0+mN_s$. 
+    \item Donnez le tracé du diagramme de l'oeil en sortie du filtre de réception et expliquez en quoi il est conforme à ce qui est attendu en théorie (voir cours et TDs).  Expliquez comment il est possible de déterminer, à partir de ce diagramme de l'oeil, l'instant $n_0$ optimal permettant d'échantillonner aux instants sans interférences entre symboles  $n_0+mN_s$.
+    \item Expliquez les résultats obtenus pour les TEBs mesurés quand vous échantillonnez avec le $n_0$ optimal et avec $n_0=3$. 
+\end{itemize}
+
+\subsection{Étude avec canal de propagation sans bruit}
+On ajoute à la chaine précédente un canal de propagation à bande limitée $BW$ mais qui n'introduit pas de bruit, en considérant un échantillonnage aux instants optimaux.
+
+\begin{enumerate}
+    \item Pour $BW=8000$ Hz :\\
+        Donnez le tracé de la réponse impulsionnelle globale de la chaine de transmission et le tracé du diagramme de l'oeil à la sortie du filtre de réception. Donnez le tracé, sur la même figure, de $\left|H(f)H_r(f)\right|$ et $\left|H_c(f)\right|$, où $H(f)$ est la réponse en fréquence du filtre de mise en forme, $H_r(f)$ la réponse en fréquence du filtre de réception et $H_c(f)$ la réponse en fréquence du filtre canal. Donnez le TEB déterminé en présence de ce canal et expliquez le résultat obtenu en vous appuyant sur les trois tracés précédents et la théorie vue en cours/TD. 
+
+    \item Pour $BW=1000$ Hz :\\
+        Donnez le tracé de la réponse impulsionnelle globale de la chaine de transmission et le tracé du diagramme de l'oeil à la sortie du filtre de réception. Donnez le tracé, sur la même figure, de $\left|H(f)H_r(f)\right|$ et $\left|H_c(f)\right|$, où $H(f)$ est la réponse en fréquence du filtre de mise en forme, $H_r(f)$ la réponse en fréquence du filtre de réception et $H_c(f)$ la réponse en fréquence du filtre canal. Donnez le TEB déterminé en présence de ce canal et expliquez le résultat obtenu en vous appuyant sur les trois tracés précédents et la théorie vue en cours/TD.  
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Étude de l'impact du bruit, filtrage adapté, taux d'erreur binaire, efficacité en puissance}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Introduction}
+Cette dernière partie est dédiée à l'étude du bruit dans la chaine de transmission numérique : impact du bruit introduit par le canal sur la transmission, influence du filtrage adapté, calcul et estimation du taux d'erreur binaire (TEB). 
+Pour cela, nous avons implanté sous Matlab différentes chaines de transmission afin de les analyser et de les comparer en nous focalisant, cette fois, sur leur efficacité en puissance.
+
+\subsection{Chaine de référence} \label{sec1}
+Fréquence d'échantillonnage $F_e=24000$ Hz, débit binaire $R_b=3000$ bits par seconde, mapping binaire à moyenne nulle, réponses impulsionnelles des filtres de mise en forme et de réception, $h$ et $h_r$, rectangulaires de durée $T_s$ et de hauteur $1$, échantillonnage aux instants $n_0+mN_s$ optimaux, détecteur à seuil, avec seuil en $0$, pour prendre les décisions sur les symboles et demapping adapté au mapping réalisé.
+
+    \begin{enumerate}
+        \item Donnez le tracé du diagramme de l'oeil pour différentes valeurs de $E_b/N_0$ et identifiez sur ce diagramme de l'oeil quel est l'impact l'impact du bruit.
+        \item Donnez le tracé du taux d'erreur binaire obtenu en fonction du rapport signal à bruit par bit à l'entrée du récepteur ($E_b/N_0$) en décibels pour des valeurs allant de $0$ à $8$ dB. 
+        \item Donnez le tracé, sur une même figure, du TEB simulé et du TEB théorique de la chaine étudiée.
+    \end{enumerate}
+
+\subsection{Première chaine à étudier, implanter et comparer à la chaine de référence}
+Fréquence d'échantillonnage $F_e=24000$ Hz, débit binaire $R_b=3000$ bits par seconde, mapping binaire à moyenne nulle, réponses impulsionnelles des filtres de mise en forme et de réception, $h$ et $h_r$, données par la figure \ref{rep_imp_ex1_2}.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=6cm]{figure3.png}
+\caption{Réponses impulsionnelles des filtres d'émission et de réception.}
+ \label{rep_imp_ex1_2}
+\end{figure}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=6cm]{figure6.png}
+\caption{Produit de convolution entre $h(t)$ et $h_r(t)$.}
+\label{prod_conv}
+\end{figure}
+
+\subsubsection{Implantation de la chaine sans bruit}
+Donnez le tracé du diagramme de l'oeil en sortie du filtre de réception sur la durée $T_s$ ($N_s$ échantillons) et en déduire les instants optimaux d'échantilllonnage $n_0+mN_s$ en expliquant votre choix pour $n_0$. En vous référant au cours et/ou aux TDs expliquez en quoi ce diagramme de l'oeil est conforme à ce qui est attendu en théorie.
+
+\subsubsection{Implantation de la chaine avec bruit}
+    \begin{enumerate}
+        \item Donnez le tracé du diagramme de l'oeil pour différentes valeurs de $E_b/N_0$ et identifiez sur ce diagramme de l'oeil quel est l'impact l'impact du bruit.
+        \item Donnez le tracé du taux d'erreur binaire obtenu en fonction du rapport signal à bruit par bit à l'entrée du récepteur ($E_b/N_0$) en décibels pour des valeurs allant de $0$ à $8$ dB. 
+        \item Donnez le tracé, sur une même figure, du TEB simulé et du TEB théorique de la chaine étudiée.
+        \item Donnez le tracé, sur la même figure, du TEB obtenu par simulation pour la chaine de transmission étudiée et celui du TEB de la chaine de référence. Expliquez la similitude ou la différence obtenue (pourquoi y a t-il ou n'y a t-il pas une différence) et identifiez la chaine éventuellement la plus efficace en puissance, en expliquant ce qui la rend éventuellement plus efficace.
+        \item Comparez cette chaine de transmission avec la chaine de référence en termes d'efficacité spectrale en expliquant ce qui la rend éventuellement plus efficace.
+    \end{enumerate}
+
+\subsection{Deuxième chaine à étudier, implanter et comparer à la chaine de référence}
+Fréquence d'échantillonnage $F_e=24000$ Hz, débit binaire $R_b=3000$ bits par seconde, mapping $4$-aire à moyenne nulle (symboles $a_k \in \left\{-3, -1, 1, 3\right\}$), réponses impulsionnelles des filtres de mise en forme et de réception, $h$ et $h_r$, rectangulaires de hauteur $1$ et de durée $T_s$. 
+
+\subsection{Implantation de la chaine sans bruit}
+    Donnez le tracé du diagramme de l'oeil en sortie du filtre de réception sur la durée $T_s$ ($N_s$ échantillons) et en déduire les instants optimaux d'échantilllonnage $n_0+mN_s$ en expliquant votre choix pour $n_0$. En vous référant au cours et/ou aux TDs expliquez en quoi ce diagramme de l'oeil est conforme à ce qui est attendu en théorie.
+
+\subsection{Implantation de la chaine avec bruit}
+\begin{enumerate}
+        \item Donnez le tracé du taux d'erreur symbole obtenu en fonction du rapport signal à bruit par bit à l'entrée du récepteur ($E_b/N_0$) en décibels pour des valeurs allant de $0$ à $8$ dB. 
+        \item Donnez le tracé, sur une même figure, du TES simulé et du TES théorique de la chaine étudiée donné ci-dessous :
+        $$
+        TES= \frac{3}{2}Q\left(\sqrt{\frac{4}{5}\frac{E_b}{N_0}}\right)
+        $$
+        pour une transmission de symboles $4$-aires indépendants prenant leurs valeurs dans $\pm1, \pm3$, en utilisant une chaine de transmission respectant le critère de Nyquist, le critère de filtrage adapté et utilisant les instants optimaux d'échantillonnage et seuils optimaux de décision. Ce tracé doit permettre de valider le bon fonctionnement de votre chaine de transmission.         
+        \item Donnez le tracé, sur la même figure, du TEB obtenu par simulation pour la chaine de transmission étudiée et du TEB suivant :
+        $$
+        TEB= \frac{3}{4}Q\left(\sqrt{\frac{4}{5}\frac{E_b}{N_0}}\right)
+        $$
+        Expliquez d'où vient l'éventuelle différence observée. Comparez votre chaine étudiée à la chaine associée au TEB donné précédemment et identifiez celle qui est éventuellement plus efficace en puissance en expliquant pourquoi et ce qui la rend éventuellement plus efficace.
+        \item Donnez les tracés, sur la même figure, du TEB obtenu par simulation pour la chaine de transmission étudiée et du TEB de la chaine de référence. Expliquez la similitude ou la différence obtenue (pourquoi y a t-il ou n'y a t-il pas une différence) et identifiez la chaine éventuellement la plus efficace en puissance, en expliquant ce qui la rend éventuellement plus efficace.
+        \item Comparez cette chaine de transmission avec la chaine de référence en termes d'efficacité spectrale en expliquant ce qui la rend éventuellement plus efficace.
+    \end{enumerate}
+    
+\section{Conclusion}
+A compléter
+
+\section{Références}
+A compléter
+
+\section{Annexes éventuelles}
+
+
+\end{document} 
